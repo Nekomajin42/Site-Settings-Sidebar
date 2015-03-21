@@ -1,0 +1,51 @@
+html {
+font-family: verdana, sans-serif;
+font-size: 14px;
+line-height: 150%;
+background-color: #f0f0f0;}
+
+form {
+white-space: nowrap;}
+
+fieldset {
+padding: 0px;
+margin: 0px 0px 10px 0px;
+border: none;
+border-top: 1px solid LightGrey;}
+
+legend {
+padding: 0px 5px 0px 0px;
+margin: 0px 0px 5px 0px;
+font-size: 1rem;
+font-weight: bold;}
+
+label {
+font-size: 1rem;
+font-weight: bold;}
+
+input[type=number] {
+border: 1px solid transparent;
+-webkit-appearance: none;
+font-family: inherit;
+font-size: 1rem;
+background-color: #f0f0f0;}
+
+input[type=number]:hover, input[type=number]:active, input[type=number]:focus {
+border: 1px solid rgb(169, 169, 169);
+-webkit-appearance: textfield;
+outline: none;}
+
+select {
+border: 1px solid transparent;
+-webkit-appearance: none;
+font-family: inherit;
+font-size: 1rem;
+background-color: #f0f0f0;}
+
+select:hover, select:active, select:focus {
+border: 1px solid rgb(169, 169, 169);
+-webkit-appearance: menulist;
+outline: none;}
+
+input:disabled, select:disabled {
+color: Black;}

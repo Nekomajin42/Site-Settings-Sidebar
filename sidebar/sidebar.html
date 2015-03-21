@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Page Settings Sidebar</title>
+		<link rel="stylesheet" href="sidebar.css" type="text/css" />
+		<script src="sidebar.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<form>
+			<fieldset>
+				<legend>Zoom</legend>
+				<label for="zoom">Value (%): </label><input type="number" min="20" max="200" step="10" value="100" id="zoom" />
+			</fieldset>
+			<fieldset>
+				<legend>Content</legend>
+				<label for="cookies">Cookies: </label>
+				<select id="cookies">
+					<option value="allow">Allow</option>
+					<option value="session_only">Session only</option>
+					<option value="block">Block</option>
+				</select><br />
+				<label for="images">Images: </label>
+				<select id="images">
+					<option value="allow">Allow</option>
+					<option value="block">Block</option>
+				</select><br />
+				<label for="javascript">Javascript: </label>
+				<select id="javascript">
+					<option value="allow">Allow</option>
+					<option value="block">Block</option>
+				</select><br />
+				<label for="plugins">Plugins: </label>
+				<select id="plugins">
+					<option value="allow">Allow</option>
+					<option value="ask">Ask</option>
+					<option value="block">Block</option>
+				</select>
+			</fieldset>
+			<fieldset>
+				<legend>Premissions</legend>
+				<label for="location">Location: </label>
+				<select id="location">
+					<option value="allow">Allow</option>
+					<option value="ask">Ask</option>
+					<option value="block">Block</option>
+				</select><br />
+				<label for="popups">Popups: </label>
+				<select id="popups">
+					<option value="allow">Allow</option>
+					<option value="block">Block</option>
+				</select><br />
+				<label for="notifications">Notifications: </label>
+				<select id="notifications">
+					<option value="allow">Allow</option>
+					<option value="ask">Ask</option>
+					<option value="block">Block</option>
+				</select>
+			</fieldset>
+		</form>
+	</body>
+</html>

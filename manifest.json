@@ -1,0 +1,43 @@
+{
+	"name": "Site Settings Sidebar",
+	"developer": 
+	{
+		"name" : "Nekomajin",
+		"url" : "http://tothrobert.ininet.hu"
+	},
+	"description" : "Site specific settings on your sidebar.",
+	//"default_locale": "en",
+	"manifest_version" : 2,
+	"version" : "0.1",
+	"background" : 
+	{
+		"scripts" : ["background.js"]
+	},
+	"sidebar_action": 
+	{
+		"default_icon": "icons/icon19.png",
+		"default_title": "Site Settings",
+		"default_panel" : "sidebar/sidebar.html"
+	},
+	"icons" : 
+	{
+		"128": "icons/icon128.png", 
+		"64": "icons/icon64.png", 
+		"38": "icons/icon38.png", 
+		"32": "icons/icon32.png", 
+		"19": "icons/icon19.png", 
+		"16": "icons/icon16.png"
+	},
+	//"options_page" : "options/options.html",
+	"web_accessible_resources" : 
+	[ 
+		"icons/icon_128.png"
+	],
+	"permissions" : 
+	[
+		"contentSettings",
+		"tabs",
+		"notifications"
+	],
+	"content_security_policy": "script-src 'self'; object-src 'self';"
+}
