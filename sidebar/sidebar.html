@@ -9,52 +9,87 @@
 	<body>
 		<form>
 			<fieldset>
-				<legend>Zoom</legend>
-				<label for="zoom">Value (%): </label><input type="number" min="20" max="200" step="10" value="100" id="zoom" />
+				<legend data-i18n="sidebar_zoom_header"></legend>
+				<label data-i18n="sidebar_zoom_value" for="zoom"></label><input type="number" min="20" max="200" step="10" value="100" id="zoom" />
 			</fieldset>
 			<fieldset>
-				<legend>Content</legend>
-				<label for="cookies">Cookies: </label>
+				<legend data-i18n="sidebar_content_header"></legend>
+				<label data-i18n="sidebar_content_cookies" for="cookies"></label>
 				<select id="cookies">
-					<option value="allow">Allow</option>
-					<option value="session_only">Session only</option>
-					<option value="block">Block</option>
+					<option data-i18n="sidebar_values_allow"  data-i18n="sidebar_values_allow" value="allow"> &#x2713;</option>
+					<option data-i18n="sidebar_values_sessionOnly" value="session_only"></option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="images">Images: </label>
+				<label data-i18n="sidebar_content_images" for="images"></label>
 				<select id="images">
-					<option value="allow">Allow</option>
-					<option value="block">Block</option>
+					<option data-i18n="sidebar_values_allow" value="allow"> &#x2713;</option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="javascript">Javascript: </label>
+				<label data-i18n="sidebar_content_javascript" for="javascript"></label>
 				<select id="javascript">
-					<option value="allow">Allow</option>
-					<option value="block">Block</option>
+					<option data-i18n="sidebar_values_allow" value="allow"> &#x2713;</option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="plugins">Plugins: </label>
+				<label data-i18n="sidebar_content_plugins" for="plugins"></label>
 				<select id="plugins">
-					<option value="allow">Allow</option>
-					<option value="ask">Ask</option>
-					<option value="block">Block</option>
+					<option data-i18n="sidebar_values_allow" value="allow"> &#x2713;</option>
+					<option data-i18n="sidebar_values_ask" value="ask"></option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
+				</select><br />
+				<label data-i18n="sidebar_content_unsandboxedPlugins" for="unsandboxedPlugins"></label>
+				<select id="unsandboxedPlugins">
+					<option data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-i18n="sidebar_values_ask" value="ask"> &#x2713;</option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
 				</select>
 			</fieldset>
 			<fieldset>
-				<legend>Premissions</legend>
-				<label for="location">Location: </label>
+				<legend data-i18n="sidebar_permissions_header"></legend>
+				<label data-i18n="sidebar_permissions_automaticDownloads" for="automaticDownloads"></label>
+				<select id="automaticDownloads">
+					<option data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-i18n="sidebar_values_ask" value="ask"> &#x2713;</option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
+				</select><br />
+				<label data-i18n="sidebar_permissions_camera" for="camera"></label>
+				<select id="camera">
+					<option data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-i18n="sidebar_values_ask" value="ask"> &#x2713;</option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
+				</select><br />
+				<label data-i18n="sidebar_permissions_fullscreen" for="fullscreen"></label>
+				<select id="fullscreen">
+					<option data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-i18n="sidebar_values_ask" value="ask"> &#x2713;</option>
+				</select><br />
+				<label data-i18n="sidebar_permissions_location" for="location"></label>
 				<select id="location">
-					<option value="allow">Allow</option>
-					<option value="ask">Ask</option>
-					<option value="block">Block</option>
+					<option data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-i18n="sidebar_values_ask" value="ask"> &#x2713;</option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="popups">Popups: </label>
+				<label data-i18n="sidebar_permissions_popups" for="popups"></label>
 				<select id="popups">
-					<option value="allow">Allow</option>
-					<option value="block">Block</option>
+					<option data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-i18n="sidebar_values_block" value="block"> &#x2713;</option>
 				</select><br />
-				<label for="notifications">Notifications: </label>
+				<label data-i18n="sidebar_permissions_microphone" for="microphone"></label>
+				<select id="microphone">
+					<option data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-i18n="sidebar_values_ask" value="ask"> &#x2713;</option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
+				</select><br />
+				<label data-i18n="sidebar_permissions_mouselock" for="mouselock"></label>
+				<select id="mouselock">
+					<option data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-i18n="sidebar_values_ask" value="ask"> &#x2713;</option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
+				</select><br />
+				<label data-i18n="sidebar_permissions_notifications"for="notifications"></label>
 				<select id="notifications">
-					<option value="allow">Allow</option>
-					<option value="ask">Ask</option>
-					<option value="block">Block</option>
+					<option data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-i18n="sidebar_values_ask" value="ask"> &#x2713;</option>
+					<option data-i18n="sidebar_values_block" value="block"></option>
 				</select>
 			</fieldset>
 		</form>

@@ -5,10 +5,10 @@
 		"name" : "Nekomajin",
 		"url" : "http://tothrobert.ininet.hu"
 	},
-	"description" : "Site specific settings on your sidebar.",
-	//"default_locale": "en",
+	"description" : "__MSG_manifest_description__",
+	"default_locale": "en",
 	"manifest_version" : 2,
-	"version" : "0.1",
+	"version" : "1.0",
 	"background" : 
 	{
 		"scripts" : ["background.js"]
@@ -16,7 +16,7 @@
 	"sidebar_action": 
 	{
 		"default_icon": "icons/icon19.png",
-		"default_title": "Site Settings",
+		"default_title": "__MSG_manifest_defaultTitle__",
 		"default_panel" : "sidebar/sidebar.html"
 	},
 	"icons" : 
@@ -28,10 +28,10 @@
 		"19": "icons/icon19.png", 
 		"16": "icons/icon16.png"
 	},
-	//"options_page" : "options/options.html",
+	"options_page" : "options/options.html",
 	"web_accessible_resources" : 
 	[ 
-		"icons/icon_128.png"
+		"icons/icon128.png"
 	],
 	"permissions" : 
 	[

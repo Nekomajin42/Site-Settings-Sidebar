@@ -1,7 +1,15 @@
+// disable input fields on internal pages and the addon catalog
 function disableFields(url)
 {
-	var protocol = url.slice(0, url.indexOf(":"));
-	var disabled = (protocol === "opera" || protocol === "chrome") ? true : false;
+	if (/addons.opera.com/.test(url) === true)
+	{
+		var disabled = true;
+	}
+	else
+	{
+		var protocol = url.slice(0, url.indexOf(":"));
+		var disabled = (protocol === "opera" || protocol === "chrome" || protocol === "chrome-extension") ? true : false;
+	}
 	document.getElementById("zoom").disabled = disabled;
 	var select = document.getElementsByTagName("select");
 	for (var i=0; i<select.length; i++)
@@ -10,24 +18,31 @@ function disableFields(url)
 	}
 }
 
+// deal with zoom
 function getZoom()
 {
 	chrome.tabs.getZoom(function(zoomFactor)
 	{
 		var zoom = Math.floor(zoomFactor * 100);
 		document.getElementById("zoom").value = zoom;
-		opr.sidebarAction.setBadgeText({text: zoom.toString()});
+		if (settings.zoomOnBadge === true)
+		{
+			opr.sidebarAction.setBadgeText({text: zoom.toString()});
+		}
 	});
 }
-
 function setZoom()
 {
 	var zoom = document.getElementById("zoom").value;
 	var zoomFactor = parseInt(zoom, 10) / 100;
-	opr.sidebarAction.setBadgeText({text: zoom});
+	if (settings.zoomOnBadge === true)
+	{
+		opr.sidebarAction.setBadgeText({text: zoom});
+	}
 	chrome.tabs.setZoom(zoomFactor);
 }
 
+// deail with content settings
 function getSettings()
 {
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs)
@@ -36,18 +51,18 @@ function getSettings()
 		{
 			disableFields(tabs[0].url); // on internal pages
 			var url = tabs[0].url;
-			var types = ["cookies", "images", "javascript", "location", "plugins", "popups", "notifications", "cookies"];
+			var types = ["cookies", "images", "javascript", "location", "plugins", "popups", "notifications", "fullscreen", "mouselock", "unsandboxedPlugins", "automaticDownloads", "camera", "microphone"];
 			types.forEach(function(type)
 			{
 				chrome.contentSettings[type].get({primaryUrl: url}, function(details)
 				{
+					//console.log(type + ": " + details.setting);
 					document.getElementById(type).value = details.setting;
 				});
 			});
 		}
 	});
 }
-
 function setSettings()
 {
 	var type = this.id;
@@ -59,8 +74,33 @@ function setSettings()
 	});
 }
 
-document.addEventListener("DOMContentLoaded", function()
+// load local strings
+function selectLocale()
 {
+	var elements = document.querySelectorAll("[data-i18n]");
+	for (var i=0; i<elements.length; i++)
+	{
+		if (elements[i].tagName === "INPUT")
+		{
+			elements[i].value = chrome.i18n.getMessage(elements[i].dataset.i18n);
+		}
+		else
+		{
+			elements[i].innerHTML = chrome.i18n.getMessage(elements[i].dataset.i18n) + elements[i].innerHTML;
+		}
+	}
+}
+
+// to do on page load
+var settings;
+chrome.runtime.sendMessage("", function(response)
+{
+	// get user preferences
+	settings = response;
+	
+	// load local strings
+	selectLocale();
+	
 	// zoom
 	getZoom();
 	document.getElementById("zoom").addEventListener("change", setZoom, false);
@@ -72,12 +112,16 @@ document.addEventListener("DOMContentLoaded", function()
 	{
 		types[i].addEventListener("change", setSettings, false);
 	}
-}, false);
+});
+
+// to do on zoom change
 chrome.tabs.onZoomChange.addListener(function(ZoomChangeInfo)
 {
 	//console.log(ZoomChangeInfo);
-	document.getElementById("zoom").value = ZoomChangeInfo.newZoomFactor * 100;
+	getZoom();
 });
+
+// to do on page open/update
 chrome.tabs.onActivated.addListener(function(activeInfo)
 {
 	getZoom();

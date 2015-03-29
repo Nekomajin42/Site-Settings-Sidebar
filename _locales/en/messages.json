@@ -1,0 +1,292 @@
+{
+	"manifest_description" : 
+	{
+		"message" : "Site specific settings on your sidebar.",
+		"description" : "Manifest JSON description string"
+	},
+	"manifest_defaultTitle" : 
+	{
+		"message" : "Site Settings Sidebar",
+		"description" : "Manifest JSON default title string"
+	},
+	"notification_install_title" : 
+	{
+		"message" : "Site Setting Sidebar has been installed",
+		"description" : "Notification install"
+	},
+	"notification_install_body" : 
+	{
+		"message" : "Please, take a look at the Settings!",
+		"description" : "Notification install"
+	},
+	"notification_update_title" : 
+	{
+		"message" : "Site Setting Sidebar has been updated",
+		"description" : "Notification install"
+	},
+	"notification_update_body" : 
+	{
+		"message" : "Please, take a look at the Settings to find out what's new!",
+		"description" : "Notification install"
+	},
+	"sidebar_zoom_header" : 
+	{
+		"message" : "Zoom",
+		"description" : "Sidebar content"
+	},
+	"sidebar_zoom_value" : 
+	{
+		"message" : "Value (%): ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_header" : 
+	{
+		"message" : "Content",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_cookies" : 
+	{
+		"message" : "Cookies: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_images" : 
+	{
+		"message" : "Images: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_javascript" : 
+	{
+		"message" : "Javascript: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_plugins" : 
+	{
+		"message" : "Plugins: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_unsandboxedPlugins" : 
+	{
+		"message" : "Unsandboxed plugins: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_header" : 
+	{
+		"message" : "Permissions",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_automaticDownloads" : 
+	{
+		"message" : "Automatic downloads: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_camera" : 
+	{
+		"message" : "Camera: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_fullscreen" : 
+	{
+		"message" : "Fullscreen: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_location" : 
+	{
+		"message" : "Location: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_popups" : 
+	{
+		"message" : "Popups: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_microphone" : 
+	{
+		"message" : "Microphone: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_mouselock" : 
+	{
+		"message" : "Mouselock: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_notifications" : 
+	{
+		"message" : "Notifications: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_values_allow" : 
+	{
+		"message" : "Allow",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_ask" : 
+	{
+		"message" : "Ask",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_block" : 
+	{
+		"message" : "Block",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_sessionOnly" : 
+	{
+		"message" : "Session only",
+		"description" : "Sidebar values"
+	},
+	"settings_sidebar_menuitem_settings" : 
+	{
+		"message" : "Settings",
+		"description" : "Sidebar menu"
+	},
+	"settings_sidebar_menuitem_help" : 
+	{
+		"message" : "Help",
+		"description" : "Sidebar menu"
+	},
+	"settings_sidebar_menuitem_changelog" : 
+	{
+		"message" : "Changelog",
+		"description" : "Sidebar menu"
+	},
+	"settings_sidebar_menuitem_credits" : 
+	{
+		"message" : "Credits",
+		"description" : "Sidebar menu"
+	},
+	"settings_content_preferences_header" : 
+	{
+		"message" : "Preferences",
+		"description" : "Preferences header"
+	},
+	"settings_content_preferences_zoomOnBadge" : 
+	{
+		"message" : "Show zoom level on the icon",
+		"description" : "Symbols action"
+	},
+	"settings_content_incognito_header" : 
+	{
+		"message" : "Private mode",
+		"description" : "Incognito header"
+	},
+	"settings_content_incognito_info" : 
+	{
+		"message" : "If you want to use this extension in private mode, you have to activate in manualy in the Extension manager.",
+		"description" : "Incognito body"
+	},
+	"settings_content_howToUse_header" : 
+	{
+		"message" : "How to use",
+		"description" : "How to use header"
+	},
+	"settings_content_howToUse_set" : 
+	{
+		"message" : "After you change any of the content settings of a page, you have to refresh the page manually.",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_checkMark" : 
+	{
+		"message" : "The checkmark indicates the default setting, so you can see what you have changed on the actual site.",
+		"description" : "How to use body"
+	},
+	"settings_content_notes_header" : 
+	{
+		"message" : "Notes",
+		"description" : "Notes header"
+	},
+	"settings_content_notes_doesNotWork" : 
+	{
+		"message" : "This extension can not change content settings on the internal browser pages and the Opera addon catalog. This is an Opera policy.",
+		"description" : "Notes body"
+	},
+	"settings_content_notes_remove" : 
+	{
+		"message" : "If you remove this extension, all the changes made by this extension will be lost.",
+		"description" : "Notes body"
+	},
+	"settings_content_credits_header" : 
+	{
+		"message" : "Credits",
+		"description" : "Credits header"
+	},
+	"settings_content_credits_createdBy" : 
+	{
+		"message" : "Site Settings Sidebar is created by <a href=\"http://tothrobert.ininet.hu\" target=\"_blank\">Robert Toth</a>.",
+		"description" : "Credits body"
+	},
+	"settings_content_credits_copyCode" : 
+	{
+		"message" : "Besides my own coding I use some layout and style from the internal pages made by Opera Software ASA.",
+		"description" : "Credits body"
+	},
+	"settings_content_credits_thanks" : 
+	{
+		"message" : "Thanks for every contributor! <em>(See the changelog for details!)</em>",
+		"description" : "Credits body"
+	},
+	"settings_content_warning_header" : 
+	{
+		"message" : "Warning",
+		"description" : "Warning header"
+	},
+	"settings_content_warning_notResponsible" : 
+	{
+		"message" : "This extension was not made by Opera Software ASA. The company is not responsible for any of the errors.",
+		"description" : "Warning body"
+	},
+	"settings_content_license_header" : 
+	{
+		"message" : "License",
+		"description" : "License header"
+	},
+	"settings_content_license_share" : 
+	{
+		"message" : "You can share this extension, but I ask you to link the download page instead of copying the NEX file.",
+		"description" : "License body"
+	},
+	"settings_content_license_copy" : 
+	{
+		"message" : "You can copy and modify the code of this extension as long as it's free and you use the proper credits.",
+		"description" : "License body"
+	},
+	"settings_content_contact_header" : 
+	{
+		"message" : "Contact",
+		"description" : "Contact header"
+	},
+	"settings_content_contact_feedback1" : 
+	{
+		"message" : "<a href=\"https://addons.opera.com/en/extensions/details/site-settings-sidebar/\" target=\"_blank\">Opera Addon Catalog</a>",
+		"description" : "Contact body"
+	},
+	"settings_content_contact_feedback2" : 
+	{
+		"message" : "<a href=\"https://github.com/Nekomajin42/Site-Settings-Sidebar\" target=\"_blank\">GitHub</a>",
+		"description" : "Contact body"
+	},
+	"settings_content_contact_email" : 
+	{
+		"message" : "<a href=\"mailto:nekomajin42@gmail.com\">Email</a>",
+		"description" : "Contact body"
+	},
+	"settings_content_permissions_header" : 
+	{
+		"message" : "Permissions",
+		"description" : "Permissions header"
+	},
+	"settings_content_permissions_contentSettings" : 
+	{
+		"message" : "Site Settings Sidebar needs permission to access your content settings (images, location, camera, etc.) so you can control them.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_notifications" : 
+	{
+		"message" : "Site Settings Sidebar needs permission to use notifications to inform you about updates.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_tabs" : 
+	{
+		"message" : "Site Settings Sidebar needs permission to access your tabs so you can control the zoom settings with it.",
+		"description" : "Permissions body"
+	}
+}

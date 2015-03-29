@@ -1,0 +1,297 @@
+{
+	"manifest_description" : 
+	{
+		"message" : "Weboldal specifikus beállítások az oldalsávban.",
+		"description" : "Manifest JSON description string"
+	},
+	"manifest_defaultTitle" : 
+	{
+		"message" : "Weboldal specifikus beállítások",
+		"description" : "Manifest JSON default title string"
+	},
+	"notification_install_title" : 
+	{
+		"message" : "A Site Setting Sidebar beépült a böngészőbe",
+		"description" : "Notification install"
+	},
+	"notification_install_body" : 
+	{
+		"message" : "Kérlek, nézz szét a beállításokban!",
+		"description" : "Notification install"
+	},
+	"notification_update_title" : 
+	{
+		"message" : "A Site Setting Sidebar frissült",
+		"description" : "Notification install"
+	},
+	"notification_update_body" : 
+	{
+		"message" : "Kérlek, nézz szét a beállításokban az újdonságokért!",
+		"description" : "Notification install"
+	},
+	"sidebar_zoom_header" : 
+	{
+		"message" : "Nagyítás",
+		"description" : "Sidebar content"
+	},
+	"sidebar_zoom_value" : 
+	{
+		"message" : "Érték (%): ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_header" : 
+	{
+		"message" : "Tartalom",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_cookies" : 
+	{
+		"message" : "Sütik: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_images" : 
+	{
+		"message" : "Képek: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_javascript" : 
+	{
+		"message" : "Javascript: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_plugins" : 
+	{
+		"message" : "Beépülők: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_content_unsandboxedPlugins" : 
+	{
+		"message" : "Elavult beépülők: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_header" : 
+	{
+		"message" : "Engedélyek",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_automaticDownloads" : 
+	{
+		"message" : "Automatikus letöltés: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_camera" : 
+	{
+		"message" : "Kamera: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_fullscreen" : 
+	{
+		"message" : "Teljes képernyő: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_location" : 
+	{
+		"message" : "Helymeghatározás: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_popups" : 
+	{
+		"message" : "Felugró ablakok: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_microphone" : 
+	{
+		"message" : "Mikrofon: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_mouselock" : 
+	{
+		"message" : "Egérmutató rögzítés: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_permissions_notifications" : 
+	{
+		"message" : "Értesítések: ",
+		"description" : "Sidebar content"
+	},
+	"sidebar_values_allow" : 
+	{
+		"message" : "Engedélyezés",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_ask" : 
+	{
+		"message" : "Rákérdezés",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_block" : 
+	{
+		"message" : "Tiltás",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_sessionOnly" : 
+	{
+		"message" : "Csak erre a munkamenetre",
+		"description" : "Sidebar values"
+	},
+	"settings_sidebar_menuitem_settings" : 
+	{
+		"message" : "Beállítások",
+		"description" : "Sidebar menu"
+	},
+	"settings_sidebar_menuitem_help" : 
+	{
+		"message" : "Súgó",
+		"description" : "Sidebar menu"
+	},
+	"settings_sidebar_menuitem_changelog" : 
+	{
+		"message" : "Változáslista",
+		"description" : "Sidebar menu"
+	},
+	"settings_sidebar_menuitem_credits" : 
+	{
+		"message" : "Névjegy",
+		"description" : "Sidebar menu"
+	},
+	"settings_content_preferences_header" : 
+	{
+		"message" : "Beállítások",
+		"description" : "Preferences header"
+	},
+	"settings_content_preferences_zoomOnBadge" : 
+	{
+		"message" : "Mutassa a nagyítás értékét az ikonon",
+		"description" : "Symbols action"
+	},
+	"settings_content_incognito_header" : 
+	{
+		"message" : "Privát mód",
+		"description" : "Incognito header"
+	},
+	"settings_content_incognito_info" : 
+	{
+		"message" : "Ha privát módban is használni akarod ezt a bővítményt, akkor engedélyezned kell a Bővítmények lapon.",
+		"description" : "Incognito body"
+	},
+	"settings_content_howToUse_header" : 
+	{
+		"message" : "Így használd",
+		"description" : "How to use header"
+	},
+	"settings_content_howToUse_set" : 
+	{
+		"message" : "A beállítások megváltoztatása után frissítened kell az oldalt.",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_checkMark" : 
+	{
+		"message" : "A pipa az alapértelmezett beállítást jelzi, így rögtön látod, hogy mit változtattál meg korábban.",
+		"description" : "How to use body"
+	},
+	"settings_content_notes_header" : 
+	{
+		"message" : "Megjegyzések",
+		"description" : "Notes header"
+	},
+	"settings_content_notes_doesNotWork" : 
+	{
+		"message" : "A bővítmény nem működik a böngésző belső lapjain és az Opera bővítmény katalógusában. Ez egy Operás korlátozás.",
+		"description" : "Notes body"
+	},
+	"settings_content_notes_remove" : 
+	{
+		"message" : "Ha törlöd ezt a bővítményt, minden olyan beállítás törlődni fog, amit ezzel a bővítménnyel változtattál meg.",
+		"description" : "Notes body"
+	},
+	"settings_content_credits_header" : 
+	{
+		"message" : "Névjegy",
+		"description" : "Credits header"
+	},
+	"settings_content_credits_createdBy" : 
+	{
+		"message" : "A Site Settings Sidebar-t <a href=\"http://tothrobert.ininet.hu\" target=\"_blank\">Tóth Róbert</a> fejleszti.",
+		"description" : "Credits body"
+	},
+	"settings_content_credits_copyCode" : 
+	{
+		"message" : "Az általam írt kódon kívül az Opera belső lapjait felépítő kódok egy részét is felhasználtam.",
+		"description" : "Credits body"
+	},
+	"settings_content_credits_thanks" : 
+	{
+		"message" : "Köszönet mindenkinek, aki hozzájárult a bővítményhez. <em>(A részleteket lásd a Változáslistában!)</em>",
+		"description" : "Credits body"
+	},
+	"settings_content_warning_header" : 
+	{
+		"message" : "Figyelem",
+		"description" : "Warning header"
+	},
+	"settings_content_warning_notResponsible" : 
+	{
+		"message" : "Ez a bővítmény nem az Opera Software ASA terméke. A cég nem felelős a bővítmény esetleges hibáiért.",
+		"description" : "Warning body"
+	},
+	"settings_content_license_header" : 
+	{
+		"message" : "Licenc",
+		"description" : "License header"
+	},
+	"settings_content_license_share" : 
+	{
+		"message" : "Szabadon terjesztheted a bővítményt, de arra kérlek, hogy ne a NEX fájlt másold, hanem a letöltési oldal linkjét.",
+		"description" : "License body"
+	},
+	"settings_content_license_copy" : 
+	{
+		"message" : "Szabadon másolhatod és módosíthatod a bővítmény forráskódját mindaddig, amíg nem kérsz érte pénzt, és megfelelően hivatkozol a forrásra.",
+		"description" : "License body"
+	},
+	"settings_content_contact_header" : 
+	{
+		"message" : "Kapcsolat",
+		"description" : "Contact header"
+	},
+	"settings_content_contact_feedback1" : 
+	{
+		"message" : "<a href=\"https://addons.opera.com/en/extensions/details/site-settings-sidebar/\" target=\"_blank\">Opera Addon Katalógus</a>",
+		"description" : "Contact body"
+	},
+	"settings_content_contact_feedback2" : 
+	{
+		"message" : "<a href=\"https://github.com/Nekomajin42/Site-Settings-Sidebar\" target=\"_blank\">GitHub</a>",
+		"description" : "Contact body"
+	},
+	"settings_content_contact_email" : 
+	{
+		"message" : "<a href=\"mailto:nekomajin42@gmail.com\">Email</a>",
+		"description" : "Contact body"
+	},
+	"settings_content_permissions_header" : 
+	{
+		"message" : "Engedélyek",
+		"description" : "Permissions header"
+	},
+	"settings_content_permissions_header" : 
+	{
+		"message" : "Permissions",
+		"description" : "Permissions header"
+	},
+	"settings_content_permissions_contentSettings" : 
+	{
+		"message" : "A Site Settings Sidebar azért kér hozzáférést az oldalspecifikus beállításokhoz (képek, helymeghatározás, kamera, stb.), hogy kezelni tudja őket.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_notifications" : 
+	{
+		"message" : "A Site Settings Sidebar azért kér hozzáférést az értesítésekhez, hogy jelezni tudja, ha frissítés érkezik.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_tabs" : 
+	{
+		"message" : "A Site Settings Sidebar azért kér hozzáférést a lapfülekhez, hogy szabályozni tudja az oldalak nagyítását.",
+		"description" : "Permissions body"
+	}
+}

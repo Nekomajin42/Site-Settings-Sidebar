@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- coded by Nekomajin -->
+<html dir="ltr" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Site Settings Sidebar</title>
+		<link rel="stylesheet" href="tools.css" type="text/css" />
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<link rel="icon" href="../icons/icon16.png" type="image/png" />
+	</head>
+	<body>
+		<div id="wallpaper">
+			<div id="tool-container">
+				<div id="sidebar">
+					<div id="sidebar-icon"></div>
+					<h1>Site Settings Sidebar</h1>
+					<menu id="sidebar-menu">
+						<li data-i18n="settings_sidebar_menuitem_settings" id="sub-settings" class="selected"></li>
+						<li data-i18n="settings_sidebar_menuitem_help" id="sub-help"></li>
+						<li data-i18n="settings_sidebar_menuitem_changelog" id="sub-changelog"></li>
+						<li data-i18n="settings_sidebar_menuitem_credits" id="sub-credits"></li>
+					</menu>
+				</div> <!-- sidebar -->
+				<div id="content">
+					<div class="subpage visible" id="settings">
+						<section>
+							<h2 data-i18n="settings_content_preferences_header" class="section-header"></h2>
+							<form class="options" id="preferences">
+								<input type="checkbox" id="zoomOnBadge" /> <label for="zoomOnBadge" data-i18n="settings_content_preferences_zoomOnBadge"></label>
+							</form>
+						</section>
+						<section>
+							<h2 data-i18n="settings_content_incognito_header" class="section-header"></h2>
+							<p data-i18n="settings_content_incognito_info"></p>
+						</section>
+					</div>
+					<div class="subpage" id="help">
+						<section>
+							<h2 data-i18n="settings_content_howToUse_header" class="section-header"></h2>
+							<ul>
+								<li data-i18n="settings_content_howToUse_set"></li>
+								<li data-i18n="settings_content_howToUse_checkMark"></li>
+							</ul>
+						</section>
+						<section>
+							<h2 data-i18n="settings_content_notes_header" class="section-header"></h2>
+							<ul>
+								<li data-i18n="settings_content_notes_doesNotWork"></li>
+								<li data-i18n="settings_content_notes_remove"></li>
+							</ul>
+						</section>
+					</div>
+					<div class="subpage" id="changelog">
+						<section>
+							<h2 class="section-header">Future plans</h2>
+							<ul>
+								<li>CHANGE: More fluid layout</li>
+							</ul>
+						</section>
+						<section>
+							<h2 class="section-header">v1.0 (2015. 03. 29.)</h2>
+							<ul>
+								<li>ADD: More site-specific settings</li>
+								<li>ADD: User preferences (zoom on badge)</li>
+								<li>ADD: Localization</li>
+								<li>ADD: Update notification</li>
+							</ul>
+						</section>
+						<section>
+							<h2 class="section-header">v0.1 (2015. 03. 22.)</h2>
+							<ul>
+								<li>Initial release</li>
+							</ul>
+						</section>
+					</div>
+					<div class="subpage" id="credits">
+						<section>
+							<h2 data-i18n="settings_content_credits_header" class="section-header"></h2>
+							<ul>
+								<li data-i18n="settings_content_credits_createdBy"></li>
+								<li data-i18n="settings_content_credits_copyCode"></li>
+								<li data-i18n="settings_content_credits_thanks"></li>
+							</ul>
+						</section>
+						<section>
+							<h2 data-i18n="settings_content_warning_header" class="section-header"></h2>
+							<ul>
+								<li data-i18n="settings_content_warning_notResponsible"></li>
+							</ul>
+						</section>
+						<section>
+							<h2 data-i18n="settings_content_license_header" class="section-header"></h2>
+							<ul>
+								<li data-i18n="settings_content_license_share"></li>
+								<li data-i18n="settings_content_license_copy"></li>
+							</ul>
+						</section>
+						<section>
+							<h2 data-i18n="settings_content_contact_header" class="section-header"></h2>
+							<ul>
+								<li data-i18n="settings_content_contact_feedback1"></li>
+								<li data-i18n="settings_content_contact_feedback2"></li>
+								<li data-i18n="settings_content_contact_email"></li>
+							</ul>
+						</section>
+						<section>
+							<h2 data-i18n="settings_content_permissions_header" class="section-header"></h2>
+							<ul>
+								<li data-i18n="settings_content_permissions_contentSettings"></li>
+								<li data-i18n="settings_content_permissions_notifications"></li>
+								<li data-i18n="settings_content_permissions_tabs"></li>
+							</ul>
+						</section>
+					</div>
+				</div> <!-- content -->
+			</div> <!-- tool-container -->
+		</div> <!-- wallpaper -->
+		<script src="control.js" type="text/javascript"></script>
+		<script src="options.js" type="text/javascript"></script>
+	</body>
+</html>
