@@ -39,6 +39,11 @@
 		"message" : "Value (%): ",
 		"description" : "Sidebar content"
 	},
+	"sidebar_zoom_reset" : 
+	{
+		"message" : "Reset",
+		"description" : "Sidebar content"
+	},
 	"sidebar_content_header" : 
 	{
 		"message" : "Content",
@@ -114,6 +119,11 @@
 		"message" : "Notifications: ",
 		"description" : "Sidebar content"
 	},
+	"sidebar_footer_settings" : 
+	{
+		"message" : "Preferences",
+		"description" : "Sidebar content"
+	},
 	"sidebar_values_allow" : 
 	{
 		"message" : "Allow",
@@ -162,7 +172,12 @@
 	"settings_content_preferences_zoomOnBadge" : 
 	{
 		"message" : "Show zoom level on the icon",
-		"description" : "Symbols action"
+		"description" : "Preferences body"
+	},
+	"settings_content_preferences_zoomStep" : 
+	{
+		"message" : "Step:",
+		"description" : "Preferences body"
 	},
 	"settings_content_incognito_header" : 
 	{

@@ -2,10 +2,22 @@ html {
 font-family: verdana, sans-serif;
 font-size: 14px;
 line-height: 150%;
-background-color: #f0f0f0;}
+background-color: White;
+background-image: linear-gradient(to right, White, #f0f0f0);}
 
 form {
 white-space: nowrap;}
+
+form:hover input[type=button] {
+display: inline-block;}
+
+form:hover input[type=number] {
+border: 1px solid rgb(169, 169, 169);
+-webkit-appearance: textfield;}
+
+form:hover select {
+border: 1px solid rgb(169, 169, 169);
+-webkit-appearance: menulist;}
 
 fieldset {
 padding: 0px;
@@ -28,11 +40,13 @@ border: 1px solid transparent;
 -webkit-appearance: none;
 font-family: inherit;
 font-size: 1rem;
-background-color: #f0f0f0;}
-
+background-color: transparent;}
 input[type=number]:hover, input[type=number]:active, input[type=number]:focus {
-border: 1px solid rgb(169, 169, 169);
--webkit-appearance: textfield;
+outline: none;}
+
+input[type=button] {
+display: none;}
+input[type=button]:hover, input[type=button]:active, input[type=button]:focus {
 outline: none;}
 
 select {
@@ -40,12 +54,21 @@ border: 1px solid transparent;
 -webkit-appearance: none;
 font-family: inherit;
 font-size: 1rem;
-background-color: #f0f0f0;}
-
+background-color: transparent;}
 select:hover, select:active, select:focus {
-border: 1px solid rgb(169, 169, 169);
--webkit-appearance: menulist;
 outline: none;}
 
 input:disabled, select:disabled {
 color: Black;}
+
+footer {
+position: absolute;
+bottom: 5px;
+font-size: 1rem;
+white-space: nowrap;}
+
+footer a {
+color: inherit;
+text-decoration: none;}
+footer a:hover {
+text-decoration: underline;}

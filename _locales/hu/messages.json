@@ -39,6 +39,11 @@
 		"message" : "Érték (%): ",
 		"description" : "Sidebar content"
 	},
+	"sidebar_zoom_reset" : 
+	{
+		"message" : "Alapérték",
+		"description" : "Sidebar content"
+	},
 	"sidebar_content_header" : 
 	{
 		"message" : "Tartalom",
@@ -114,6 +119,11 @@
 		"message" : "Értesítések: ",
 		"description" : "Sidebar content"
 	},
+	"sidebar_footer_settings" : 
+	{
+		"message" : "Beállítások",
+		"description" : "Sidebar content"
+	},
 	"sidebar_values_allow" : 
 	{
 		"message" : "Engedélyezés",
@@ -162,7 +172,12 @@
 	"settings_content_preferences_zoomOnBadge" : 
 	{
 		"message" : "Mutassa a nagyítás értékét az ikonon",
-		"description" : "Symbols action"
+		"description" : "Preferences body"
+	},
+	"settings_content_preferences_zoomStep" : 
+	{
+		"message" : "Lépésköz:",
+		"description" : "Preferences body"
 	},
 	"settings_content_incognito_header" : 
 	{

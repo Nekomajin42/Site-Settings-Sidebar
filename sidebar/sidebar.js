@@ -11,6 +11,7 @@ function disableFields(url)
 		var disabled = (protocol === "opera" || protocol === "chrome" || protocol === "chrome-extension") ? true : false;
 	}
 	document.getElementById("zoom").disabled = disabled;
+	document.getElementById("resetZoom").disabled = disabled;
 	var select = document.getElementsByTagName("select");
 	for (var i=0; i<select.length; i++)
 	{
@@ -25,7 +26,7 @@ function getZoom()
 	{
 		var zoom = Math.floor(zoomFactor * 100);
 		document.getElementById("zoom").value = zoom;
-		if (settings.zoomOnBadge === true)
+		if (settings.zoom.onBadge === true)
 		{
 			opr.sidebarAction.setBadgeText({text: zoom.toString()});
 		}
@@ -35,11 +36,16 @@ function setZoom()
 {
 	var zoom = document.getElementById("zoom").value;
 	var zoomFactor = parseInt(zoom, 10) / 100;
-	if (settings.zoomOnBadge === true)
+	if (settings.zoom.onBadge === true)
 	{
 		opr.sidebarAction.setBadgeText({text: zoom});
 	}
 	chrome.tabs.setZoom(zoomFactor);
+}
+function resetZoom()
+{
+	document.getElementById("zoom").value = 100;
+	setZoom();
 }
 
 // deail with content settings
@@ -91,6 +97,13 @@ function selectLocale()
 	}
 }
 
+// set user prefenreces
+function setUserPref(settings)
+{
+	// zoom
+	document.getElementById("zoom").step = settings.zoom.step;
+}
+
 // to do on page load
 var settings;
 chrome.runtime.sendMessage("", function(response)
@@ -98,12 +111,16 @@ chrome.runtime.sendMessage("", function(response)
 	// get user preferences
 	settings = response;
 	
+	// set user preferences
+	setUserPref(settings);
+	
 	// load local strings
 	selectLocale();
 	
 	// zoom
 	getZoom();
 	document.getElementById("zoom").addEventListener("change", setZoom, false);
+	document.getElementById("resetZoom").addEventListener("click", resetZoom, false);
 	
 	// settings
 	getSettings();

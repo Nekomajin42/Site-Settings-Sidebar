@@ -6,7 +6,8 @@ window.addEventListener("load", function()
 	
 	// load and set settings
 	var settings = JSON.parse(window.localStorage.siteSettingsSidebar);
-	document.getElementById("zoomOnBadge").checked = settings.zoomOnBadge;
+	document.getElementById("zoomOnBadge").checked = settings.zoom.onBadge;
+	document.getElementById("zoomStep").value = settings.zoom.step;
 	
 	// make the menu work
 	var menu = document.querySelectorAll("menu li");
@@ -16,9 +17,10 @@ window.addEventListener("load", function()
 	}
 	
 	// save user preferences
-	document.getElementById("zoomOnBadge").addEventListener("change", function()
+	document.getElementById("preferences").addEventListener("change", function()
 	{
-		settings.zoomOnBadge = document.getElementById("zoomOnBadge").checked;
+		settings.zoom.onBadge = document.getElementById("zoomOnBadge").checked;
+		settings.zoom.step = document.getElementById("zoomStep").value;
 		window.localStorage.siteSettingsSidebar = JSON.stringify(settings);
 	}, false);
 }, false);
