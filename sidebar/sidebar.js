@@ -90,6 +90,10 @@ function selectLocale()
 		{
 			elements[i].value = chrome.i18n.getMessage(elements[i].dataset.i18n);
 		}
+		else if (elements[i].tagName === "IMG")
+		{
+			elements[i].title = chrome.i18n.getMessage(elements[i].dataset.i18n);
+		}
 		else
 		{
 			elements[i].innerHTML = chrome.i18n.getMessage(elements[i].dataset.i18n) + elements[i].innerHTML;

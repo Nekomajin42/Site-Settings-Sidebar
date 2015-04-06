@@ -36,7 +36,7 @@
 	},
 	"sidebar_zoom_value" : 
 	{
-		"message" : "Érték (%): ",
+		"message" : "Érték",
 		"description" : "Sidebar content"
 	},
 	"sidebar_zoom_reset" : 
@@ -51,27 +51,27 @@
 	},
 	"sidebar_content_cookies" : 
 	{
-		"message" : "Sütik: ",
+		"message" : "Sütik",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_images" : 
 	{
-		"message" : "Képek: ",
+		"message" : "Képek",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_javascript" : 
 	{
-		"message" : "Javascript: ",
+		"message" : "Javascript",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_plugins" : 
 	{
-		"message" : "Beépülők: ",
+		"message" : "Beépülők",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_unsandboxedPlugins" : 
 	{
-		"message" : "Elavult beépülők: ",
+		"message" : "Nem biztonságos beépülők",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_header" : 
@@ -81,42 +81,42 @@
 	},
 	"sidebar_permissions_automaticDownloads" : 
 	{
-		"message" : "Automatikus letöltés: ",
+		"message" : "Automatikus letöltés",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_camera" : 
 	{
-		"message" : "Kamera: ",
+		"message" : "Kamera",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_fullscreen" : 
 	{
-		"message" : "Teljes képernyő: ",
+		"message" : "Teljes képernyő",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_location" : 
 	{
-		"message" : "Helymeghatározás: ",
+		"message" : "Helymeghatározás",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_popups" : 
 	{
-		"message" : "Felugró ablakok: ",
+		"message" : "Felugró ablakok",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_microphone" : 
 	{
-		"message" : "Mikrofon: ",
+		"message" : "Mikrofon",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_mouselock" : 
 	{
-		"message" : "Egérmutató rögzítés: ",
+		"message" : "Egérmutató rögzítése",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_notifications" : 
 	{
-		"message" : "Értesítések: ",
+		"message" : "Értesítések",
 		"description" : "Sidebar content"
 	},
 	"sidebar_footer_settings" : 
@@ -141,7 +141,7 @@
 	},
 	"sidebar_values_sessionOnly" : 
 	{
-		"message" : "Csak erre a munkamenetre",
+		"message" : "Erre a munkamenetre",
 		"description" : "Sidebar values"
 	},
 	"settings_sidebar_menuitem_settings" : 
@@ -291,7 +291,7 @@
 	},
 	"settings_content_permissions_header" : 
 	{
-		"message" : "Permissions",
+		"message" : "Engedélyek",
 		"description" : "Permissions header"
 	},
 	"settings_content_permissions_contentSettings" : 

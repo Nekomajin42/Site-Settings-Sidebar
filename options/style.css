@@ -13,13 +13,6 @@ overflow: auto;
 margin: 0px 0px 24px 0px;
 font-size: 14px;}
 
-div.icon, div.empty {
-display: inline-block;
-width: 16px;
-height: 16px;
-margin-right: 2px;
-background-size: 16px 16px;}
-
 form {
 line-height: 150%;
 text-align: justify;}
@@ -30,11 +23,6 @@ margin: 14px 0px 0px 0px;
 line-height: 150%;
 text-align: justify;}
 
-textarea {
-width: 585px;
-max-width: 585px;
-height: 100px;
-float: right;
-border-radius: 3px;}
-input#saveBlacklist {
-float: right;}
+input[type=number] {
+width: 50px;
+padding: 0;}

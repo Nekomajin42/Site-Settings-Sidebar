@@ -1,3 +1,14 @@
+// deal with zoom
+chrome.tabs.onZoomChange.addListener(function(ZoomChangeInfo)
+{
+	if (settings.zoom.onBadge === true)
+	{
+		var zoom = Math.floor(ZoomChangeInfo.newZoomFactor * 100);
+		//console.log(zoom);
+		opr.sidebarAction.setBadgeText({text: zoom.toString()});
+	}
+});
+
 // build default settings
 function data()
 {
@@ -54,8 +65,9 @@ chrome.runtime.onInstalled.addListener(function(details)
 });
 
 // send user preferences
+var settings;
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
-	var settings = JSON.parse(window.localStorage.siteSettingsSidebar);
+	settings = JSON.parse(window.localStorage.siteSettingsSidebar);
 	sendResponse(settings);
 });

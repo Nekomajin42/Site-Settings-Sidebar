@@ -36,7 +36,7 @@
 	},
 	"sidebar_zoom_value" : 
 	{
-		"message" : "Value (%): ",
+		"message" : "Value",
 		"description" : "Sidebar content"
 	},
 	"sidebar_zoom_reset" : 
@@ -51,27 +51,27 @@
 	},
 	"sidebar_content_cookies" : 
 	{
-		"message" : "Cookies: ",
+		"message" : "Cookies",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_images" : 
 	{
-		"message" : "Images: ",
+		"message" : "Images",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_javascript" : 
 	{
-		"message" : "Javascript: ",
+		"message" : "Javascript",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_plugins" : 
 	{
-		"message" : "Plugins: ",
+		"message" : "Plugins",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_unsandboxedPlugins" : 
 	{
-		"message" : "Unsandboxed plugins: ",
+		"message" : "Unsandboxed plugins",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_header" : 
@@ -81,42 +81,42 @@
 	},
 	"sidebar_permissions_automaticDownloads" : 
 	{
-		"message" : "Automatic downloads: ",
+		"message" : "Automatic downloads",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_camera" : 
 	{
-		"message" : "Camera: ",
+		"message" : "Camera",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_fullscreen" : 
 	{
-		"message" : "Fullscreen: ",
+		"message" : "Fullscreen",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_location" : 
 	{
-		"message" : "Location: ",
+		"message" : "Location",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_popups" : 
 	{
-		"message" : "Popups: ",
+		"message" : "Popups",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_microphone" : 
 	{
-		"message" : "Microphone: ",
+		"message" : "Microphone",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_mouselock" : 
 	{
-		"message" : "Mouselock: ",
+		"message" : "Mouselock",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_notifications" : 
 	{
-		"message" : "Notifications: ",
+		"message" : "Notifications",
 		"description" : "Sidebar content"
 	},
 	"sidebar_footer_settings" : 
