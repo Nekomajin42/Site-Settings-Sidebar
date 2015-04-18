@@ -24,7 +24,7 @@ function getZoom()
 {
 	chrome.tabs.getZoom(function(zoomFactor)
 	{
-		var zoom = Math.floor(zoomFactor * 100);
+		var zoom = Math.round(zoomFactor * 100);
 		document.getElementById("zoom").value = zoom;
 		if (settings.zoom.onBadge === true)
 		{
@@ -44,6 +44,10 @@ function setZoom()
 }
 function resetZoom()
 {
+	/*chrome.tabs.getZoomSettings(function(ZoomSettings)
+	{
+		console.log(ZoomSettings);
+	});*/
 	document.getElementById("zoom").value = 100;
 	setZoom();
 }
@@ -133,12 +137,17 @@ chrome.runtime.sendMessage("", function(response)
 	{
 		types[i].addEventListener("change", setSettings, false);
 	}
+	
+	// Extensions page link
+	document.getElementById("ext").addEventListener("click", function()
+	{
+		chrome.tabs.create({url: "opera://extensions/?id=" + chrome.runtime.id});
+	}, false);
 });
 
 // to do on zoom change
 chrome.tabs.onZoomChange.addListener(function(ZoomChangeInfo)
 {
-	//console.log(ZoomChangeInfo);
 	getZoom();
 });
 

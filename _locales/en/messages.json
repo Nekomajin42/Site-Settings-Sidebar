@@ -124,6 +124,11 @@
 		"message" : "Preferences",
 		"description" : "Sidebar content"
 	},
+	"sidebar_footer_extensions" : 
+	{
+		"message" : "Extensions",
+		"description" : "Sidebar content"
+	},
 	"sidebar_values_allow" : 
 	{
 		"message" : "Allow",

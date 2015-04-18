@@ -4,7 +4,6 @@ chrome.tabs.onZoomChange.addListener(function(ZoomChangeInfo)
 	if (settings.zoom.onBadge === true)
 	{
 		var zoom = Math.floor(ZoomChangeInfo.newZoomFactor * 100);
-		//console.log(zoom);
 		opr.sidebarAction.setBadgeText({text: zoom.toString()});
 	}
 });
@@ -64,10 +63,9 @@ chrome.runtime.onInstalled.addListener(function(details)
 	};
 });
 
-// send user preferences
-var settings;
+// load and send user preferences
+var settings = JSON.parse(window.localStorage.siteSettingsSidebar);
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
-	settings = JSON.parse(window.localStorage.siteSettingsSidebar);
 	sendResponse(settings);
 });

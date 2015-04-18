@@ -41,7 +41,7 @@
 	},
 	"sidebar_zoom_reset" : 
 	{
-		"message" : "Alapérték",
+		"message" : "Visszaállítás",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_header" : 
@@ -122,6 +122,11 @@
 	"sidebar_footer_settings" : 
 	{
 		"message" : "Beállítások",
+		"description" : "Sidebar content"
+	},
+	"sidebar_footer_extensions" : 
+	{
+		"message" : "Bővítmények",
 		"description" : "Sidebar content"
 	},
 	"sidebar_values_allow" : 

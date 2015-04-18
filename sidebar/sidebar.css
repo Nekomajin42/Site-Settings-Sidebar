@@ -2,10 +2,13 @@ html {
 font-family: verdana, sans-serif;
 font-size: 14px;
 line-height: 150%;
-background-color: White;
-background-image: linear-gradient(to right, White, #f0f0f0);}
+background-color: White;}
+
+body {
+margin: 0;}
 
 form {
+margin: 10px;
 white-space: nowrap;}
 
 form:hover input[type=button] {
@@ -71,9 +74,16 @@ color: Black;}
 
 footer {
 position: absolute;
-bottom: 5px;
+bottom: 0px;
+display: block;
+box-sizing: border-box;
+width: 100%;
+margin: 0;
+padding: 5px 10px 5px 10px;
 font-size: 1rem;
-white-space: nowrap;}
+white-space: nowrap;
+background-color: #f0f0f0;
+border-top: 1px solid LightGrey;}
 
 footer a {
 color: inherit;
