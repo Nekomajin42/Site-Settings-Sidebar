@@ -26,29 +26,9 @@ function data()
 	return settings;
 }
 
-// deal with install and updates
-chrome.runtime.onInstalled.addListener(function(details)
+// throw notification
+function notify(title, body)
 {
-	if (details.reason === "install")
-	{
-		// build default settings
-		var settings = data();
-		
-		// throw notification
-		var title = chrome.i18n.getMessage("notification_install_title");
-		var body = chrome.i18n.getMessage("notification_install_body");
-	}
-	else if (details.reason === "update")
-	{
-		// build default settings
-		var settings = data();
-		
-		// throw notification
-		var title = chrome.i18n.getMessage("notification_update_title");
-		var body = chrome.i18n.getMessage("notification_update_body");
-	}
-	
-	// throw it
 	var n = new Notification(title,
 	{
 		tag : "site_settings_sidebar", 
@@ -61,6 +41,31 @@ chrome.runtime.onInstalled.addListener(function(details)
 	{
 		chrome.tabs.create({url : "/options/options.html"});
 	};
+}
+
+// deal with install and updates
+chrome.runtime.onInstalled.addListener(function(details)
+{
+	if (details.reason === "install")
+	{
+		// build default settings
+		var settings = data();
+		
+		// throw notification
+		var title = chrome.i18n.getMessage("notification_install_title");
+		var body = chrome.i18n.getMessage("notification_install_body");
+		notify(title, body);
+	}
+	else if (details.reason === "update")
+	{
+		// build default settings
+		var settings = data();
+		
+		// throw notification
+		var title = chrome.i18n.getMessage("notification_update_title");
+		var body = chrome.i18n.getMessage("notification_update_body");
+		notify(title, body);
+	}
 });
 
 // load and send user preferences

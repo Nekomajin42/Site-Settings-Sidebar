@@ -64,11 +64,19 @@ function getSettings()
 			var types = ["cookies", "images", "javascript", "location", "plugins", "popups", "notifications", "fullscreen", "mouselock", "unsandboxedPlugins", "automaticDownloads", "camera", "microphone"];
 			types.forEach(function(type)
 			{
-				chrome.contentSettings[type].get({primaryUrl: url}, function(details)
+				try
 				{
-					//console.log(type + ": " + details.setting);
-					document.getElementById(type).value = details.setting;
-				});
+					chrome.contentSettings[type].get({primaryUrl: url}, function(details)
+					{
+						//console.log(type + ": " + details.setting);
+						document.getElementById(type).value = details.setting;
+					});
+				}
+				catch (error)
+				{
+					document.getElementById(type).disabled = true;
+					console.log("SiteSettingsSidebar: \"" + type + "\" is temporarily disabled");
+				}
 			});
 		}
 	});
@@ -116,14 +124,13 @@ function setUserPref(settings)
 var settings;
 chrome.runtime.sendMessage("", function(response)
 {
-	// get user preferences
+	// get and set user preferences
 	settings = response;
-	
-	// set user preferences
 	setUserPref(settings);
 	
-	// load local strings
+	// load local strings, set display mode
 	selectLocale();
+	document.getElementsByTagName("form")[0].className = "view";
 	
 	// zoom
 	getZoom();
@@ -161,4 +168,16 @@ chrome.tabs.onUpdated.addListener(function(tab)
 {
 	getZoom();
 	getSettings();
+});
+
+// toggle edit/view mode
+opr.sidebarAction.onFocus.addListener(function(tabs)
+{
+	document.getElementsByTagName("form")[0].className = "edit";
+	document.getElementById("zoom").focus();
+});
+
+opr.sidebarAction.onBlur.addListener(function(tabs)
+{
+	document.getElementsByTagName("form")[0].className = "view";
 });

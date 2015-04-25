@@ -1,8 +1,12 @@
+/* === general styling === */
 html {
 font-family: verdana, sans-serif;
 font-size: 14px;
 line-height: 150%;
-background-color: White;}
+height: 100%;
+box-sizing: border-box;
+background-color: White;
+border-right: 2px solid LightGrey;}
 
 body {
 margin: 0;}
@@ -11,28 +15,18 @@ form {
 margin: 10px;
 white-space: nowrap;}
 
-form:hover input[type=button] {
-display: inline-block;}
-
-form:hover input[type=number] {
-border: 1px solid rgb(169, 169, 169);
--webkit-appearance: textfield;}
-
-form:hover select, form select:focus {
-border: 1px solid rgb(169, 169, 169);
--webkit-appearance: menulist;}
-
 fieldset {
 padding: 0px;
 margin: 0px 0px 10px 0px;
 border: none;
-border-top: 1px solid LightGrey;}
+border-top: 2px solid LightGrey;}
 
 legend {
 padding: 0px 5px 0px 0px;
 margin: 0px 0px 5px 0px;
 font-size: 1rem;
-font-weight: bold;}
+font-weight: bold;
+letter-spacing: 1px;}
 
 label {
 font-size: 1rem;}
@@ -42,9 +36,8 @@ width: 16px;
 height: 16px;
 vertical-align:-3px;}
 
+/* === form styling === */
 input[type=number] {
-border: 1px solid transparent;
--webkit-appearance: none;
 font-family: inherit;
 font-size: 1rem;
 background-color: transparent;
@@ -52,28 +45,38 @@ background-image: url("percent.svg");
 background-size: 10px 10px;
 background-repeat: no-repeat;
 background-position: 25px;}
-input[type=number]:hover, input[type=number]:active, input[type=number]:focus {
-outline: none;}
-
-input[type=button] {
-display: none;}
-input[type=button]:hover, input[type=button]:active, input[type=button]:focus {
-outline: none;}
 
 select {
-border: 1px solid transparent;
--webkit-appearance: none;
 font-family: inherit;
 font-size: 1rem;
 background-color: transparent;}
-select:hover, select:active, select:focus {
-outline: none;}
 
 input:disabled, select:disabled {
 color: Black;}
 
+/* === edit/view mode styling === */
+form.edit input[type=button] {
+display: inline-block;}
+
+form.edit input[type=number] {
+border: 1px solid rgb(169, 169, 169);
+-webkit-appearance: textfield;}
+
+form.edit select {
+border: 1px solid rgb(169, 169, 169);
+-webkit-appearance: menulist;}
+
+form.view input[type=button] {
+display: none;}
+
+form.view input[type=number], form.view select {
+border: 1px solid transparent;
+-webkit-appearance: none;}
+
+/* === footer styling === */
+
 footer {
-position: absolute;
+position: fixed;
 bottom: 0px;
 display: block;
 box-sizing: border-box;
@@ -82,8 +85,11 @@ margin: 0;
 padding: 5px 10px 5px 10px;
 font-size: 1rem;
 white-space: nowrap;
+overflow-x: hidden;
+text-overflow: ellipsis;
 background-color: #f0f0f0;
-border-top: 1px solid LightGrey;}
+border-top: 2px solid LightGrey;
+border-right: 2px solid LightGrey;}
 
 footer a {
 color: inherit;
