@@ -36,7 +36,7 @@
 	},
 	"sidebar_zoom_value" : 
 	{
-		"message" : "Value",
+		"message" : "Value|Valid values are between 20% and 500%.|Reset sets zoom level to 100%.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_zoom_reset" : 
@@ -51,27 +51,27 @@
 	},
 	"sidebar_content_cookies" : 
 	{
-		"message" : "Cookies",
+		"message" : "Cookies|Control how local data can be stored on your machine.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_images" : 
 	{
-		"message" : "Images",
+		"message" : "Images|Allow or block images on the website.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_javascript" : 
 	{
-		"message" : "Javascript",
+		"message" : "JavaScript|Allow or block JavaScript on the website.|Most sites will be broken if you block JavaScript.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_plugins" : 
 	{
-		"message" : "Plugins",
+		"message" : "Plugins|Allow or block plugins on the website.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_unsandboxedPlugins" : 
 	{
-		"message" : "Unsandboxed plugins",
+		"message" : "Unsandboxed plugins|Allow or block plugins to reach out of the safety environment of the browser.|Use \"Allow\" with extreme caution! Unsandboxed plugins can install other stuff on your machine.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_header" : 
@@ -81,42 +81,42 @@
 	},
 	"sidebar_permissions_automaticDownloads" : 
 	{
-		"message" : "Automatic downloads",
+		"message" : "Automatic downloads|Permission to the website to download multiple files at once.|Use \"Allow\" with extreme caution! The website will be able to send files to your machine without your interaction.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_camera" : 
 	{
-		"message" : "Camera",
+		"message" : "Camera|Permission to the website to access your webcamera.|Currently disabled because of a Chromium issue.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_fullscreen" : 
 	{
-		"message" : "Fullscreen",
+		"message" : "Fullscreen|Permission to the website to switch the browser to fullscreen mode automatically.|You can leave fullscreen mode any time by pressing Esc or F11.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_location" : 
 	{
-		"message" : "Location",
+		"message" : "Location|Permission to the website to track your geographic location.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_popups" : 
 	{
-		"message" : "Popups",
+		"message" : "Popups|Permission to the website to use popup windows.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_microphone" : 
 	{
-		"message" : "Microphone",
+		"message" : "Microphone|Permission to the website to access your microphone.|Currently disabled because of a Chromium issue.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_mouselock" : 
 	{
-		"message" : "Mouselock",
+		"message" : "Mouselock|Permission to the website to disable your mouse cursor.|You can get back your cursor any time by pressing Esc.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_notifications" : 
 	{
-		"message" : "Notifications",
+		"message" : "Notifications|Permission to the website to show you notifications.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_footer_settings" : 
@@ -142,6 +142,11 @@
 	"sidebar_values_block" : 
 	{
 		"message" : "Block",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_clickToPlay" : 
+	{
+		"message" : "Click to play",
 		"description" : "Sidebar values"
 	},
 	"sidebar_values_sessionOnly" : 
@@ -174,6 +179,16 @@
 		"message" : "Preferences",
 		"description" : "Preferences header"
 	},
+	"settings_content_preferences_colorCode" : 
+	{
+		"message" : "Show color codes",
+		"description" : "Preferences body"
+	},
+	"settings_content_preferences_autoRefresh" : 
+	{
+		"message" : "Refresh the page automatically after content settings change",
+		"description" : "Preferences body"
+	},
 	"settings_content_preferences_zoomOnBadge" : 
 	{
 		"message" : "Show zoom level on the icon",
@@ -181,7 +196,7 @@
 	},
 	"settings_content_preferences_zoomStep" : 
 	{
-		"message" : "Step:",
+		"message" : "Zoom step:",
 		"description" : "Preferences body"
 	},
 	"settings_content_incognito_header" : 
@@ -199,9 +214,9 @@
 		"message" : "How to use",
 		"description" : "How to use header"
 	},
-	"settings_content_howToUse_set" : 
+	"settings_content_howToUse_tooltip" : 
 	{
-		"message" : "After you change any of the content settings of a page, you have to refresh the page manually.",
+		"message" : "For help and additional information, hover over the icons on the panel.",
 		"description" : "How to use body"
 	},
 	"settings_content_howToUse_checkMark" : 

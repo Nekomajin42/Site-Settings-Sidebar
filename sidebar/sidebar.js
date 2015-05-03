@@ -26,10 +26,11 @@ function getZoom()
 	{
 		var zoom = Math.round(zoomFactor * 100);
 		document.getElementById("zoom").value = zoom;
-		if (settings.zoom.onBadge === true)
+		if (settings.zoom.onBadge === true) // do we need the badge?
 		{
 			opr.sidebarAction.setBadgeText({text: zoom.toString()});
 		}
+		document.querySelector("label[for='zoom']").style.borderColor = (settings.ui.colorCode === true) ? ((zoomFactor === 1) ? "Green" : "Yellow") : "White";
 	});
 }
 function setZoom()
@@ -70,12 +71,13 @@ function getSettings()
 					{
 						//console.log(type + ": " + details.setting);
 						document.getElementById(type).value = details.setting;
+						document.querySelector("label[for='"+type+"']").style.borderColor = (settings.ui.colorCode === true) ? document.querySelector("#"+type+" option[value='"+details.setting+"']").dataset.color : "White";
 					});
 				}
 				catch (error)
 				{
 					document.getElementById(type).disabled = true;
-					console.log("SiteSettingsSidebar: \"" + type + "\" is temporarily disabled");
+					document.querySelector("label[for='"+type+"']").style.borderColor = (settings.ui.colorCode === true) ? "Grey" : "White";
 				}
 			});
 		}
@@ -89,6 +91,10 @@ function setSettings()
 	{
 		var pattern = tabs[0].url.slice(0, tabs[0].url.indexOf("/", 8)) + "/*";
 		chrome.contentSettings[type].set({primaryPattern: pattern, setting: value});
+		if (settings.auto.refresh === true)
+		{
+			chrome.tabs.reload();
+		}
 	});
 }
 
@@ -102,10 +108,6 @@ function selectLocale()
 		{
 			elements[i].value = chrome.i18n.getMessage(elements[i].dataset.i18n);
 		}
-		else if (elements[i].tagName === "IMG")
-		{
-			elements[i].title = chrome.i18n.getMessage(elements[i].dataset.i18n);
-		}
 		else
 		{
 			elements[i].innerHTML = chrome.i18n.getMessage(elements[i].dataset.i18n) + elements[i].innerHTML;
@@ -113,11 +115,21 @@ function selectLocale()
 	}
 }
 
-// set user prefenreces
-function setUserPref(settings)
+// create and remove Help tooltip
+function showTooltip(e)
 {
-	// zoom
-	document.getElementById("zoom").step = settings.zoom.step;
+	var text = chrome.i18n.getMessage(e.target.dataset.i18n).split("|");
+	var div = document.createElement("div");
+	div.id = "tooltip";
+	div.innerHTML = "<strong>" + text[0] + "</strong><br />";
+	div.innerHTML += text[1];
+	div.innerHTML += (text[2] != undefined) ? "<br /><em>" + text[2] + "</em>" : "";
+	div.style.top = e.target.offsetTop + 25 + "px";
+	document.body.appendChild(div);
+}
+function hideTooltip()
+{
+	document.body.removeChild(document.getElementById("tooltip"));
 }
 
 // to do on page load
@@ -126,11 +138,11 @@ chrome.runtime.sendMessage("", function(response)
 {
 	// get and set user preferences
 	settings = response;
-	setUserPref(settings);
+	document.getElementById("zoom").step = settings.zoom.step;
 	
 	// load local strings, set display mode
 	selectLocale();
-	document.getElementsByTagName("form")[0].className = "view";
+	document.body.className = "view";
 	
 	// zoom
 	getZoom();
@@ -143,6 +155,14 @@ chrome.runtime.sendMessage("", function(response)
 	for (var i=0; i<types.length; i++)
 	{
 		types[i].addEventListener("change", setSettings, false);
+	}
+	
+	// inject Help tooltip
+	var labels = document.querySelectorAll("label img");
+	for (var i=0; i<labels.length; i++)
+	{
+		labels[i].addEventListener("mouseover", showTooltip, false);
+		labels[i].addEventListener("mouseout", hideTooltip, false);
 	}
 	
 	// Extensions page link
@@ -173,11 +193,11 @@ chrome.tabs.onUpdated.addListener(function(tab)
 // toggle edit/view mode
 opr.sidebarAction.onFocus.addListener(function(tabs)
 {
-	document.getElementsByTagName("form")[0].className = "edit";
+	document.body.className = "edit";
 	document.getElementById("zoom").focus();
 });
 
 opr.sidebarAction.onBlur.addListener(function(tabs)
 {
-	document.getElementsByTagName("form")[0].className = "view";
+	document.body.className = "view";
 });

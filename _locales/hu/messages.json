@@ -36,12 +36,12 @@
 	},
 	"sidebar_zoom_value" : 
 	{
-		"message" : "Érték",
+		"message" : "Érték|A nagyítás értékének 20% és 500% közé kell esni.|A Visszaállít gomb 100%-ra állítja a nagyítás értékét.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_zoom_reset" : 
 	{
-		"message" : "Visszaállítás",
+		"message" : "Visszaállít",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_header" : 
@@ -51,27 +51,27 @@
 	},
 	"sidebar_content_cookies" : 
 	{
-		"message" : "Sütik",
+		"message" : "Sütik|Beállíthatod, hogy a böngésző hogyan tárolja a helyi adatokat a gépeden.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_images" : 
 	{
-		"message" : "Képek",
+		"message" : "Képek|Engedélyezheted vagy letilthatod a weboldalon lévő képeket.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_javascript" : 
 	{
-		"message" : "Javascript",
+		"message" : "JavaScript|Engedélyezheted vagy letilthatod a weboldalon lévő JavaScriptet.|Sok weboldal használhatatlan lesz, ha letiltod a JavaScriptet.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_plugins" : 
 	{
-		"message" : "Beépülők",
+		"message" : "Beépülők|Engedélyezheted vagy letilthatod a weboldalon lévő beépülőket.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_unsandboxedPlugins" : 
 	{
-		"message" : "Nem biztonságos beépülők",
+		"message" : "Korlátozás nélküli beépülők|Engedélyezheted, hogy a beépülők kilépjenek a böngésző biztonságos környezetéből.|Az \"Engedélyezés\" lehetőséget óvatosan használd, mert így a beépülők akár más programokat is telepíthetnek a gépedre!",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_header" : 
@@ -81,42 +81,42 @@
 	},
 	"sidebar_permissions_automaticDownloads" : 
 	{
-		"message" : "Automatikus letöltés",
+		"message" : "Automatikus letöltések|Engedélyezheted a weboldal számára, hogy egyszerre több fájlt töltsön le a gépedre.|Az \"Engedélyezés\" lehetőséget óvatosan használd, mert így a weboldal a te beavatkozásod nélkül is küldhet fájlokat a gépedre.</em>",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_camera" : 
 	{
-		"message" : "Kamera",
+		"message" : "Kamera|Engedélyezheted a weboldal számára, hogy hozzáférjen a webkamerádhoz.|Ez a beállítás jelenleg nem működik a Chromium hiba miatt.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_fullscreen" : 
 	{
-		"message" : "Teljes képernyő",
+		"message" : "Teljes képernyő|Engedélyezheted, hogy a weboldal automatikusan teljes képernyős nézetre váltsa a böngésződet.|A teljes képernyős nézetből bármikor kiléphetsz az Esc vagy az F11 gomb megnyomásával.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_location" : 
 	{
-		"message" : "Helymeghatározás",
+		"message" : "Helymeghatározás|Engedélyezheted a weboldalnak, hogy hozzáférjen a földrajzi elhelyezkedésedhez.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_popups" : 
 	{
-		"message" : "Felugró ablakok",
+		"message" : "Felugró ablakok|Engedélyezheted a weboldalnak, hogy automatikusan felugró ablakokat nyisson.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_microphone" : 
 	{
-		"message" : "Mikrofon",
+		"message" : "Mikrofon|Engedélyezheted a weboldalnak, hogy hozzáférjen a mikrofonodhoz.|Ez a beállítás jelenleg nem működik egy Chromium hiba miatt.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_mouselock" : 
 	{
-		"message" : "Egérmutató rögzítése",
+		"message" : "Egérkurzor elrejtés|Engedélyezheted a weboldalnak, hogy elrejtse az egérmkurzorodat.|Bármikor visszakaphatod a kurzort az Esc gomb megnyomásával.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_notifications" : 
 	{
-		"message" : "Értesítések",
+		"message" : "Értesítések|Engedélyezheted a weboldalnak, hogy értesítéseket küldjön.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_footer_settings" : 
@@ -142,6 +142,11 @@
 	"sidebar_values_block" : 
 	{
 		"message" : "Tiltás",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_clickToPlay" : 
+	{
+		"message" : "Lejátszás kattintásra",
 		"description" : "Sidebar values"
 	},
 	"sidebar_values_sessionOnly" : 
@@ -174,6 +179,16 @@
 		"message" : "Beállítások",
 		"description" : "Preferences header"
 	},
+	"settings_content_preferences_colorCode" : 
+	{
+		"message" : "Színkódok mutatása",
+		"description" : "Preferences body"
+	},
+	"settings_content_preferences_autoRefresh" : 
+	{
+		"message" : "A weboldal automatikus frissítése a beállítások változtatása után",
+		"description" : "Preferences body"
+	},
 	"settings_content_preferences_zoomOnBadge" : 
 	{
 		"message" : "Mutassa a nagyítás értékét az ikonon",
@@ -199,9 +214,9 @@
 		"message" : "Így használd",
 		"description" : "How to use header"
 	},
-	"settings_content_howToUse_set" : 
+	"settings_content_howToUse_tooltip" : 
 	{
-		"message" : "A beállítások megváltoztatása után frissítened kell az oldalt.",
+		"message" : "Vidd az egered az ikonok fölé a plusz információkért.",
 		"description" : "How to use body"
 	},
 	"settings_content_howToUse_checkMark" : 

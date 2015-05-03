@@ -29,7 +29,9 @@ font-weight: bold;
 letter-spacing: 1px;}
 
 label {
-font-size: 1rem;}
+font-size: 1rem;
+padding: 0px 5px 0px 0px;
+border-right: 5px solid White;}
 
 label img {
 width: 16px;
@@ -54,27 +56,68 @@ background-color: transparent;}
 input:disabled, select:disabled {
 color: Black;}
 
+/* === tooltip styling === */
+#tooltip {
+position: absolute;
+left: 0px;
+border: 2px solid Grey;
+background: White;
+font-size: 0.8rem;
+box-sizing: border-box;
+margin: 0px 7px 0px 5px;
+padding: 5px;}
+
+#tooltip::before {
+background-color: White;
+border-right: 2px solid Grey;
+border-top: 2px solid Grey;
+content: "";
+display: block;
+height: 5px;
+width: 5px;
+position: absolute;
+left: 8px;
+top: -5px;
+transform: rotate(-45deg);
+transform-origin: 50% 50%;}
+
+#tooltip strong {
+letter-spacing: 1px;}
+
+#tooltip em {
+display: block;
+box-sizing: border-box;
+padding: 0px 0px 0px 5px;
+margin: 5px 0px 0px 0px;
+border-left: 2px solid Red;
+font-style: normal;}
+
 /* === edit/view mode styling === */
-form.edit input[type=button] {
+body.edit input[type=button] {
 display: inline-block;}
 
-form.edit input[type=number] {
+body.edit input[type=number] {
 border: 1px solid rgb(169, 169, 169);
 -webkit-appearance: textfield;}
 
-form.edit select {
+body.edit select {
 border: 1px solid rgb(169, 169, 169);
 -webkit-appearance: menulist;}
 
-form.view input[type=button] {
+body.edit #tooltip {
+display: block;}
+
+body.view input[type=button] {
 display: none;}
 
-form.view input[type=number], form.view select {
+body.view input[type=number], body.view select {
 border: 1px solid transparent;
 -webkit-appearance: none;}
 
-/* === footer styling === */
+body.view #tooltip {
+display: none;}
 
+/* === footer styling === */
 footer {
 position: fixed;
 bottom: 0px;

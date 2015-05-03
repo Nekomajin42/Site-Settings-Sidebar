@@ -6,6 +6,8 @@ window.addEventListener("load", function()
 	
 	// load and set settings
 	var settings = JSON.parse(window.localStorage.siteSettingsSidebar);
+	document.getElementById("colorCode").checked = settings.ui.colorCode;
+	document.getElementById("autoRefresh").checked = settings.auto.refresh;
 	document.getElementById("zoomOnBadge").checked = settings.zoom.onBadge;
 	document.getElementById("zoomStep").value = settings.zoom.step;
 	
@@ -19,6 +21,8 @@ window.addEventListener("load", function()
 	// save user preferences
 	document.getElementById("preferences").addEventListener("change", function()
 	{
+		settings.ui.colorCode = document.getElementById("colorCode").checked;
+		settings.auto.refresh = document.getElementById("autoRefresh").checked;
 		settings.zoom.onBadge = document.getElementById("zoomOnBadge").checked;
 		settings.zoom.step = document.getElementById("zoomStep").value;
 		window.localStorage.siteSettingsSidebar = JSON.stringify(settings);

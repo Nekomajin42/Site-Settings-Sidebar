@@ -26,6 +26,8 @@
 						<section>
 							<h2 data-i18n="settings_content_preferences_header" class="section-header"></h2>
 							<form class="options" id="preferences">
+								<input type="checkbox" id="colorCode" /> <label for="colorCode" data-i18n="settings_content_preferences_colorCode"></label><br />
+								<input type="checkbox" id="autoRefresh" /> <label for="autoRefresh" data-i18n="settings_content_preferences_autoRefresh"></label><br />
 								<input type="checkbox" id="zoomOnBadge" /> <label for="zoomOnBadge" data-i18n="settings_content_preferences_zoomOnBadge"></label><br />
 								<label for="zoomStep" data-i18n="settings_content_preferences_zoomStep"></label> <input type="number" min="1" step="1" id="zoomStep" />
 							</form>
@@ -39,7 +41,7 @@
 						<section>
 							<h2 data-i18n="settings_content_howToUse_header" class="section-header"></h2>
 							<ul>
-								<li data-i18n="settings_content_howToUse_set"></li>
+								<li data-i18n="settings_content_howToUse_tooltip"></li>
 								<li data-i18n="settings_content_howToUse_checkMark"></li>
 							</ul>
 						</section>
@@ -55,15 +57,26 @@
 						<section>
 							<h2 class="section-header">Future plans</h2>
 							<ul>
-								<li>ADD: Help</li>
 								<li>CHANGE: Reset zoom to default value, not 100%</li>
-								<li>CHANGE: Layout</li>
+								<li>CHANGE: Improve layout</li>
+							</ul>
+						</section>
+						<section>
+							<h2 class="section-header">v1.0.5 (2015. 05. 03.)</h2>
+							<ul>
+								<li>ADD: Help tooltips</li>
+								<li>ADD: User preferences (automatic page refresh)</li>
+								<li>ADD: User preferences (show color code)</li>
+								<li>CHANGE: Safety sign (checkmark to color code)</li>
+								<li>CHANGE: Plugin values ("Ask" to "Click to play")</li>
+								<li>CHANGE: Rearrange permissions (more logical)</li>
 							</ul>
 						</section>
 						<section>
 							<h2 class="section-header">v1.0.4 (2015. 04. 25.)</h2>
 							<ul>
 								<li>FIX: Handle cam/mic settings issue for now</li>
+								<li>FIX: Undefined notifications</li>
 								<li>CHANGE: Edit/View mode switch (no more blinking on hover)</li>
 								<li>CHANGE: minimum_opera_version to 30 (zoom related issues in v29)</li>
 								<li>CHANGE: Small UI stuff</li>

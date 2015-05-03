@@ -14,12 +14,18 @@ function data()
 	// look for saved data
 	var saved = (window.localStorage.siteSettingsSidebar) ? JSON.parse(window.localStorage.siteSettingsSidebar) : {};
 	saved.zoom = (saved.zoom) ? saved.zoom : {};
+	saved.auto = (saved.auto) ? saved.auto : {};
+	saved.ui = (saved.ui) ? saved.ui : {};
 	var settings = {};
 	
 	// zoom
 	settings.zoom = {};
 	settings.zoom.onBadge = (saved.zoom.onBadge) ? saved.zoom.onBadge : true;
 	settings.zoom.step = (saved.zoom.step) ? saved.zoom.step : 10;
+	settings.auto = {};
+	settings.auto.refresh = (saved.auto.refresh) ? saved.auto.refresh : true;
+	settings.ui = {};
+	settings.ui.colorCode = (saved.ui.colorCode) ? saved.ui.colorCode : true;
 	
 	// save and return
 	window.localStorage.siteSettingsSidebar = JSON.stringify(settings);
