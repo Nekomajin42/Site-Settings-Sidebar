@@ -1,13 +1,3 @@
-// deal with zoom
-chrome.tabs.onZoomChange.addListener(function(ZoomChangeInfo)
-{
-	if (settings.zoom.onBadge === true)
-	{
-		var zoom = Math.floor(ZoomChangeInfo.newZoomFactor * 100);
-		opr.sidebarAction.setBadgeText({text: zoom.toString()});
-	}
-});
-
 // build default settings
 function data()
 {
@@ -22,8 +12,12 @@ function data()
 	settings.zoom = {};
 	settings.zoom.onBadge = (saved.zoom.onBadge) ? saved.zoom.onBadge : true;
 	settings.zoom.step = (saved.zoom.step) ? saved.zoom.step : 10;
+	
+	// auto
 	settings.auto = {};
 	settings.auto.refresh = (saved.auto.refresh) ? saved.auto.refresh : true;
+	
+	// ui
 	settings.ui = {};
 	settings.ui.colorCode = (saved.ui.colorCode) ? saved.ui.colorCode : true;
 	
@@ -31,6 +25,21 @@ function data()
 	window.localStorage.siteSettingsSidebar = JSON.stringify(settings);
 	return settings;
 }
+
+// deal with install and update events
+chrome.runtime.onInstalled.addListener(function(details)
+{
+	if (details.reason === "install" || details.reason === "update")
+	{
+		// build default settings
+		settings = data();
+		
+		// throw notification
+		var title = chrome.i18n.getMessage("notification_" + details.reason + "_title");
+		var body = chrome.i18n.getMessage("notification_" + details.reason + "_body");
+		notify(title, body);
+	}
+});
 
 // throw notification
 function notify(title, body)
@@ -49,33 +58,31 @@ function notify(title, body)
 	};
 }
 
-// deal with install and updates
-chrome.runtime.onInstalled.addListener(function(details)
+// to do on extension load
+window.addEventListener("load", function()
 {
-	if (details.reason === "install")
+	try
 	{
-		// build default settings
-		var settings = data();
-		
-		// throw notification
-		var title = chrome.i18n.getMessage("notification_install_title");
-		var body = chrome.i18n.getMessage("notification_install_body");
-		notify(title, body);
+		settings = JSON.parse(window.localStorage.siteSettingsSidebar);
 	}
-	else if (details.reason === "update")
+	catch (error) // onLoad happens faster than onInstalled
 	{
-		// build default settings
-		var settings = data();
-		
-		// throw notification
-		var title = chrome.i18n.getMessage("notification_update_title");
-		var body = chrome.i18n.getMessage("notification_update_body");
-		notify(title, body);
+		settings = data();
 	}
-});
+	
+	// deal with zoom change
+	chrome.tabs.onZoomChange.addListener(function(ZoomChangeInfo)
+	{
+		if (settings.zoom.onBadge === true)
+		{
+			var zoom = Math.floor(ZoomChangeInfo.newZoomFactor * 100);
+			opr.sidebarAction.setBadgeText({text: zoom.toString()});
+		}
+	});
+}, false);
 
-// load and send user preferences
-var settings = JSON.parse(window.localStorage.siteSettingsSidebar);
+// to do on panel load
+var settings;
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
 	sendResponse(settings);
