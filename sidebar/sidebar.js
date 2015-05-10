@@ -8,7 +8,7 @@ function disableFields(url)
 	else
 	{
 		var protocol = url.slice(0, url.indexOf(":"));
-		var disabled = (protocol === "opera" || protocol === "chrome" || protocol === "chrome-extension") ? true : false;
+		var disabled = (protocol === "browser" || protocol === "opera" || protocol === "chrome" || protocol === "chrome-extension") ? true : false;
 	}
 	document.getElementById("zoom").disabled = disabled;
 	document.getElementById("resetZoom").disabled = disabled;
@@ -30,7 +30,10 @@ function getZoom()
 		{
 			opr.sidebarAction.setBadgeText({text: zoom.toString()});
 		}
-		document.querySelector("label[for='zoom']").style.borderColor = (settings.ui.colorCode === true) ? ((zoomFactor === 1) ? "Green" : "Yellow") : "White";
+		chrome.tabs.getZoomSettings(function(zoomSettings)
+		{
+			document.querySelector("label[for='zoom']").className = (settings.ui.colorCode === true) ? ((zoomFactor === zoomSettings.defaultZoomFactor) ? "green" : "yellow") : "transparent";
+		});
 	});
 }
 function setZoom()
@@ -45,12 +48,11 @@ function setZoom()
 }
 function resetZoom()
 {
-	/*chrome.tabs.getZoomSettings(function(ZoomSettings)
+	chrome.tabs.getZoomSettings(function(zoomSettings)
 	{
-		console.log(ZoomSettings);
-	});*/
-	document.getElementById("zoom").value = 100;
-	setZoom();
+		document.getElementById("zoom").value = zoomSettings.defaultZoomFactor*100;
+		setZoom();
+	});
 }
 
 // deail with content settings
@@ -71,13 +73,13 @@ function getSettings()
 					{
 						//console.log(type + ": " + details.setting);
 						document.getElementById(type).value = details.setting;
-						document.querySelector("label[for='"+type+"']").style.borderColor = (settings.ui.colorCode === true) ? document.querySelector("#"+type+" option[value='"+details.setting+"']").dataset.color : "White";
+						document.querySelector("label[for='"+type+"']").className = (settings.ui.colorCode === true) ? document.querySelector("#"+type+" option[value='"+details.setting+"']").dataset.color : "transparent";
 					});
 				}
 				catch (error)
 				{
 					document.getElementById(type).disabled = true;
-					document.querySelector("label[for='"+type+"']").style.borderColor = (settings.ui.colorCode === true) ? "Grey" : "White";
+					document.querySelector("label[for='"+type+"']").className = (settings.ui.colorCode === true) ? "grey" : "transparent";
 				}
 			});
 		}
@@ -108,7 +110,7 @@ function selectLocale()
 		{
 			elements[i].value = chrome.i18n.getMessage(elements[i].dataset.i18n);
 		}
-		else
+		else if (elements[i].tagName != "LABEL")
 		{
 			elements[i].innerHTML = chrome.i18n.getMessage(elements[i].dataset.i18n) + elements[i].innerHTML;
 		}
@@ -118,14 +120,24 @@ function selectLocale()
 // create and remove Help tooltip
 function showTooltip(e)
 {
-	var text = chrome.i18n.getMessage(e.target.dataset.i18n).split("|");
+	var target = (e.target.tagName === "LABEL") ? e.target : e.target.parentNode;
+	var text = chrome.i18n.getMessage(target.dataset.i18n).split("|");
 	var div = document.createElement("div");
 	div.id = "tooltip";
 	div.innerHTML = "<strong>" + text[0] + "</strong><br />";
 	div.innerHTML += text[1];
 	div.innerHTML += (text[2] != undefined) ? "<br /><em>" + text[2] + "</em>" : "";
-	div.style.top = e.target.offsetTop + 25 + "px";
-	document.body.appendChild(div);
+	if (/permission/.test(target.dataset.i18n) === true)
+	{
+		div.className = "up";
+		div.style.bottom = document.body.clientHeight - target.offsetTop + 5 + "px";
+	}
+	else
+	{
+		div.className = "down";
+		div.style.top = target.offsetTop + 29 + "px";
+	}
+	document.body.insertBefore(div, document.getElementsByTagName("footer")[0]);
 }
 function hideTooltip()
 {
@@ -134,15 +146,16 @@ function hideTooltip()
 
 // to do on page load
 var settings;
-chrome.runtime.sendMessage("", function(response)
+chrome.runtime.sendMessage("load", function(response)
 {
 	// get and set user preferences
 	settings = response;
 	document.getElementById("zoom").step = settings.zoom.step;
 	
-	// load local strings, set display mode
+	// load local strings, set display mode and color scheme
 	selectLocale();
-	document.body.className = "view";
+	document.getElementsByTagName("form")[0].className = "view";
+	document.body.className = (settings.ui.greyScheme === true) ? "gray" : "colorful";
 	
 	// zoom
 	getZoom();
@@ -158,7 +171,7 @@ chrome.runtime.sendMessage("", function(response)
 	}
 	
 	// inject Help tooltip
-	var labels = document.querySelectorAll("label img");
+	var labels = document.querySelectorAll("label");
 	for (var i=0; i<labels.length; i++)
 	{
 		labels[i].addEventListener("mouseover", showTooltip, false);
@@ -193,11 +206,10 @@ chrome.tabs.onUpdated.addListener(function(tab)
 // toggle edit/view mode
 opr.sidebarAction.onFocus.addListener(function(tabs)
 {
-	document.body.className = "edit";
+	document.getElementsByTagName("form")[0].className = "edit";
 	document.getElementById("zoom").focus();
 });
-
 opr.sidebarAction.onBlur.addListener(function(tabs)
 {
-	document.body.className = "view";
+	document.getElementsByTagName("form")[0].className = "view";
 });

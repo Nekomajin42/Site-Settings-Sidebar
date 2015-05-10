@@ -4,22 +4,33 @@ font-family: verdana, sans-serif;
 font-size: 14px;
 line-height: 150%;
 height: 100%;
-box-sizing: border-box;
-background-color: White;
-border-right: 2px solid LightGrey;}
+box-sizing: border-box;}
 
 body {
-margin: 0;}
+margin: 0;
+height: 100%;}
+body.gray {
+border-right: 2px solid LightGrey;
+background-color: White;}
+body.colorful {
+border-right: 2px solid CadetBlue;
+background-color: Aquamarine;}
 
 form {
-margin: 10px;
+box-sizing: border-box;
+margin: 0;
+padding: 5px;
+width: 100%;
 white-space: nowrap;}
 
 fieldset {
 padding: 0px;
 margin: 0px 0px 10px 0px;
-border: none;
+border: none;}
+body.gray fieldset {
 border-top: 2px solid LightGrey;}
+body.colorful fieldset {
+border-top: 2px solid CadetBlue;}
 
 legend {
 padding: 0px 5px 0px 0px;
@@ -29,29 +40,60 @@ font-weight: bold;
 letter-spacing: 1px;}
 
 label {
+display: inline-block;
+text-align: center;
 font-size: 1rem;
-padding: 0px 5px 0px 0px;
-border-right: 5px solid White;}
+padding: 0;
+margin: 0;
+width: 24px;
+height: 24px;
+border: none;}
 
 label img {
 width: 16px;
 height: 16px;
-vertical-align:-3px;}
+vertical-align: middle;}
+
+/* === colors === */
+.transparent {
+background-color: Transparent;}
+.green {
+background-color: MediumSeaGreen;}
+.red {
+background-color: Red;}
+.yellow {
+background-color: Yellow;}
+.grey {
+background-color: Grey;}
 
 /* === form styling === */
 input[type=number] {
+height: 24px;
+vertical-align: -1px;
+box-sizing: border-box;
 font-family: inherit;
 font-size: 1rem;
-background-color: transparent;
+background-color: Transparent;
 background-image: url("percent.svg");
 background-size: 10px 10px;
 background-repeat: no-repeat;
-background-position: 25px;}
+background-position: 25px 7px;}
+
+input[type=button] {
+height: 24px;
+box-sizing: border-box;}
 
 select {
+height: 24px;
+margin: 0;
+vertical-align: -1px;
+box-sizing: border-box;
 font-family: inherit;
 font-size: 1rem;
-background-color: transparent;}
+background-color: Transparent;}
+
+body.colorful option {
+background-color: Aquamarine;}
 
 input:disabled, select:disabled {
 color: Black;}
@@ -60,26 +102,40 @@ color: Black;}
 #tooltip {
 position: absolute;
 left: 0px;
-border: 2px solid Grey;
-background: White;
 font-size: 0.8rem;
 box-sizing: border-box;
 margin: 0px 7px 0px 5px;
 padding: 5px;}
+body.gray #tooltip {
+border: 2px solid Grey;
+background: White;}
+body.colorful #tooltip {
+border: 2px solid CadetBlue;
+background: AliceBlue;}
 
 #tooltip::before {
 background-color: White;
-border-right: 2px solid Grey;
-border-top: 2px solid Grey;
 content: "";
 display: block;
 height: 5px;
 width: 5px;
 position: absolute;
 left: 8px;
-top: -5px;
-transform: rotate(-45deg);
 transform-origin: 50% 50%;}
+#tooltip.down::before {
+top: -5px;
+transform: rotate(-45deg);}
+#tooltip.up::before {
+bottom: -5px;
+transform: rotate(135deg);}
+body.gray #tooltip::before {
+border-right: 2px solid Grey;
+border-top: 2px solid Grey;
+background: White;}
+body.colorful #tooltip::before {
+border-right: 2px solid CadetBlue;
+border-top: 2px solid CadetBlue;
+background: AliceBlue;}
 
 #tooltip strong {
 letter-spacing: 1px;}
@@ -93,28 +149,28 @@ border-left: 2px solid Red;
 font-style: normal;}
 
 /* === edit/view mode styling === */
-body.edit input[type=button] {
+form.edit input[type=button] {
 display: inline-block;}
 
-body.edit input[type=number] {
+form.edit input[type=number] {
 border: 1px solid rgb(169, 169, 169);
 -webkit-appearance: textfield;}
 
-body.edit select {
+form.edit select {
 border: 1px solid rgb(169, 169, 169);
 -webkit-appearance: menulist;}
 
-body.edit #tooltip {
+form.edit+#tooltip {
 display: block;}
 
-body.view input[type=button] {
+form.view input[type=button] {
 display: none;}
 
-body.view input[type=number], body.view select {
+form.view input[type=number], form.view select {
 border: 1px solid transparent;
 -webkit-appearance: none;}
 
-body.view #tooltip {
+form.view+#tooltip {
 display: none;}
 
 /* === footer styling === */
@@ -129,10 +185,15 @@ padding: 5px 10px 5px 10px;
 font-size: 1rem;
 white-space: nowrap;
 overflow-x: hidden;
-text-overflow: ellipsis;
+text-overflow: ellipsis;}
+body.gray footer {
 background-color: #f0f0f0;
 border-top: 2px solid LightGrey;
 border-right: 2px solid LightGrey;}
+body.colorful footer {
+background-color: Aqua;
+border-top: 2px solid CadetBlue;
+border-right: 2px solid CadetBlue;}
 
 footer a {
 color: inherit;

@@ -179,6 +179,11 @@
 		"message" : "Beállítások",
 		"description" : "Preferences header"
 	},
+	"settings_content_preferences_greyScheme" : 
+	{
+		"message" : "Use grey color scheme",
+		"description" : "Preferences body"
+	},
 	"settings_content_preferences_colorCode" : 
 	{
 		"message" : "Színkódok mutatása",

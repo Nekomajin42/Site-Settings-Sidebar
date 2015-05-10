@@ -1,29 +1,30 @@
-// build default settings
+// build settings
 function data()
 {
 	// look for saved data
-	var saved = (window.localStorage.siteSettingsSidebar) ? JSON.parse(window.localStorage.siteSettingsSidebar) : {};
-	saved.zoom = (saved.zoom) ? saved.zoom : {};
-	saved.auto = (saved.auto) ? saved.auto : {};
-	saved.ui = (saved.ui) ? saved.ui : {};
-	var settings = {};
+	var saved = (window.localStorage.siteSettingsSidebar != undefined) ? JSON.parse(window.localStorage.siteSettingsSidebar) : {};
+	saved.zoom = (saved.zoom != undefined) ? saved.zoom : {};
+	saved.auto = (saved.auto != undefined) ? saved.auto : {};
+	saved.ui = (saved.ui != undefined) ? saved.ui : {};
+	var pref = {};
 	
 	// zoom
-	settings.zoom = {};
-	settings.zoom.onBadge = (saved.zoom.onBadge) ? saved.zoom.onBadge : true;
-	settings.zoom.step = (saved.zoom.step) ? saved.zoom.step : 10;
+	pref.zoom = {};
+	pref.zoom.onBadge = (saved.zoom.onBadge != undefined) ? saved.zoom.onBadge : true;
+	pref.zoom.step = (saved.zoom.step != undefined) ? saved.zoom.step : 10;
 	
 	// auto
-	settings.auto = {};
-	settings.auto.refresh = (saved.auto.refresh) ? saved.auto.refresh : true;
+	pref.auto = {};
+	pref.auto.refresh = (saved.auto.refresh != undefined) ? saved.auto.refresh : true;
 	
 	// ui
-	settings.ui = {};
-	settings.ui.colorCode = (saved.ui.colorCode) ? saved.ui.colorCode : true;
+	pref.ui = {};
+	pref.ui.colorCode = (saved.ui.colorCode != undefined) ? saved.ui.colorCode : true;
+	pref.ui.greyScheme = (saved.ui.greyScheme != undefined) ? saved.ui.greyScheme : false;
 	
 	// save and return
-	window.localStorage.siteSettingsSidebar = JSON.stringify(settings);
-	return settings;
+	window.localStorage.siteSettingsSidebar = JSON.stringify(pref);
+	return pref;
 }
 
 // deal with install and update events
@@ -85,5 +86,6 @@ window.addEventListener("load", function()
 var settings;
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
+	settings = data();
 	sendResponse(settings);
 });
