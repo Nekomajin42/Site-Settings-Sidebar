@@ -5,12 +5,14 @@ window.addEventListener("load", function()
 	selectLocale();
 	
 	// load and set settings
-	var settings = JSON.parse(window.localStorage.siteSettingsSidebar);
-	document.getElementById("greyScheme").checked = settings.ui.greyScheme;
-	document.getElementById("colorCode").checked = settings.ui.colorCode;
-	document.getElementById("autoRefresh").checked = settings.auto.refresh;
-	document.getElementById("zoomOnBadge").checked = settings.zoom.onBadge;
-	document.getElementById("zoomStep").value = settings.zoom.step;
+	chrome.storage.local.get(null, function(settings)
+	{
+		document.getElementById("zoomStep").value = settings.zoomStep;
+		document.getElementById("autoRefresh").checked = settings.autoRefresh;
+		document.getElementById("greyScheme").checked = settings.greyScheme;
+		document.getElementById("colorCode").checked = settings.colorCode;
+		document.getElementById("zoomOnBadge").checked = settings.zoomOnBadge;
+	});
 	
 	// make the menu work
 	var menu = document.querySelectorAll("menu li");
@@ -20,13 +22,27 @@ window.addEventListener("load", function()
 	}
 	
 	// save user preferences
-	document.getElementById("preferences").addEventListener("change", function()
+	document.querySelector("div#settings").addEventListener("change", function()
 	{
-		settings.ui.greyScheme = document.getElementById("greyScheme").checked;
-		settings.ui.colorCode = document.getElementById("colorCode").checked;
-		settings.auto.refresh = document.getElementById("autoRefresh").checked;
-		settings.zoom.onBadge = document.getElementById("zoomOnBadge").checked;
-		settings.zoom.step = document.getElementById("zoomStep").value;
-		window.localStorage.siteSettingsSidebar = JSON.stringify(settings);
+		chrome.storage.local.set(
+		{
+			autoRefresh : document.getElementById("autoRefresh").checked,
+			zoomStep : document.getElementById("zoomStep").value,
+			colorCode : document.getElementById("colorCode").checked,
+			greyScheme : document.getElementById("greyScheme").checked,
+			zoomOnBadge : document.getElementById("zoomOnBadge").checked
+		});
+	}, false);
+	
+	// inject Extensions and KeyConfig page links
+	document.getElementById("ext").addEventListener("click", function(e)
+	{
+		e.preventDefault();
+		chrome.tabs.create({url: "browser://extensions/?id=" + chrome.runtime.id});
+	}, false);
+	document.getElementById("keys").addEventListener("click", function(e)
+	{
+		e.preventDefault();
+		chrome.tabs.create({url: "browser://settings/configureCommands"});
 	}, false);
 }, false);

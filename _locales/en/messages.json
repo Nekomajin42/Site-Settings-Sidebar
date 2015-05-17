@@ -36,7 +36,7 @@
 	},
 	"sidebar_zoom_value" : 
 	{
-		"message" : "Value|Valid values are between 20% and 500%.|Reset sets zoom level to 100%.",
+		"message" : "Value|Valid values are between 20% and 500%.|Reset sets zoom level to the default value given in the Settings.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_zoom_reset" : 
@@ -124,11 +124,6 @@
 		"message" : "Preferences",
 		"description" : "Sidebar content"
 	},
-	"sidebar_footer_extensions" : 
-	{
-		"message" : "Extensions",
-		"description" : "Sidebar content"
-	},
 	"sidebar_values_allow" : 
 	{
 		"message" : "Allow",
@@ -174,34 +169,44 @@
 		"message" : "Credits",
 		"description" : "Sidebar menu"
 	},
-	"settings_content_preferences_header" : 
+	"settings_content_panel_header" : 
 	{
-		"message" : "Preferences",
+		"message" : "Panel",
 		"description" : "Preferences header"
 	},
-	"settings_content_preferences_greyScheme" : 
+	"settings_content_button_header" : 
+	{
+		"message" : "Sidebar button",
+		"description" : "Preferences header"
+	},
+	"settings_content_page_header" : 
+	{
+		"message" : "Webpage",
+		"description" : "Preferences header"
+	},
+	"settings_content_panel_greyScheme" : 
 	{
 		"message" : "Use grey color scheme",
 		"description" : "Preferences body"
 	},
-	"settings_content_preferences_colorCode" : 
+	"settings_content_panel_colorCode" : 
 	{
 		"message" : "Show color codes",
 		"description" : "Preferences body"
 	},
-	"settings_content_preferences_autoRefresh" : 
+	"settings_content_page_autoRefresh" : 
 	{
 		"message" : "Refresh the page automatically after content settings change",
 		"description" : "Preferences body"
 	},
-	"settings_content_preferences_zoomOnBadge" : 
+	"settings_content_page_zoomStep" : 
 	{
-		"message" : "Show zoom level on the icon",
+		"message" : "Zoom step (%):",
 		"description" : "Preferences body"
 	},
-	"settings_content_preferences_zoomStep" : 
+	"settings_content_button_zoomOnBadge" : 
 	{
-		"message" : "Zoom step:",
+		"message" : "Show zoom level on the button",
 		"description" : "Preferences body"
 	},
 	"settings_content_incognito_header" : 
@@ -214,6 +219,26 @@
 		"message" : "If you want to use this extension in private mode, you have to activate in manualy in the Extension manager.",
 		"description" : "Incognito body"
 	},
+	"settings_content_incognito_extensions" : 
+	{
+		"message" : "Open Extension manager",
+		"description" : "Sidebar content"
+	},
+	"settings_content_shortcut_header" : 
+	{
+		"message" : "Shortcuts",
+		"description" : "Incognito header"
+	},
+	"settings_content_shortcut_info" : 
+	{
+		"message" : "Alt+Shift+S is the default shortcut to open/close the panel. You can change it in the Keyboard shortcuts dialog.",
+		"description" : "Incognito body"
+	},
+	"settings_content_shortcut_manager" : 
+	{
+		"message" : "Open Keyboard shortcut manager",
+		"description" : "Sidebar content"
+	},
 	"settings_content_howToUse_header" : 
 	{
 		"message" : "How to use",
@@ -224,9 +249,9 @@
 		"message" : "For help and additional information, hover over the icons on the panel.",
 		"description" : "How to use body"
 	},
-	"settings_content_howToUse_checkMark" : 
+	"settings_content_howToUse_colorCode" : 
 	{
-		"message" : "The checkmark indicates the default setting, so you can see what you have changed on the actual site.",
+		"message" : "Color codes are indicating security issues. Green: default, safe. Yellow: changed, but safe. Red: potentially dangerous.",
 		"description" : "How to use body"
 	},
 	"settings_content_notes_header" : 
@@ -327,6 +352,11 @@
 	"settings_content_permissions_tabs" : 
 	{
 		"message" : "Site Settings Sidebar needs permission to access your tabs so you can control the zoom settings with it.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_storage" : 
+	{
+		"message" : "Site Settings Sidebar needs permission to access to storage to save your preferences.",
 		"description" : "Permissions body"
 	}
 }

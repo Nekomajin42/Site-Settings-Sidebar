@@ -1,40 +1,8 @@
-// build settings
-function data()
-{
-	// look for saved data
-	var saved = (window.localStorage.siteSettingsSidebar != undefined) ? JSON.parse(window.localStorage.siteSettingsSidebar) : {};
-	saved.zoom = (saved.zoom != undefined) ? saved.zoom : {};
-	saved.auto = (saved.auto != undefined) ? saved.auto : {};
-	saved.ui = (saved.ui != undefined) ? saved.ui : {};
-	var pref = {};
-	
-	// zoom
-	pref.zoom = {};
-	pref.zoom.onBadge = (saved.zoom.onBadge != undefined) ? saved.zoom.onBadge : true;
-	pref.zoom.step = (saved.zoom.step != undefined) ? saved.zoom.step : 10;
-	
-	// auto
-	pref.auto = {};
-	pref.auto.refresh = (saved.auto.refresh != undefined) ? saved.auto.refresh : true;
-	
-	// ui
-	pref.ui = {};
-	pref.ui.colorCode = (saved.ui.colorCode != undefined) ? saved.ui.colorCode : true;
-	pref.ui.greyScheme = (saved.ui.greyScheme != undefined) ? saved.ui.greyScheme : false;
-	
-	// save and return
-	window.localStorage.siteSettingsSidebar = JSON.stringify(pref);
-	return pref;
-}
-
 // deal with install and update events
 chrome.runtime.onInstalled.addListener(function(details)
 {
 	if (details.reason === "install" || details.reason === "update")
 	{
-		// build default settings
-		settings = data();
-		
 		// throw notification
 		var title = chrome.i18n.getMessage("notification_" + details.reason + "_title");
 		var body = chrome.i18n.getMessage("notification_" + details.reason + "_body");
@@ -62,30 +30,31 @@ function notify(title, body)
 // to do on extension load
 window.addEventListener("load", function()
 {
-	try
+	// do some messy stuff
+	chrome.storage.local.get(null, function(saved)
 	{
-		settings = JSON.parse(window.localStorage.siteSettingsSidebar);
-	}
-	catch (error) // onLoad happens faster than onInstalled
-	{
-		settings = data();
-	}
-	
-	// deal with zoom change
-	chrome.tabs.onZoomChange.addListener(function(ZoomChangeInfo)
-	{
-		if (settings.zoom.onBadge === true)
+		// build user preferences
+		chrome.storage.local.set(
 		{
-			var zoom = Math.floor(ZoomChangeInfo.newZoomFactor * 100);
-			opr.sidebarAction.setBadgeText({text: zoom.toString()});
-		}
+			autoRefresh : (saved.autoRefresh != undefined) ? saved.autoRefresh : true,
+			zoomStep : (saved.zoomStep != undefined) ? saved.zoomStep : 10,
+			colorCode : (saved.colorCode != undefined) ? saved.colorCode : true,
+			greyScheme : (saved.greyScheme != undefined) ? saved.greyScheme : false,
+			zoomOnBadge : (saved.zoomOnBadge != undefined) ? saved.zoomOnBadge : true
+		});
+		
+		// get what we nees in background.js
+		chrome.storage.local.get("zoomOnBadge", function(settings)
+		{
+			// deal with zoom change
+			chrome.tabs.onZoomChange.addListener(function(zoomChangeInfo)
+			{
+				if (settings.zoomOnBadge === true)
+				{
+					var zoom = Math.round(zoomChangeInfo.newZoomFactor * 100);
+					opr.sidebarAction.setBadgeText({text: zoom.toString()});
+				}
+			});
+		});
 	});
 }, false);
-
-// to do on panel load
-var settings;
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
-{
-	settings = data();
-	sendResponse(settings);
-});

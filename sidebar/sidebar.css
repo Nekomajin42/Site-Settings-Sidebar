@@ -8,7 +8,8 @@ box-sizing: border-box;}
 
 body {
 margin: 0;
-height: 100%;}
+height: 100%;
+overflow: hidden;}
 body.gray {
 border-right: 2px solid LightGrey;
 background-color: White;}
@@ -36,7 +37,7 @@ legend {
 padding: 0px 5px 0px 0px;
 margin: 0px 0px 5px 0px;
 font-size: 1rem;
-font-weight: bold;
+font-weight: 500;
 letter-spacing: 1px;}
 
 label {
@@ -47,7 +48,8 @@ padding: 0;
 margin: 0;
 width: 24px;
 height: 24px;
-border: none;}
+border: none;
+transition: background-color 0.5s;}
 
 label img {
 width: 16px;
@@ -181,7 +183,7 @@ display: block;
 box-sizing: border-box;
 width: 100%;
 margin: 0;
-padding: 5px 10px 5px 10px;
+padding: 5px 5px 0px 5px;
 font-size: 1rem;
 white-space: nowrap;
 overflow-x: hidden;
@@ -195,7 +197,17 @@ background-color: Aqua;
 border-top: 2px solid CadetBlue;
 border-right: 2px solid CadetBlue;}
 
+footer img {
+padding: 4px;
+width: 16px;
+height: 16px;
+transition: background-color 0.5s;}
+
 footer a {
+display: inline-block;
+margin: 0px 0px 0px 6px;
+vertical-align: 7px;
+height: 24px;
 color: inherit;
 text-decoration: none;}
 footer a:hover {

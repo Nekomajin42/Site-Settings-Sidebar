@@ -26,13 +26,10 @@ function getZoom()
 	{
 		var zoom = Math.round(zoomFactor * 100);
 		document.getElementById("zoom").value = zoom;
-		if (settings.zoom.onBadge === true) // do we need the badge?
-		{
-			opr.sidebarAction.setBadgeText({text: zoom.toString()});
-		}
+		opr.sidebarAction.setBadgeText({text: (settings.zoomOnBadge === true) ? zoom.toString() : ""});
 		chrome.tabs.getZoomSettings(function(zoomSettings)
 		{
-			document.querySelector("label[for='zoom']").className = (settings.ui.colorCode === true) ? ((zoomFactor === zoomSettings.defaultZoomFactor) ? "green" : "yellow") : "transparent";
+			document.querySelector("label[for='zoom']").className = (settings.colorCode === true) ? ((zoomFactor === zoomSettings.defaultZoomFactor) ? "green" : "yellow") : "transparent";
 		});
 	});
 }
@@ -40,10 +37,7 @@ function setZoom()
 {
 	var zoom = document.getElementById("zoom").value;
 	var zoomFactor = parseInt(zoom, 10) / 100;
-	if (settings.zoom.onBadge === true)
-	{
-		opr.sidebarAction.setBadgeText({text: zoom});
-	}
+	opr.sidebarAction.setBadgeText({text: (settings.zoomOnBadge === true) ? zoom : ""});
 	chrome.tabs.setZoom(zoomFactor);
 }
 function resetZoom()
@@ -73,13 +67,13 @@ function getSettings()
 					{
 						//console.log(type + ": " + details.setting);
 						document.getElementById(type).value = details.setting;
-						document.querySelector("label[for='"+type+"']").className = (settings.ui.colorCode === true) ? document.querySelector("#"+type+" option[value='"+details.setting+"']").dataset.color : "transparent";
+						document.querySelector("label[for='"+type+"']").className = (settings.colorCode === true) ? document.querySelector("#"+type+" option[value='"+details.setting+"']").dataset.color : "transparent";
 					});
 				}
 				catch (error)
 				{
 					document.getElementById(type).disabled = true;
-					document.querySelector("label[for='"+type+"']").className = (settings.ui.colorCode === true) ? "grey" : "transparent";
+					document.querySelector("label[for='"+type+"']").className = (settings.colorCode === true) ? "grey" : "transparent";
 				}
 			});
 		}
@@ -93,7 +87,7 @@ function setSettings()
 	{
 		var pattern = tabs[0].url.slice(0, tabs[0].url.indexOf("/", 8)) + "/*";
 		chrome.contentSettings[type].set({primaryPattern: pattern, setting: value});
-		if (settings.auto.refresh === true)
+		if (settings.autoRefresh === true)
 		{
 			chrome.tabs.reload();
 		}
@@ -146,16 +140,29 @@ function hideTooltip()
 
 // to do on page load
 var settings;
-chrome.runtime.sendMessage("load", function(response)
+window.addEventListener("load", function()
 {
 	// get and set user preferences
-	settings = response;
-	document.getElementById("zoom").step = settings.zoom.step;
-	
-	// load local strings, set display mode and color scheme
-	selectLocale();
-	document.getElementsByTagName("form")[0].className = "view";
-	document.body.className = (settings.ui.greyScheme === true) ? "gray" : "colorful";
+	chrome.storage.local.get(null, function(pref)
+	{
+		// pass settings
+		settings =  pref;
+		
+		// zoom
+		document.getElementById("zoom").step = settings.zoomStep;
+		
+		// colos scheme
+		document.body.className = (settings.greyScheme === true) ? "gray" : "colorful";
+		
+		// localization
+		selectLocale();
+		
+		// form mode
+		document.getElementsByTagName("form")[0].className = "view";
+		
+		// footer icon
+		document.querySelector("footer img").style.backgroundColor = (settings.colorCode === true) ? ((settings.greyScheme === true) ? "LightGrey" : "CadetBlue") : "Transparent";
+	});
 	
 	// zoom
 	getZoom();
@@ -177,13 +184,7 @@ chrome.runtime.sendMessage("load", function(response)
 		labels[i].addEventListener("mouseover", showTooltip, false);
 		labels[i].addEventListener("mouseout", hideTooltip, false);
 	}
-	
-	// Extensions page link
-	document.getElementById("ext").addEventListener("click", function()
-	{
-		chrome.tabs.create({url: "opera://extensions/?id=" + chrome.runtime.id});
-	}, false);
-});
+}, false);
 
 // to do on zoom change
 chrome.tabs.onZoomChange.addListener(function(ZoomChangeInfo)
@@ -212,4 +213,25 @@ opr.sidebarAction.onFocus.addListener(function(tabs)
 opr.sidebarAction.onBlur.addListener(function(tabs)
 {
 	document.getElementsByTagName("form")[0].className = "view";
+});
+
+// to do on user preferences change
+chrome.storage.onChanged.addListener(function(changes, areaName)
+{
+	if (changes.zoomOnBadge)
+	{
+		opr.sidebarAction.setBadgeText({text: (changes.zoomOnBadge.newValue === true) ? document.getElementById("zoom").value : ""});
+	}
+	else if (changes.greyScheme || changes.colorCode)
+	{
+		location.reload();
+	}
+	else if (changes.zoomStep)
+	{
+		document.getElementById("zoom").step = changes.zoomStep.newValue;
+	}
+	else if (changes.zoomStep || changes.autoRefresh)
+	{
+		settings.autoRefresh = changes.autoRefresh.newValue;
+	}
 });

@@ -24,18 +24,34 @@
 				<div id="content">
 					<div class="subpage visible" id="settings">
 						<section>
-							<h2 data-i18n="settings_content_preferences_header" class="section-header"></h2>
-							<form class="options" id="preferences">
-								<input type="checkbox" id="greyScheme" /> <label for="greyScheme" data-i18n="settings_content_preferences_greyScheme"></label><br />
-								<input type="checkbox" id="colorCode" /> <label for="colorCode" data-i18n="settings_content_preferences_colorCode"></label><br />
-								<input type="checkbox" id="autoRefresh" /> <label for="autoRefresh" data-i18n="settings_content_preferences_autoRefresh"></label><br />
-								<input type="checkbox" id="zoomOnBadge" /> <label for="zoomOnBadge" data-i18n="settings_content_preferences_zoomOnBadge"></label><br />
-								<label for="zoomStep" data-i18n="settings_content_preferences_zoomStep"></label> <input type="number" min="1" step="1" id="zoomStep" />
+							<h2 data-i18n="settings_content_panel_header" class="section-header"></h2>
+							<form class="options" id="panel">
+								<input type="checkbox" id="greyScheme" /> <label for="greyScheme" data-i18n="settings_content_panel_greyScheme"></label><br />
+								<input type="checkbox" id="colorCode" /> <label for="colorCode" data-i18n="settings_content_panel_colorCode"></label><br />
+							</form>
+						</section>
+						<section>
+							<h2 data-i18n="settings_content_button_header" class="section-header"></h2>
+							<form class="options" id="button">
+								<input type="checkbox" id="zoomOnBadge" /> <label for="zoomOnBadge" data-i18n="settings_content_button_zoomOnBadge"></label><br />
+							</form>
+						</section>
+						<section>
+							<h2 data-i18n="settings_content_page_header" class="section-header"></h2>
+							<form class="options" id="page">
+								<input type="checkbox" id="autoRefresh" /> <label for="autoRefresh" data-i18n="settings_content_page_autoRefresh"></label><br />
+								<label for="zoomStep" data-i18n="settings_content_page_zoomStep"></label> <input type="number" min="1" max="500" step="1" id="zoomStep" />
 							</form>
 						</section>
 						<section>
 							<h2 data-i18n="settings_content_incognito_header" class="section-header"></h2>
 							<p data-i18n="settings_content_incognito_info"></p>
+							<p><a id="ext" href="browser://extensions" target="_blank" data-i18n="settings_content_incognito_extensions"></a></p>
+						</section>
+						<section>
+							<h2 data-i18n="settings_content_shortcut_header" class="section-header"></h2>
+							<p data-i18n="settings_content_shortcut_info"></p>
+							<p><a id="keys" href="browser://settings/configureCommands" target="_blank" data-i18n="settings_content_shortcut_manager"></a></p>
 						</section>
 					</div>
 					<div class="subpage" id="help">
@@ -43,7 +59,7 @@
 							<h2 data-i18n="settings_content_howToUse_header" class="section-header"></h2>
 							<ul>
 								<li data-i18n="settings_content_howToUse_tooltip"></li>
-								<li data-i18n="settings_content_howToUse_checkMark"></li>
+								<li data-i18n="settings_content_howToUse_colorCode"></li>
 							</ul>
 						</section>
 						<section>
@@ -58,8 +74,20 @@
 						<section>
 							<h2 class="section-header">Future plans</h2>
 							<ul>
-								<li>FIX: Panel not updating after preferences change</li>
+								<li>ADD: Color code on sidebar button badge</li>
 								<li>CHANGE: Improve layout</li>
+							</ul>
+						</section>
+						<section>
+							<h2 class="section-header">v1.0.8 (2015. 05. 17.)</h2>
+							<ul>
+								<li>FIX: Panel and badge not updating after preferences change</li>
+								<li>FIX: Outdated lines in the help section</li>
+								<li>ADD: Alt+Shift+S shortcut to open/close panel</li>
+								<li>ADD: Color code animation</li>
+								<li>CHANGE: Restructure user preferences page</li>
+								<li>CHANGE: localStorage to chrome.storage</li>
+								<li>CHANGE: Redesign panel footer</li>
 							</ul>
 						</section>
 						<section>
@@ -182,6 +210,7 @@
 								<li data-i18n="settings_content_permissions_contentSettings"></li>
 								<li data-i18n="settings_content_permissions_notifications"></li>
 								<li data-i18n="settings_content_permissions_tabs"></li>
+								<li data-i18n="settings_content_permissions_storage"></li>
 							</ul>
 						</section>
 					</div>

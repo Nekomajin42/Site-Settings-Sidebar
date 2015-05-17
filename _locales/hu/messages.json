@@ -36,7 +36,7 @@
 	},
 	"sidebar_zoom_value" : 
 	{
-		"message" : "Érték|A nagyítás értékének 20% és 500% közé kell esni.|A Visszaállít gomb 100%-ra állítja a nagyítás értékét.",
+		"message" : "Érték|A nagyítás értékének 20% és 500% közé kell esni.|A Visszaállít gomb az alapértelmezett értéket állítja vissza, amit a Beállításokban mgadtál.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_zoom_reset" : 
@@ -124,11 +124,6 @@
 		"message" : "Beállítások",
 		"description" : "Sidebar content"
 	},
-	"sidebar_footer_extensions" : 
-	{
-		"message" : "Bővítmények",
-		"description" : "Sidebar content"
-	},
 	"sidebar_values_allow" : 
 	{
 		"message" : "Engedélyezés",
@@ -174,34 +169,44 @@
 		"message" : "Névjegy",
 		"description" : "Sidebar menu"
 	},
-	"settings_content_preferences_header" : 
+	"settings_content_panel_header" : 
 	{
-		"message" : "Beállítások",
+		"message" : "Panel",
 		"description" : "Preferences header"
 	},
-	"settings_content_preferences_greyScheme" : 
+	"settings_content_button_header" : 
+	{
+		"message" : "Oldalsáv gomb",
+		"description" : "Preferences header"
+	},
+	"settings_content_page_header" : 
+	{
+		"message" : "Weblap",
+		"description" : "Preferences header"
+	},
+	"settings_content_panel_greyScheme" : 
 	{
 		"message" : "Use grey color scheme",
 		"description" : "Preferences body"
 	},
-	"settings_content_preferences_colorCode" : 
+	"settings_content_panel_colorCode" : 
 	{
 		"message" : "Színkódok mutatása",
 		"description" : "Preferences body"
 	},
-	"settings_content_preferences_autoRefresh" : 
+	"settings_content_page_autoRefresh" : 
 	{
 		"message" : "A weboldal automatikus frissítése a beállítások változtatása után",
 		"description" : "Preferences body"
 	},
-	"settings_content_preferences_zoomOnBadge" : 
+	"settings_content_button_zoomOnBadge" : 
 	{
-		"message" : "Mutassa a nagyítás értékét az ikonon",
+		"message" : "Mutassa a nagyítás értékét az oldalsáv gombján",
 		"description" : "Preferences body"
 	},
-	"settings_content_preferences_zoomStep" : 
+	"settings_content_page_zoomStep" : 
 	{
-		"message" : "Lépésköz:",
+		"message" : "Lépésköz (%):",
 		"description" : "Preferences body"
 	},
 	"settings_content_incognito_header" : 
@@ -214,6 +219,26 @@
 		"message" : "Ha privát módban is használni akarod ezt a bővítményt, akkor engedélyezned kell a Bővítmények lapon.",
 		"description" : "Incognito body"
 	},
+	"settings_content_incognito_extensions" : 
+	{
+		"message" : "Bővítménykezelő megnyitása",
+		"description" : "Sidebar content"
+	},
+	"settings_content_shortcut_header" : 
+	{
+		"message" : "Billentyűparancsok",
+		"description" : "Incognito header"
+	},
+	"settings_content_shortcut_info" : 
+	{
+		"message" : "Alt+Shift+S az alapértelmezett billentyűkombináció a panel kinyitásához és becsukásához. A kombinációt meg tudod változtatni a Billentyűparancsok párbeszédablakban",
+		"description" : "Incognito body"
+	},
+	"settings_content_shortcut_manager" : 
+	{
+		"message" : "Billentyűparancsok megnyitása",
+		"description" : "Sidebar content"
+	},
 	"settings_content_howToUse_header" : 
 	{
 		"message" : "Így használd",
@@ -224,9 +249,9 @@
 		"message" : "Vidd az egered az ikonok fölé a plusz információkért.",
 		"description" : "How to use body"
 	},
-	"settings_content_howToUse_checkMark" : 
+	"settings_content_howToUse_colorCode" : 
 	{
-		"message" : "A pipa az alapértelmezett beállítást jelzi, így rögtön látod, hogy mit változtattál meg korábban.",
+		"message" : "A színkódok biztonsági szepontokra hívják fel a figyelmet. Zöld: alapértelmezett, biztonságos. Sárga: megváltoztattad, de biztonságos. Piros: veszélyes lehet.",
 		"description" : "How to use body"
 	},
 	"settings_content_notes_header" : 
@@ -332,6 +357,11 @@
 	"settings_content_permissions_tabs" : 
 	{
 		"message" : "A Site Settings Sidebar azért kér hozzáférést a lapfülekhez, hogy szabályozni tudja az oldalak nagyítását.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_storage" : 
+	{
+		"message" : "Site Settings Sidebar azért kér hozzáférést a tárolóhoz, hogy el tudja menteni a beállításaidat.",
 		"description" : "Permissions body"
 	}
 }

@@ -1,24 +1,31 @@
 {
-	"name": "Site Settings Sidebar",
-	"developer": 
+	"name" : "Site Settings Sidebar",
+	"description" : "__MSG_manifest_description__",
+	"developer" : 
 	{
 		"name" : "Nekomajin",
 		"url" : "http://tothrobert.ininet.hu"
 	},
-	"description" : "__MSG_manifest_description__",
-	"default_locale": "en",
 	"manifest_version" : 2,
-	"version" : "1.0.7",
+	"version" : "1.0.8",
 	"minimum_opera_version" : "30",
+	"default_locale": "en",
 	"background" : 
 	{
 		"scripts" : ["background.js"]
 	},
-	"sidebar_action": 
+	"sidebar_action" : 
 	{
 		"default_icon": "icons/icon19.png",
 		"default_title": "__MSG_manifest_defaultTitle__",
 		"default_panel" : "sidebar/sidebar.html"
+	},
+	"commands" :
+	{
+		"_execute_sidebar_action" :
+		{
+			"suggested_key" : {"default" : "Alt+Shift+S"}
+		}
 	},
 	"icons" : 
 	{
@@ -39,7 +46,8 @@
 	[
 		"contentSettings",
 		"tabs",
-		"notifications"
+		"notifications",
+		"storage"
 	],
-	"content_security_policy": "script-src 'self'; object-src 'self';"
+	"content_security_policy" : "script-src 'self'; object-src 'self';"
 }
