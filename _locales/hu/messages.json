@@ -36,10 +36,10 @@
 	},
 	"sidebar_zoom_value" : 
 	{
-		"message" : "Érték|A nagyítás értékének 20% és 500% közé kell esni.|A Visszaállít gomb az alapértelmezett értéket állítja vissza, amit a Beállításokban mgadtál.",
+		"message" : "Érték|A nagyítás értékének 20% és 500% közé kell esni.|A Visszaállít gomb azt az alapértelmezett értéket állítja vissza, amit a Beállításokban megadtál.",
 		"description" : "Sidebar content"
 	},
-	"sidebar_zoom_reset" : 
+	"sidebar_button_reset" : 
 	{
 		"message" : "Visszaállít",
 		"description" : "Sidebar content"
@@ -119,6 +119,21 @@
 		"message" : "Értesítések|Engedélyezheted a weboldalnak, hogy értesítéseket küldjön.",
 		"description" : "Sidebar content"
 	},
+	"sidebar_tools_header" : 
+	{
+		"message" : "Eszközök",
+		"description" : "Sidebar content"
+	},
+	"sidebar_tools_turbo" : 
+	{
+		"message" : "Opera Turbo|Be- vagy kikapcsolhatod a Turbo funkciót az összes weboldalon.|A Visszaállít gomb visszaadja az irányítást a böngészőnek.",
+		"description" : "Sidebar content"
+	},
+	"sidebar_footer_status" : 
+	{
+		"message" : "Státusz|A sárga ikon azt jelenti, hogy a panel csak olvasható.|Egy Operás korlátozás miatt a bővítmények nem működnek a böngésző belső lapjain és néhány Opera weboldalon.",
+		"description" : "Sidebar content"
+	},
 	"sidebar_footer_settings" : 
 	{
 		"message" : "Beállítások",
@@ -147,6 +162,16 @@
 	"sidebar_values_sessionOnly" : 
 	{
 		"message" : "Erre a munkamenetre",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_enabled" : 
+	{
+		"message" : "Bekapcsolva",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_disabled" : 
+	{
+		"message" : "Kikapcsolva",
 		"description" : "Sidebar values"
 	},
 	"settings_sidebar_menuitem_settings" : 
@@ -251,7 +276,7 @@
 	},
 	"settings_content_howToUse_colorCode" : 
 	{
-		"message" : "A színkódok biztonsági szepontokra hívják fel a figyelmet. Zöld: alapértelmezett, biztonságos. Sárga: megváltoztattad, de biztonságos. Piros: veszélyes lehet.",
+		"message" : "A színkódok biztonsági szempontokra hívják fel a figyelmet. Zöld: alapértelmezett, biztonságos. Sárga: megváltoztattad, de biztonságos. Piros: veszélyes lehet.",
 		"description" : "How to use body"
 	},
 	"settings_content_notes_header" : 

@@ -39,7 +39,7 @@
 		"message" : "Value|Valid values are between 20% and 500%.|Reset sets zoom level to the default value given in the Settings.",
 		"description" : "Sidebar content"
 	},
-	"sidebar_zoom_reset" : 
+	"sidebar_button_reset" : 
 	{
 		"message" : "Reset",
 		"description" : "Sidebar content"
@@ -119,6 +119,21 @@
 		"message" : "Notifications|Permission to the website to show you notifications.",
 		"description" : "Sidebar content"
 	},
+	"sidebar_tools_header" : 
+	{
+		"message" : "Tools",
+		"description" : "Sidebar content"
+	},
+	"sidebar_tools_turbo" : 
+	{
+		"message" : "Opera Turbo|Turn Turbo on or off for every page.|Reset gives the control back to the browser.",
+		"description" : "Sidebar content"
+	},
+	"sidebar_footer_status" : 
+	{
+		"message" : "Status|If the icon is yellow, the panel is read-only.|Because of an Opera policy, extensions are disabled on internal browser pages and some Opera sites.",
+		"description" : "Sidebar content"
+	},
 	"sidebar_footer_settings" : 
 	{
 		"message" : "Preferences",
@@ -147,6 +162,16 @@
 	"sidebar_values_sessionOnly" : 
 	{
 		"message" : "Session only",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_enabled" : 
+	{
+		"message" : "Enabled",
+		"description" : "Sidebar values"
+	},
+	"sidebar_values_disabled" : 
+	{
+		"message" : "Disabled",
 		"description" : "Sidebar values"
 	},
 	"settings_sidebar_menuitem_settings" : 

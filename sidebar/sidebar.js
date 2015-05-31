@@ -12,11 +12,15 @@ function disableFields(url)
 	}
 	document.getElementById("zoom").disabled = disabled;
 	document.getElementById("resetZoom").disabled = disabled;
+	document.getElementById("resetTurbo").disabled = disabled;
 	var select = document.getElementsByTagName("select");
 	for (var i=0; i<select.length; i++)
 	{
 		select[i].disabled = disabled;
 	}
+	
+	// footer icon
+	document.querySelector("footer label").className = (settings.colorCode === true) ? ((disabled === true) ? "yellow" : "green") : "transparent";
 }
 
 // deal with zoom
@@ -94,6 +98,35 @@ function setSettings()
 	});
 }
 
+// deal with global tools
+function getTools()
+{
+	// Turbo
+	opr.offroad.enabled.get({}, function(details)
+	{
+		if (details.levelOfControl === "controllable_by_this_extension" || details.levelOfControl === "controlled_by_this_extension")
+		{
+			document.getElementById("turbo").value = details.value;
+			document.querySelector("label[for='turbo']").className = (settings.colorCode === true) ? ((details.value === true) ? "yellow" : "green") : "transparent";
+		}
+	});
+}
+function setTools()
+{
+	var type = this.id;
+	var value = this.value;
+	if (type === "turbo")
+	{
+		opr.offroad.enabled.set({value: (value === "true"), scope: "regular"}, function(details)
+		{
+			if (settings.autoRefresh === true)
+			{
+				chrome.tabs.reload();
+			}
+		});
+	}
+}
+
 // load local strings
 function selectLocale()
 {
@@ -121,7 +154,12 @@ function showTooltip(e)
 	div.innerHTML = "<strong>" + text[0] + "</strong><br />";
 	div.innerHTML += text[1];
 	div.innerHTML += (text[2] != undefined) ? "<br /><em>" + text[2] + "</em>" : "";
-	if (/permission/.test(target.dataset.i18n) === true)
+	if (/footer/.test(target.dataset.i18n) === true)
+	{
+		div.className = "up";
+		div.style.bottom = "31px";
+	}
+	else if (/permission/.test(target.dataset.i18n) === true || /tools/.test(target.dataset.i18n) === true)
 	{
 		div.className = "up";
 		div.style.bottom = document.body.clientHeight - target.offsetTop + 5 + "px";
@@ -131,7 +169,7 @@ function showTooltip(e)
 		div.className = "down";
 		div.style.top = target.offsetTop + 29 + "px";
 	}
-	document.body.insertBefore(div, document.getElementsByTagName("footer")[0]);
+	document.body.appendChild(div);
 }
 function hideTooltip()
 {
@@ -148,34 +186,43 @@ window.addEventListener("load", function()
 		// pass settings
 		settings =  pref;
 		
+		// localization
+		selectLocale();
+		
 		// zoom
 		document.getElementById("zoom").step = settings.zoomStep;
 		
 		// colos scheme
-		document.body.className = (settings.greyScheme === true) ? "gray" : "colorful";
-		
-		// localization
-		selectLocale();
+		document.body.classList.add((settings.greyScheme === true) ? "gray" : "colorful");
 		
 		// form mode
-		document.getElementsByTagName("form")[0].className = "view";
+		document.body.classList.add("view");
 		
-		// footer icon
-		document.querySelector("footer img").style.backgroundColor = (settings.colorCode === true) ? ((settings.greyScheme === true) ? "LightGrey" : "CadetBlue") : "Transparent";
+		// zoom
+		getZoom();
+		document.getElementById("zoom").addEventListener("change", setZoom, false);
+		document.getElementById("resetZoom").addEventListener("click", resetZoom, false);
+		
+		// content settings
+		getSettings();
+		var types = document.getElementsByClassName("content_setting");
+		for (var i=0; i<types.length; i++)
+		{
+			types[i].addEventListener("change", setSettings, false);
+		}
+		
+		// global tools
+		getTools();
+		var types = document.getElementsByClassName("global_setting");
+		for (var i=0; i<types.length; i++)
+		{
+			types[i].addEventListener("change", setTools, false);
+		}
+		document.getElementById("resetTurbo").addEventListener("click", function()
+		{
+			opr.offroad.enabled.clear({scope: "regular"});
+		});
 	});
-	
-	// zoom
-	getZoom();
-	document.getElementById("zoom").addEventListener("change", setZoom, false);
-	document.getElementById("resetZoom").addEventListener("click", resetZoom, false);
-	
-	// settings
-	getSettings();
-	var types = document.getElementsByTagName("select");
-	for (var i=0; i<types.length; i++)
-	{
-		types[i].addEventListener("change", setSettings, false);
-	}
 	
 	// inject Help tooltip
 	var labels = document.querySelectorAll("label");
@@ -187,9 +234,15 @@ window.addEventListener("load", function()
 }, false);
 
 // to do on zoom change
-chrome.tabs.onZoomChange.addListener(function(ZoomChangeInfo)
+chrome.tabs.onZoomChange.addListener(function(zoomChangeInfo)
 {
 	getZoom();
+});
+
+// to do on Turbo change
+opr.offroad.enabled.onChange.addListener(function(event)
+{
+	getTools();
 });
 
 // to do on page open/update
@@ -197,22 +250,26 @@ chrome.tabs.onActivated.addListener(function(activeInfo)
 {
 	getZoom();
 	getSettings();
+	getTools();
 });
 chrome.tabs.onUpdated.addListener(function(tab)
 {
 	getZoom();
 	getSettings();
+	getTools();
 });
 
 // toggle edit/view mode
 opr.sidebarAction.onFocus.addListener(function(tabs)
 {
-	document.getElementsByTagName("form")[0].className = "edit";
+	document.body.classList.remove("view");
+	document.body.classList.add("edit");
 	document.getElementById("zoom").focus();
 });
 opr.sidebarAction.onBlur.addListener(function(tabs)
 {
-	document.getElementsByTagName("form")[0].className = "view";
+	document.body.classList.remove("edit");
+	document.body.classList.add("view");
 });
 
 // to do on user preferences change

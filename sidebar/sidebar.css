@@ -151,39 +151,39 @@ border-left: 2px solid Red;
 font-style: normal;}
 
 /* === edit/view mode styling === */
-form.edit input[type=button] {
+body.edit input[type=button] {
 display: inline-block;}
 
-form.edit input[type=number] {
+body.edit input[type=number] {
 border: 1px solid rgb(169, 169, 169);
 -webkit-appearance: textfield;}
 
-form.edit select {
+body.edit select {
 border: 1px solid rgb(169, 169, 169);
 -webkit-appearance: menulist;}
 
-form.edit+#tooltip {
+body.edit #tooltip {
 display: block;}
 
-form.view input[type=button] {
+body.view input[type=button] {
 display: none;}
 
-form.view input[type=number], form.view select {
+body.view input[type=number], body.view select {
 border: 1px solid transparent;
 -webkit-appearance: none;}
 
-form.view+#tooltip {
+body.view #tooltip {
 display: none;}
 
 /* === footer styling === */
 footer {
-position: fixed;
+position: absolute;
 bottom: 0px;
 display: block;
 box-sizing: border-box;
 width: 100%;
 margin: 0;
-padding: 5px 5px 0px 5px;
+padding: 5px 5px 5px 5px;
 font-size: 1rem;
 white-space: nowrap;
 overflow-x: hidden;
@@ -198,7 +198,6 @@ border-top: 2px solid CadetBlue;
 border-right: 2px solid CadetBlue;}
 
 footer img {
-padding: 4px;
 width: 16px;
 height: 16px;
 transition: background-color 0.5s;}
@@ -206,8 +205,7 @@ transition: background-color 0.5s;}
 footer a {
 display: inline-block;
 margin: 0px 0px 0px 6px;
-vertical-align: 7px;
-height: 24px;
+vertical-align: -2px;
 color: inherit;
 text-decoration: none;}
 footer a:hover {

@@ -41,19 +41,20 @@ window.addEventListener("load", function()
 			colorCode : (saved.colorCode != undefined) ? saved.colorCode : true,
 			greyScheme : (saved.greyScheme != undefined) ? saved.greyScheme : false,
 			zoomOnBadge : (saved.zoomOnBadge != undefined) ? saved.zoomOnBadge : true
-		});
-		
-		// get what we nees in background.js
-		chrome.storage.local.get("zoomOnBadge", function(settings)
+		}, function()
 		{
-			// deal with zoom change
-			chrome.tabs.onZoomChange.addListener(function(zoomChangeInfo)
+			// get what we need in background.js
+			chrome.storage.local.get("zoomOnBadge", function(settings)
 			{
-				if (settings.zoomOnBadge === true)
+				// deal with zoom change
+				chrome.tabs.onZoomChange.addListener(function(zoomChangeInfo)
 				{
-					var zoom = Math.round(zoomChangeInfo.newZoomFactor * 100);
-					opr.sidebarAction.setBadgeText({text: zoom.toString()});
-				}
+					if (settings.zoomOnBadge === true)
+					{
+						var zoom = Math.round(zoomChangeInfo.newZoomFactor * 100);
+						opr.sidebarAction.setBadgeText({text: zoom.toString()});
+					}
+				});
 			});
 		});
 	});

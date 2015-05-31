@@ -38,11 +38,11 @@ window.addEventListener("load", function()
 	document.getElementById("ext").addEventListener("click", function(e)
 	{
 		e.preventDefault();
-		chrome.tabs.create({url: "browser://extensions/?id=" + chrome.runtime.id});
+		chrome.tabs.create({url: "opera://extensions/?id=" + chrome.runtime.id});
 	}, false);
 	document.getElementById("keys").addEventListener("click", function(e)
 	{
 		e.preventDefault();
-		chrome.tabs.create({url: "browser://settings/configureCommands"});
+		chrome.tabs.create({url: "opera://settings/configureCommands"});
 	}, false);
 }, false);
