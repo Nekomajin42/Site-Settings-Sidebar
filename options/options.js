@@ -12,6 +12,8 @@ window.addEventListener("load", function()
 		document.getElementById("greyScheme").checked = settings.greyScheme;
 		document.getElementById("colorCode").checked = settings.colorCode;
 		document.getElementById("zoomOnBadge").checked = settings.zoomOnBadge;
+		document.getElementById("sidebarIcon").value = settings.sidebarIcon;
+		opr.sidebarAction.setIcon({path : "../icons/" + settings.sidebarIcon + "19.png"});
 	});
 	
 	// make the menu work
@@ -30,7 +32,11 @@ window.addEventListener("load", function()
 			zoomStep : document.getElementById("zoomStep").value,
 			colorCode : document.getElementById("colorCode").checked,
 			greyScheme : document.getElementById("greyScheme").checked,
-			zoomOnBadge : document.getElementById("zoomOnBadge").checked
+			zoomOnBadge : document.getElementById("zoomOnBadge").checked,
+			sidebarIcon : document.getElementById("sidebarIcon").value
+		}, function()
+		{
+			opr.sidebarAction.setIcon({path : "../icons/" + document.getElementById('sidebarIcon').value + "19.png"});
 		});
 	}, false);
 	

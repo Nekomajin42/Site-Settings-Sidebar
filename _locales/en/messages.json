@@ -11,7 +11,7 @@
 	},
 	"notification_install_title" : 
 	{
-		"message" : "Site Setting Sidebar has been installed",
+		"message" : "Site Settings Sidebar has been installed",
 		"description" : "Notification install"
 	},
 	"notification_install_body" : 
@@ -21,7 +21,7 @@
 	},
 	"notification_update_title" : 
 	{
-		"message" : "Site Setting Sidebar has been updated",
+		"message" : "Site Settings Sidebar has been updated",
 		"description" : "Notification install"
 	},
 	"notification_update_body" : 
@@ -227,6 +227,26 @@
 	"settings_content_page_zoomStep" : 
 	{
 		"message" : "Zoom step (%):",
+		"description" : "Preferences body"
+	},
+	"settings_content_button_icon" : 
+	{
+		"message" : "Sidebar icon:",
+		"description" : "Preferences body"
+	},
+	"settings_content_button_old" : 
+	{
+		"message" : "Old",
+		"description" : "Preferences body"
+	},
+	"settings_content_button_newRed" : 
+	{
+		"message" : "New (Opera red)",
+		"description" : "Preferences body"
+	},
+	"settings_content_button_newGrey" : 
+	{
+		"message" : "New (Greyscale)",
 		"description" : "Preferences body"
 	},
 	"settings_content_button_zoomOnBadge" : 

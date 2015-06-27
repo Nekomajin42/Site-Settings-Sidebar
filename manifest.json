@@ -7,7 +7,7 @@
 		"url" : "http://tothrobert.ininet.hu"
 	},
 	"manifest_version" : 2,
-	"version" : "1.0.9",
+	"version" : "1.0.10",
 	"minimum_opera_version" : "30",
 	"default_locale": "en",
 	"background" : 
@@ -37,7 +37,11 @@
 		"19": "icons/icon19.png", 
 		"16": "icons/icon16.png"
 	},
-	"options_page" : "options/options.html",
+	"options_ui" : 
+	{
+		"page" : "options/options.html",
+		"open_in_tab" : true
+	},
 	"web_accessible_resources" : 
 	[ 
 		"icons/icon128.png"

@@ -23,7 +23,7 @@ function notify(title, body)
 	});
 	n.onclick = function()
 	{
-		chrome.tabs.create({url : "/options/options.html"});
+		chrome.runtime.openOptionsPage();
 	};
 }
 
@@ -40,12 +40,16 @@ window.addEventListener("load", function()
 			zoomStep : (saved.zoomStep != undefined) ? saved.zoomStep : 10,
 			colorCode : (saved.colorCode != undefined) ? saved.colorCode : true,
 			greyScheme : (saved.greyScheme != undefined) ? saved.greyScheme : false,
-			zoomOnBadge : (saved.zoomOnBadge != undefined) ? saved.zoomOnBadge : true
+			zoomOnBadge : (saved.zoomOnBadge != undefined) ? saved.zoomOnBadge : true,
+			sidebarIcon : (saved.sidebarIcon != undefined) ? saved.sidebarIcon : "icon"
 		}, function()
 		{
 			// get what we need in background.js
-			chrome.storage.local.get("zoomOnBadge", function(settings)
+			chrome.storage.local.get(["zoomOnBadge", "sidebarIcon"], function(settings)
 			{
+				// set icon
+				opr.sidebarAction.setIcon({path : "../icons/" + settings.sidebarIcon + "19.png"});
+				
 				// deal with zoom change
 				chrome.tabs.onZoomChange.addListener(function(zoomChangeInfo)
 				{
@@ -53,6 +57,51 @@ window.addEventListener("load", function()
 					{
 						var zoom = Math.round(zoomChangeInfo.newZoomFactor * 100);
 						opr.sidebarAction.setBadgeText({text: zoom.toString()});
+					}
+				});
+				
+				// deal with tab change
+				chrome.tabs.onActivated.addListener(function(activeInfo)
+				{
+					if (settings.zoomOnBadge === true)
+					{
+						chrome.tabs.getZoom(function(zoomFactor)
+						{
+							var zoom = Math.round(zoomFactor * 100);
+							opr.sidebarAction.setBadgeText({text: zoom.toString()});
+						});
+					}
+				});
+				chrome.tabs.onUpdated.addListener(function(tab)
+				{
+					if (settings.zoomOnBadge === true)
+					{
+						chrome.tabs.getZoom(function(zoomFactor)
+						{
+							var zoom = Math.round(zoomFactor * 100);
+							opr.sidebarAction.setBadgeText({text: zoom.toString()});
+						});
+					}
+				});
+				
+				// deal with preferences change
+				chrome.storage.onChanged.addListener(function(changes, areaName)
+				{
+					if (changes.zoomOnBadge)
+					{
+						settings.zoomOnBadge = changes.zoomOnBadge.newValue;
+						if (changes.zoomOnBadge.newValue === true)
+						{
+							chrome.tabs.getZoom(function(zoomFactor)
+							{
+								var zoom = Math.round(zoomFactor * 100);
+								opr.sidebarAction.setBadgeText({text: zoom.toString()});
+							});
+						}
+						else
+						{
+							opr.sidebarAction.setBadgeText({text: ""});
+						}
 					}
 				});
 			});

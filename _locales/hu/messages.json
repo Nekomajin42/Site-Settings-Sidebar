@@ -11,7 +11,7 @@
 	},
 	"notification_install_title" : 
 	{
-		"message" : "A Site Setting Sidebar beépült a böngészőbe",
+		"message" : "A Site Settings Sidebar beépült a böngészőbe",
 		"description" : "Notification install"
 	},
 	"notification_install_body" : 
@@ -21,7 +21,7 @@
 	},
 	"notification_update_title" : 
 	{
-		"message" : "A Site Setting Sidebar frissült",
+		"message" : "A Site Settings Sidebar frissült",
 		"description" : "Notification install"
 	},
 	"notification_update_body" : 
@@ -211,7 +211,7 @@
 	},
 	"settings_content_panel_greyScheme" : 
 	{
-		"message" : "Use grey color scheme",
+		"message" : "Szürke színséma",
 		"description" : "Preferences body"
 	},
 	"settings_content_panel_colorCode" : 
@@ -224,9 +224,29 @@
 		"message" : "A weboldal automatikus frissítése a beállítások változtatása után",
 		"description" : "Preferences body"
 	},
+	"settings_content_button_icon" : 
+	{
+		"message" : "Az oldalsáv ikonja:",
+		"description" : "Preferences body"
+	},
+	"settings_content_button_old" : 
+	{
+		"message" : "Régi",
+		"description" : "Preferences body"
+	},
+	"settings_content_button_newRed" : 
+	{
+		"message" : "Új (Opera vörös)",
+		"description" : "Preferences body"
+	},
+	"settings_content_button_newGrey" : 
+	{
+		"message" : "Új (szürkeárnyalatos)",
+		"description" : "Preferences body"
+	},
 	"settings_content_button_zoomOnBadge" : 
 	{
-		"message" : "Mutassa a nagyítás értékét az oldalsáv gombján",
+		"message" : "Nagyítási érték mutatása az oldalsáv gombján",
 		"description" : "Preferences body"
 	},
 	"settings_content_page_zoomStep" : 

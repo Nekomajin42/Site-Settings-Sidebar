@@ -278,6 +278,7 @@ chrome.storage.onChanged.addListener(function(changes, areaName)
 	if (changes.zoomOnBadge)
 	{
 		opr.sidebarAction.setBadgeText({text: (changes.zoomOnBadge.newValue === true) ? document.getElementById("zoom").value : ""});
+		location.reload();
 	}
 	else if (changes.greyScheme || changes.colorCode)
 	{
