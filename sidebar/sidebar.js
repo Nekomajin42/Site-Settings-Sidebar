@@ -8,11 +8,10 @@ function disableFields(url)
 	else
 	{
 		var protocol = url.slice(0, url.indexOf(":"));
-		var disabled = (protocol === "browser" || protocol === "opera" || protocol === "chrome" || protocol === "chrome-extension") ? true : false;
+		var disabled = (protocol === "browser" || protocol === "opera" || protocol === "chrome" || protocol === "about" || protocol === "chrome-extension" || protocol === "chrome-devtools") ? true : false;
 	}
 	document.getElementById("zoom").disabled = disabled;
 	document.getElementById("resetZoom").disabled = disabled;
-	document.getElementById("resetTurbo").disabled = disabled;
 	var select = document.getElementsByTagName("select");
 	for (var i=0; i<select.length; i++)
 	{
@@ -20,7 +19,7 @@ function disableFields(url)
 	}
 	
 	// footer icon
-	document.querySelector("footer label").className = (settings.colorCode === true) ? ((disabled === true) ? "yellow" : "green") : "transparent";
+	document.querySelector("footer span").className = (settings.safetyCode === true) ? ((disabled === true) ? "neutral" : "safe") : "none";
 }
 
 // deal with zoom
@@ -30,10 +29,9 @@ function getZoom()
 	{
 		var zoom = Math.round(zoomFactor * 100);
 		document.getElementById("zoom").value = zoom;
-		opr.sidebarAction.setBadgeText({text: (settings.zoomOnBadge === true) ? zoom.toString() : ""});
 		chrome.tabs.getZoomSettings(function(zoomSettings)
 		{
-			document.querySelector("label[for='zoom']").className = (settings.colorCode === true) ? ((zoomFactor === zoomSettings.defaultZoomFactor) ? "green" : "yellow") : "transparent";
+			document.querySelector("label[for='zoom']").className = (settings.safetyCode === true) ? ((zoomFactor === zoomSettings.defaultZoomFactor) ? "safe" : "neutral") : "none";
 		});
 	});
 }
@@ -41,7 +39,6 @@ function setZoom()
 {
 	var zoom = document.getElementById("zoom").value;
 	var zoomFactor = parseInt(zoom, 10) / 100;
-	opr.sidebarAction.setBadgeText({text: (settings.zoomOnBadge === true) ? zoom : ""});
 	chrome.tabs.setZoom(zoomFactor);
 }
 function resetZoom()
@@ -69,15 +66,14 @@ function getSettings()
 				{
 					chrome.contentSettings[type].get({primaryUrl: url}, function(details)
 					{
-						//console.log(type + ": " + details.setting);
 						document.getElementById(type).value = details.setting;
-						document.querySelector("label[for='"+type+"']").className = (settings.colorCode === true) ? document.querySelector("#"+type+" option[value='"+details.setting+"']").dataset.color : "transparent";
+						document.querySelector("label[for='"+type+"']").className = (settings.safetyCode === true) ? document.querySelector("#"+type+" option[value='"+details.setting+"']").dataset.safety : "none";
 					});
 				}
 				catch (error)
 				{
 					document.getElementById(type).disabled = true;
-					document.querySelector("label[for='"+type+"']").className = (settings.colorCode === true) ? "grey" : "transparent";
+					document.querySelector("label[for='"+type+"']").className = (settings.safetyCode === true) ? "unknown" : "none";
 				}
 			});
 		}
@@ -98,35 +94,6 @@ function setSettings()
 	});
 }
 
-// deal with global tools
-function getTools()
-{
-	// Turbo
-	opr.offroad.enabled.get({}, function(details)
-	{
-		if (details.levelOfControl === "controllable_by_this_extension" || details.levelOfControl === "controlled_by_this_extension")
-		{
-			document.getElementById("turbo").value = details.value;
-			document.querySelector("label[for='turbo']").className = (settings.colorCode === true) ? ((details.value === true) ? "yellow" : "green") : "transparent";
-		}
-	});
-}
-function setTools()
-{
-	var type = this.id;
-	var value = this.value;
-	if (type === "turbo")
-	{
-		opr.offroad.enabled.set({value: (value === "true"), scope: "regular"}, function(details)
-		{
-			if (settings.autoRefresh === true)
-			{
-				chrome.tabs.reload();
-			}
-		});
-	}
-}
-
 // load local strings
 function selectLocale()
 {
@@ -137,7 +104,7 @@ function selectLocale()
 		{
 			elements[i].value = chrome.i18n.getMessage(elements[i].dataset.i18n);
 		}
-		else if (elements[i].tagName != "LABEL")
+		else if (elements[i].tagName != "LABEL" && elements[i].tagName != "SPAN")
 		{
 			elements[i].innerHTML = chrome.i18n.getMessage(elements[i].dataset.i18n) + elements[i].innerHTML;
 		}
@@ -147,8 +114,24 @@ function selectLocale()
 // create and remove Help tooltip
 function showTooltip(e)
 {
-	var target = (e.target.tagName === "LABEL") ? e.target : e.target.parentNode;
+	// find target
+	if (e.target.tagName === "LABEL" || e.target.tagName === "SPAN")
+	{
+		var target = e.target;
+	}
+	else if (e.target.tagName == "IMG")
+	{
+		var target = e.target.parentNode;
+	}
+	else
+	{
+		return false;
+	}
+	
+	// parse content
 	var text = chrome.i18n.getMessage(target.dataset.i18n).split("|");
+	
+	// create box
 	var div = document.createElement("div");
 	div.id = "tooltip";
 	div.innerHTML = "<strong>" + text[0] + "</strong><br />";
@@ -159,7 +142,7 @@ function showTooltip(e)
 		div.className = "up";
 		div.style.bottom = "31px";
 	}
-	else if (/permission/.test(target.dataset.i18n) === true || /tools/.test(target.dataset.i18n) === true)
+	else if (/permission/.test(target.dataset.i18n) === true)
 	{
 		div.className = "up";
 		div.style.bottom = document.body.clientHeight - target.offsetTop + 5 + "px";
@@ -173,7 +156,11 @@ function showTooltip(e)
 }
 function hideTooltip()
 {
-	document.body.removeChild(document.getElementById("tooltip"));
+	var tooltip = document.getElementById("tooltip");
+	if (document.body.contains(tooltip))
+	{
+		document.body.removeChild(tooltip);
+	}
 }
 
 // to do on page load
@@ -189,14 +176,8 @@ window.addEventListener("load", function()
 		// localization
 		selectLocale();
 		
-		// zoom
+		// zoom step
 		document.getElementById("zoom").step = settings.zoomStep;
-		
-		// colos scheme
-		document.body.classList.add((settings.greyScheme === true) ? "gray" : "colorful");
-		
-		// form mode
-		document.body.classList.add("view");
 		
 		// zoom
 		getZoom();
@@ -205,30 +186,18 @@ window.addEventListener("load", function()
 		
 		// content settings
 		getSettings();
-		var types = document.getElementsByClassName("content_setting");
+		var types = document.getElementsByTagName("select");
 		for (var i=0; i<types.length; i++)
 		{
 			types[i].addEventListener("change", setSettings, false);
 		}
-		
-		// global tools
-		getTools();
-		var types = document.getElementsByClassName("global_setting");
-		for (var i=0; i<types.length; i++)
-		{
-			types[i].addEventListener("change", setTools, false);
-		}
-		document.getElementById("resetTurbo").addEventListener("click", function()
-		{
-			opr.offroad.enabled.clear({scope: "regular"});
-		});
 	});
 	
 	// inject Help tooltip
 	var labels = document.querySelectorAll("label");
 	for (var i=0; i<labels.length; i++)
 	{
-		labels[i].addEventListener("mouseover", showTooltip, false);
+		labels[i].addEventListener("click", showTooltip, false);
 		labels[i].addEventListener("mouseout", hideTooltip, false);
 	}
 }, false);
@@ -239,37 +208,16 @@ chrome.tabs.onZoomChange.addListener(function(zoomChangeInfo)
 	getZoom();
 });
 
-// to do on Turbo change
-opr.offroad.enabled.onChange.addListener(function(event)
-{
-	getTools();
-});
-
 // to do on page open/update
 chrome.tabs.onActivated.addListener(function(activeInfo)
 {
 	getZoom();
 	getSettings();
-	getTools();
 });
 chrome.tabs.onUpdated.addListener(function(tab)
 {
 	getZoom();
 	getSettings();
-	getTools();
-});
-
-// toggle edit/view mode
-opr.sidebarAction.onFocus.addListener(function(tabs)
-{
-	document.body.classList.remove("view");
-	document.body.classList.add("edit");
-	document.getElementById("zoom").focus();
-});
-opr.sidebarAction.onBlur.addListener(function(tabs)
-{
-	document.body.classList.remove("edit");
-	document.body.classList.add("view");
 });
 
 // to do on user preferences change
@@ -280,7 +228,7 @@ chrome.storage.onChanged.addListener(function(changes, areaName)
 		opr.sidebarAction.setBadgeText({text: (changes.zoomOnBadge.newValue === true) ? document.getElementById("zoom").value : ""});
 		location.reload();
 	}
-	else if (changes.greyScheme || changes.colorCode)
+	else if (changes.safetyCode)
 	{
 		location.reload();
 	}
@@ -288,7 +236,7 @@ chrome.storage.onChanged.addListener(function(changes, areaName)
 	{
 		document.getElementById("zoom").step = changes.zoomStep.newValue;
 	}
-	else if (changes.zoomStep || changes.autoRefresh)
+	else if (changes.autoRefresh)
 	{
 		settings.autoRefresh = changes.autoRefresh.newValue;
 	}

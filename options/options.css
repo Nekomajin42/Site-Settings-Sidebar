@@ -1,0 +1,115 @@
+html {
+font-family: "Segoe UI";
+font-size: 14px;
+line-height: 150%;
+text-align: center;
+margin: 0;
+padding: 0;
+height: 100%;
+background-color: LightGrey;}
+
+body {
+box-sizing: border-box;
+overflow: auto;
+text-align: left;
+font-size: 1rem;
+margin: 0 auto 0 auto;
+width: 800px;
+height: 100%;}
+
+nav {
+box-sizing: border-box;
+position: fixed;
+float: left;
+overflow: hidden;
+padding: 20px;
+width: 200px;
+height: 100%;
+line-height: 200%;
+letter-spacing: 2px;
+background-color: WhiteSmoke;}
+
+nav img {
+width: 64px;
+height: 64px;}
+
+nav h1 {
+font-size: 1.2rem;
+margin: 10px 0 10px 0;
+padding: 0;}
+
+nav ul {
+list-style-type: none;
+font-size: 14px;
+font-weight: 600;
+margin: 0;
+padding: 0;}
+
+nav ul li a {
+display: inline-block;
+color: Black;
+text-decoration: none;
+border-bottom: 2px solid Transparent;}
+
+nav ul li a:hover {
+border-bottom: 2px solid LightGrey;}
+
+nav ul li a.selected {
+cursor: default;
+border-bottom: 2px solid LightGrey;}
+
+main {
+display: block;
+box-sizing: border-box;
+float: right;
+padding: 0 20px 20px 20px;
+min-height: 100%;
+width: 600px;
+background-color: White;}
+
+article {
+display: none;}
+article.visible {
+display: block;}
+
+section {
+overflow: auto;
+margin: 0;
+padding: 20px 0 10px 0;
+border-bottom: 2px solid LightGrey;}
+
+section:last-child {
+border-bottom: none;}
+
+section h2 {
+font-size: 1.1rem;
+font-weight: normal;
+letter-spacing: 2px;
+margin: 0 0 10px 0;
+padding: 0;}
+
+section ul {
+padding: 0px 0px 0px 20px;
+margin: 0 0 10px 0;}
+
+sectipn p {
+margin: 0 0 10px 0;}
+
+section a {
+margin: 0 0 10px 0;}
+
+section form {
+line-height: 160%;}
+
+section form input[type=checkbox] {
+margin: 0 5px 0 0;
+vertical-align: -1px;}
+
+section form input[type=number] {
+box-sizing: border-box;
+height: 24px;
+padding: 0;}
+
+section form select {
+box-sizing: border-box;
+height: 24px;}

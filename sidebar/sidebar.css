@@ -9,13 +9,9 @@ box-sizing: border-box;}
 body {
 margin: 0;
 height: 100%;
-overflow: hidden;}
-body.gray {
+overflow: hidden;
 border-right: 2px solid LightGrey;
 background-color: White;}
-body.colorful {
-border-right: 2px solid CadetBlue;
-background-color: Aquamarine;}
 
 form {
 box-sizing: border-box;
@@ -27,11 +23,8 @@ white-space: nowrap;}
 fieldset {
 padding: 0px;
 margin: 0px 0px 10px 0px;
-border: none;}
-body.gray fieldset {
+border: none;
 border-top: 2px solid LightGrey;}
-body.colorful fieldset {
-border-top: 2px solid CadetBlue;}
 
 legend {
 padding: 0px 5px 0px 0px;
@@ -40,62 +33,69 @@ font-size: 1rem;
 font-weight: 500;
 letter-spacing: 1px;}
 
-label {
+label, footer span {
 display: inline-block;
-text-align: center;
 font-size: 1rem;
 padding: 0;
 margin: 0;
-width: 24px;
 height: 24px;
 border: none;
-transition: background-color 0.5s;}
+cursor: help;}
 
-label img {
+label img, footer span img {
 width: 16px;
 height: 16px;
-vertical-align: middle;}
+margin: 0 4px 0 4px;}
+
+label::after, footer span::after {
+display: inline-block;
+width: 16px;
+margin: 0;
+vertical-align: 2px;
+text-align: center;
+font-size: 16px;
+font-weight: bold;}
 
 /* === colors === */
-.transparent {
-background-color: Transparent;}
-.green {
-background-color: MediumSeaGreen;}
-.red {
-background-color: Red;}
-.yellow {
-background-color: Yellow;}
-.grey {
-background-color: Grey;}
+.safe::after {
+content: "\2713";}
+.dangerous::after {
+content: "\2717";}
+.neutral::after {
+content: "!";}
+.unknown::after {
+content: "?";}
+.none::after {
+content: "";
+width: 0px;}
 
 /* === form styling === */
 input[type=number] {
 height: 24px;
-vertical-align: -1px;
-box-sizing: border-box;
+vertical-align: 3px;
+margin: 0 0 0 -3px;
+padding: 0 0 0 3px;
 font-family: inherit;
 font-size: 1rem;
 background-color: Transparent;
 background-image: url("percent.svg");
 background-size: 10px 10px;
 background-repeat: no-repeat;
-background-position: 25px 7px;}
+background-position: 28px 8px;}
 
 input[type=button] {
-height: 24px;
+height: 28px;
+vertical-align: 4px;
 box-sizing: border-box;}
 
 select {
 height: 24px;
-margin: 0;
-vertical-align: -1px;
-box-sizing: border-box;
+vertical-align: 3px;
+margin: 0 0 0 -3px;
 font-family: inherit;
 font-size: 1rem;
+vertical-align: 3px;
 background-color: Transparent;}
-
-body.colorful option {
-background-color: Aquamarine;}
 
 input:disabled, select:disabled {
 color: Black;}
@@ -107,22 +107,20 @@ left: 0px;
 font-size: 0.8rem;
 box-sizing: border-box;
 margin: 0px 7px 0px 5px;
-padding: 5px;}
-body.gray #tooltip {
+padding: 5px;
 border: 2px solid Grey;
 background: White;}
-body.colorful #tooltip {
-border: 2px solid CadetBlue;
-background: AliceBlue;}
 
 #tooltip::before {
-background-color: White;
 content: "";
 display: block;
+position: absolute;
+left: 7px;
 height: 5px;
 width: 5px;
-position: absolute;
-left: 8px;
+background-color: White;
+border-right: 2px solid Grey;
+border-top: 2px solid Grey;
 transform-origin: 50% 50%;}
 #tooltip.down::before {
 top: -5px;
@@ -130,14 +128,6 @@ transform: rotate(-45deg);}
 #tooltip.up::before {
 bottom: -5px;
 transform: rotate(135deg);}
-body.gray #tooltip::before {
-border-right: 2px solid Grey;
-border-top: 2px solid Grey;
-background: White;}
-body.colorful #tooltip::before {
-border-right: 2px solid CadetBlue;
-border-top: 2px solid CadetBlue;
-background: AliceBlue;}
 
 #tooltip strong {
 letter-spacing: 1px;}
@@ -151,29 +141,20 @@ border-left: 2px solid Red;
 font-style: normal;}
 
 /* === edit/view mode styling === */
-body.edit input[type=button] {
-display: inline-block;}
+input[type=button] {
+visibility: hidden;}
+#zoom-container:hover input[type=button], #zoom-container:focus input[type=button] {
+visibility: visible;}
 
-body.edit input[type=number] {
+input[type=number], select {
+border: 1px solid Transparent;
+-webkit-appearance: none;}
+#zoom-container:hover input[type=number], #zoom-container:focus input[type=number] {
 border: 1px solid rgb(169, 169, 169);
 -webkit-appearance: textfield;}
-
-body.edit select {
+select:hover, select:focus {
 border: 1px solid rgb(169, 169, 169);
 -webkit-appearance: menulist;}
-
-body.edit #tooltip {
-display: block;}
-
-body.view input[type=button] {
-display: none;}
-
-body.view input[type=number], body.view select {
-border: 1px solid transparent;
--webkit-appearance: none;}
-
-body.view #tooltip {
-display: none;}
 
 /* === footer styling === */
 footer {
@@ -187,15 +168,10 @@ padding: 5px 5px 5px 5px;
 font-size: 1rem;
 white-space: nowrap;
 overflow-x: hidden;
-text-overflow: ellipsis;}
-body.gray footer {
+text-overflow: ellipsis;
 background-color: #f0f0f0;
 border-top: 2px solid LightGrey;
 border-right: 2px solid LightGrey;}
-body.colorful footer {
-background-color: Aqua;
-border-top: 2px solid CadetBlue;
-border-right: 2px solid CadetBlue;}
 
 footer img {
 width: 16px;
@@ -204,8 +180,8 @@ transition: background-color 0.5s;}
 
 footer a {
 display: inline-block;
-margin: 0px 0px 0px 6px;
-vertical-align: -2px;
+margin: 0;
+vertical-align: 3px;
 color: inherit;
 text-decoration: none;}
 footer a:hover {

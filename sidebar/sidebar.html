@@ -8,103 +8,96 @@
 	</head>
 	<body>
 		<form>
-			<fieldset>
+			<fieldset id="zoom-container">
 				<legend data-i18n="sidebar_zoom_header"></legend>
-				<label for="zoom" data-i18n="sidebar_zoom_value"><img src="icons/zoom.svg" /></label> <input type="number" min="20" max="500" id="zoom" />
+				<label for="zoom" data-i18n="sidebar_zoom_value"><img src="icons/zoom.svg" /></label>
+				<input type="number" min="20" max="500" id="zoom" />
 				<input type="button" id="resetZoom" data-i18n="sidebar_button_reset" />
 			</fieldset>
 			<fieldset>
 				<legend data-i18n="sidebar_content_header"></legend>
-				<label for="cookies" data-i18n="sidebar_content_cookies"><img src="icons/cookies.svg" /></label> 
-				<select class="content_setting" id="cookies">
-					<option data-color="green" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_sessionOnly" value="session_only"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="cookies" data-i18n="sidebar_content_cookies"><img src="icons/cookies.svg" /></label>
+				<select id="cookies">
+					<option data-safety="safe" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_sessionOnly" value="session_only"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="images" data-i18n="sidebar_content_images"><img src="icons/images.svg" /></label> 
-				<select class="content_setting" id="images">
-					<option data-color="green" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="images" data-i18n="sidebar_content_images"><img src="icons/images.svg" /></label>
+				<select id="images">
+					<option data-safety="safe" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="javascript" data-i18n="sidebar_content_javascript"><img src="icons/javascript.svg" /></label> 
-				<select class="content_setting" id="javascript">
-					<option data-color="green" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="red" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="javascript" data-i18n="sidebar_content_javascript"><img src="icons/javascript.svg" /></label>
+				<select id="javascript">
+					<option data-safety="safe" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="dangerous" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="plugins" data-i18n="sidebar_content_plugins"><img src="icons/plugins.svg" /></label> 
-				<select class="content_setting" id="plugins">
-					<option data-color="yellow" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_clickToPlay" value="ask"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="plugins" data-i18n="sidebar_content_plugins"><img src="icons/plugins.svg" /></label>
+				<select id="plugins">
+					<option data-safety="neutral" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_clickToPlay" value="ask"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="unsandboxedPlugins" data-i18n="sidebar_content_unsandboxedPlugins"><img src="icons/unsandboxed_plugins.svg" /></label> 
-				<select class="content_setting" id="unsandboxedPlugins">
-					<option data-color="red" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_clickToPlay" value="ask"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="unsandboxedPlugins" data-i18n="sidebar_content_unsandboxedPlugins"><img src="icons/unsandboxed_plugins.svg" /></label>
+				<select id="unsandboxedPlugins">
+					<option data-safety="dangerous" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_clickToPlay" value="ask"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select>
 			</fieldset>
 			<fieldset>
 				<legend data-i18n="sidebar_permissions_header"></legend>
-				<label for="camera" data-i18n="sidebar_permissions_camera"><img src="icons/camera.svg" /></label> 
-				<select class="content_setting" id="camera">
-					<option data-color="red" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_ask" value="ask"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="camera" data-i18n="sidebar_permissions_camera"><img src="icons/camera.svg" /></label>
+				<select id="camera">
+					<option data-safety="dangerous" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_ask" value="ask"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="microphone" data-i18n="sidebar_permissions_microphone"><img src="icons/microphone.svg" /></label> 
-				<select class="content_setting" id="microphone">
-					<option data-color="red" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_ask" value="ask"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="microphone" data-i18n="sidebar_permissions_microphone"><img src="icons/microphone.svg" /></label>
+				<select id="microphone">
+					<option data-safety="dangerous" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_ask" value="ask"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="notifications" data-i18n="sidebar_permissions_notifications"><img src="icons/notifications.svg" /></label> 
-				<select class="content_setting" id="notifications">
-					<option data-color="yellow" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_ask" value="ask"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="notifications" data-i18n="sidebar_permissions_notifications"><img src="icons/notifications.svg" /></label>
+				<select id="notifications">
+					<option data-safety="neutral" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_ask" value="ask"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="popups" data-i18n="sidebar_permissions_popups"><img src="icons/popups.svg" /></label> 
-				<select class="content_setting" id="popups">
-					<option data-color="yellow" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="popups" data-i18n="sidebar_permissions_popups"><img src="icons/popups.svg" /></label>
+				<select id="popups">
+					<option data-safety="neutral" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="location" data-i18n="sidebar_permissions_location"><img src="icons/location.svg" /></label> 
-				<select class="content_setting" id="location">
-					<option data-color="red" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_ask" value="ask"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="location" data-i18n="sidebar_permissions_location"><img src="icons/location.svg" /></label>
+				<select id="location">
+					<option data-safety="dangerous" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_ask" value="ask"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="automaticDownloads" data-i18n="sidebar_permissions_automaticDownloads"><img src="icons/automatic_downloads.svg" /></label> 
-				<select class="content_setting" id="automaticDownloads">
-					<option data-color="red" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_ask" value="ask"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="automaticDownloads" data-i18n="sidebar_permissions_automaticDownloads"><img src="icons/automatic_downloads.svg" /></label>
+				<select id="automaticDownloads">
+					<option data-safety="dangerous" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_ask" value="ask"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select><br />
-				<label for="fullscreen" data-i18n="sidebar_permissions_fullscreen"><img src="icons/fullscreen.svg" /></label> 
-				<select class="content_setting" id="fullscreen">
-					<option data-color="yellow" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_ask" value="ask"></option>
+				<label for="fullscreen" data-i18n="sidebar_permissions_fullscreen"><img src="icons/fullscreen.svg" /></label>
+				<select id="fullscreen">
+					<option data-safety="neutral" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_ask" value="ask"></option>
 				</select><br />
-				<label for="mouselock" data-i18n="sidebar_permissions_mouselock"><img src="icons/mouselock.svg" /></label> 
-				<select class="content_setting" id="mouselock">
-					<option data-color="red" data-i18n="sidebar_values_allow" value="allow"></option>
-					<option data-color="green" data-i18n="sidebar_values_ask" value="ask"></option>
-					<option data-color="yellow" data-i18n="sidebar_values_block" value="block"></option>
+				<label for="mouselock" data-i18n="sidebar_permissions_mouselock"><img src="icons/mouselock.svg" /></label>
+				<select id="mouselock">
+					<option data-safety="dangerous" data-i18n="sidebar_values_allow" value="allow"></option>
+					<option data-safety="safe" data-i18n="sidebar_values_ask" value="ask"></option>
+					<option data-safety="neutral" data-i18n="sidebar_values_block" value="block"></option>
 				</select>
-			</fieldset>
-			<fieldset>
-				<legend data-i18n="sidebar_tools_header"></legend>
-				<label for="turbo" data-i18n="sidebar_tools_turbo"><img src="icons/turbo.svg" /></label> 
-				<select class="global_setting" id="turbo">
-					<option data-color="red" data-i18n="sidebar_values_enabled" value="true"></option>
-					<option data-color="green" data-i18n="sidebar_values_disabled" value="false"></option>
-				</select>
-				<input type="button" id="resetTurbo" data-i18n="sidebar_button_reset" />
 			</fieldset>
 		</form>
 		<footer>
-			<label data-i18n="sidebar_footer_status"><img src="icons/settings.svg" /></label><a href="/options/options.html" target="_blank" data-i18n="sidebar_footer_settings"></a>
+			<span data-i18n="sidebar_footer_status"><img src="icons/settings.svg" /></span>
+			<a href="/options/options.html" target="_blank" data-i18n="sidebar_footer_settings"></a>
 		</footer>
 	</body>
 </html>

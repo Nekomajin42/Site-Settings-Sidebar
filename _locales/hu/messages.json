@@ -1,17 +1,17 @@
 {
+	"manifest_name" : 
+	{
+		"message" : "Weboldal Beállítások Oldalsáv",
+		"description" : "Manifest JSON default title string"
+	},
 	"manifest_description" : 
 	{
 		"message" : "Weboldal specifikus beállítások az oldalsávban.",
 		"description" : "Manifest JSON description string"
 	},
-	"manifest_defaultTitle" : 
-	{
-		"message" : "Weboldal specifikus beállítások",
-		"description" : "Manifest JSON default title string"
-	},
 	"notification_install_title" : 
 	{
-		"message" : "A Site Settings Sidebar beépült a böngészőbe",
+		"message" : "A Weboldal Beállítások Oldalsáv beépült a böngészőbe",
 		"description" : "Notification install"
 	},
 	"notification_install_body" : 
@@ -21,13 +21,18 @@
 	},
 	"notification_update_title" : 
 	{
-		"message" : "A Site Settings Sidebar frissült",
+		"message" : "A Weboldal Beállítások Oldalsáv frissült",
 		"description" : "Notification install"
 	},
 	"notification_update_body" : 
 	{
 		"message" : "Kérlek, nézz szét a beállításokban az újdonságokért!",
 		"description" : "Notification install"
+	},
+	"context_menu_reset" :
+	{
+		"message" : "Alapértelmezett nagyítás",
+		"description" : "Context menu strings"
 	},
 	"sidebar_zoom_header" : 
 	{
@@ -66,12 +71,12 @@
 	},
 	"sidebar_content_plugins" : 
 	{
-		"message" : "Beépülők|Engedélyezheted vagy letilthatod a weboldalon lévő beépülőket.",
+		"message" : "Beépülők|Engedélyezheted vagy letilthatod a weboldalon lévő beépülőket. (Például: Flash)",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_unsandboxedPlugins" : 
 	{
-		"message" : "Korlátozás nélküli beépülők|Engedélyezheted, hogy a beépülők kilépjenek a böngésző biztonságos környezetéből.|Az \"Engedélyezés\" lehetőséget óvatosan használd, mert így a beépülők akár más programokat is telepíthetnek a gépedre!",
+		"message" : "NPAPI beépülők|Engedélyezheted, hogy a beépülők kilépjenek a böngésző biztonságos környezetéből.|Az \"Engedélyezés\" lehetőséget óvatosan használd, mert így a beépülők akár más programokat is telepíthetnek a gépedre!",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_header" : 
@@ -86,7 +91,7 @@
 	},
 	"sidebar_permissions_camera" : 
 	{
-		"message" : "Kamera|Engedélyezheted a weboldal számára, hogy hozzáférjen a webkamerádhoz.|Ez a beállítás jelenleg nem működik a Chromium hiba miatt.",
+		"message" : "Kamera|Engedélyezheted a weboldal számára, hogy hozzáférjen a webkamerádhoz.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_fullscreen" : 
@@ -106,7 +111,7 @@
 	},
 	"sidebar_permissions_microphone" : 
 	{
-		"message" : "Mikrofon|Engedélyezheted a weboldalnak, hogy hozzáférjen a mikrofonodhoz.|Ez a beállítás jelenleg nem működik egy Chromium hiba miatt.",
+		"message" : "Mikrofon|Engedélyezheted a weboldalnak, hogy hozzáférjen a mikrofonodhoz.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_mouselock" : 
@@ -117,16 +122,6 @@
 	"sidebar_permissions_notifications" : 
 	{
 		"message" : "Értesítések|Engedélyezheted a weboldalnak, hogy értesítéseket küldjön.",
-		"description" : "Sidebar content"
-	},
-	"sidebar_tools_header" : 
-	{
-		"message" : "Eszközök",
-		"description" : "Sidebar content"
-	},
-	"sidebar_tools_turbo" : 
-	{
-		"message" : "Opera Turbo|Be- vagy kikapcsolhatod a Turbo funkciót az összes weboldalon.|A Visszaállít gomb visszaadja az irányítást a böngészőnek.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_footer_status" : 
@@ -209,14 +204,9 @@
 		"message" : "Weblap",
 		"description" : "Preferences header"
 	},
-	"settings_content_panel_greyScheme" : 
+	"settings_content_panel_safetyCode" : 
 	{
-		"message" : "Szürke színséma",
-		"description" : "Preferences body"
-	},
-	"settings_content_panel_colorCode" : 
-	{
-		"message" : "Színkódok mutatása",
+		"message" : "Biztonsági kódok mutatása",
 		"description" : "Preferences body"
 	},
 	"settings_content_page_autoRefresh" : 
@@ -231,7 +221,7 @@
 	},
 	"settings_content_button_old" : 
 	{
-		"message" : "Régi",
+		"message" : "Eredeti",
 		"description" : "Preferences body"
 	},
 	"settings_content_button_newRed" : 
@@ -251,7 +241,7 @@
 	},
 	"settings_content_page_zoomStep" : 
 	{
-		"message" : "Lépésköz (%):",
+		"message" : "A nagyítás lépésköze (%):",
 		"description" : "Preferences body"
 	},
 	"settings_content_incognito_header" : 
@@ -276,7 +266,7 @@
 	},
 	"settings_content_shortcut_info" : 
 	{
-		"message" : "Alt+Shift+S az alapértelmezett billentyűkombináció a panel kinyitásához és becsukásához. A kombinációt meg tudod változtatni a Billentyűparancsok párbeszédablakban",
+		"message" : "Alt+Shift+S az alapértelmezett billentyűkombináció a panel kinyitásához és becsukásához. A kombinációt meg tudod változtatni a Billentyűparancsok párbeszédablakban.",
 		"description" : "Incognito body"
 	},
 	"settings_content_shortcut_manager" : 
@@ -294,9 +284,9 @@
 		"message" : "Vidd az egered az ikonok fölé a plusz információkért.",
 		"description" : "How to use body"
 	},
-	"settings_content_howToUse_colorCode" : 
+	"settings_content_howToUse_safetyCode" : 
 	{
-		"message" : "A színkódok biztonsági szempontokra hívják fel a figyelmet. Zöld: alapértelmezett, biztonságos. Sárga: megváltoztattad, de biztonságos. Piros: veszélyes lehet.",
+		"message" : "A biztonsági kódok a lehetséges veszélyekre hívják fel a figyelmedet. A következő jeleket láthatod: &#x2713; (Biztonságos, alapértelmezett), ! (Biztonságos, de nem alapértelmezett), &#x2717; (Veszélyes lehet), ? (Ismeretlen, nem működik)",
 		"description" : "How to use body"
 	},
 	"settings_content_notes_header" : 
@@ -314,6 +304,31 @@
 		"message" : "Ha törlöd ezt a bővítményt, minden olyan beállítás törlődni fog, amit ezzel a bővítménnyel változtattál meg.",
 		"description" : "Notes body"
 	},
+	"settings_content_permissions_header" : 
+	{
+		"message" : "Engedélyek",
+		"description" : "Permissions header"
+	},
+	"settings_content_permissions_contentSettings" : 
+	{
+		"message" : "A bővítmény azért kér hozzáférést az oldalspecifikus beállításokhoz (képek, helymeghatározás, kamera, stb.), hogy kezelni tudja őket.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_notifications" : 
+	{
+		"message" : "A bővítmény azért kér hozzáférést az értesítésekhez, hogy jelezni tudja, ha frissítés érkezik.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_tabs" : 
+	{
+		"message" : "A bővítmény azért kér hozzáférést a lapfülekhez, hogy szabályozni tudja az oldalak nagyítását.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_storage" : 
+	{
+		"message" : "A bővítmény azért kér hozzáférést a tárolóhoz, hogy el tudja menteni a beállításaidat.",
+		"description" : "Permissions body"
+	},
 	"settings_content_credits_header" : 
 	{
 		"message" : "Névjegy",
@@ -321,7 +336,7 @@
 	},
 	"settings_content_credits_createdBy" : 
 	{
-		"message" : "A Site Settings Sidebar-t <a href=\"http://tothrobert.ininet.hu\" target=\"_blank\">Tóth Róbert</a> fejleszti.",
+		"message" : "Fejlesztő: <a href=\"http://tothrobert.ininet.hu\" target=\"_blank\">Tóth Róbert</a>",
 		"description" : "Credits body"
 	},
 	"settings_content_credits_copyCode" : 
@@ -366,47 +381,22 @@
 	},
 	"settings_content_contact_feedback1" : 
 	{
-		"message" : "<a href=\"https://addons.opera.com/en/extensions/details/site-settings-sidebar/\" target=\"_blank\">Opera Addon Katalógus</a>",
+		"message" : "Opera Bővítmény Katalógus",
 		"description" : "Contact body"
 	},
 	"settings_content_contact_feedback2" : 
 	{
-		"message" : "<a href=\"https://github.com/Nekomajin42/Site-Settings-Sidebar\" target=\"_blank\">GitHub</a>",
+		"message" : "GitHub",
 		"description" : "Contact body"
 	},
 	"settings_content_contact_email" : 
 	{
-		"message" : "<a href=\"mailto:nekomajin42@gmail.com\">Email</a>",
+		"message" : "Email",
 		"description" : "Contact body"
 	},
 	"settings_content_permissions_header" : 
 	{
 		"message" : "Engedélyek",
 		"description" : "Permissions header"
-	},
-	"settings_content_permissions_header" : 
-	{
-		"message" : "Engedélyek",
-		"description" : "Permissions header"
-	},
-	"settings_content_permissions_contentSettings" : 
-	{
-		"message" : "A Site Settings Sidebar azért kér hozzáférést az oldalspecifikus beállításokhoz (képek, helymeghatározás, kamera, stb.), hogy kezelni tudja őket.",
-		"description" : "Permissions body"
-	},
-	"settings_content_permissions_notifications" : 
-	{
-		"message" : "A Site Settings Sidebar azért kér hozzáférést az értesítésekhez, hogy jelezni tudja, ha frissítés érkezik.",
-		"description" : "Permissions body"
-	},
-	"settings_content_permissions_tabs" : 
-	{
-		"message" : "A Site Settings Sidebar azért kér hozzáférést a lapfülekhez, hogy szabályozni tudja az oldalak nagyítását.",
-		"description" : "Permissions body"
-	},
-	"settings_content_permissions_storage" : 
-	{
-		"message" : "Site Settings Sidebar azért kér hozzáférést a tárolóhoz, hogy el tudja menteni a beállításaidat.",
-		"description" : "Permissions body"
 	}
 }

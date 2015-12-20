@@ -1,44 +1,41 @@
 // stuff to do on page load
 window.addEventListener("load", function()
 {
-	// select locale strings (control.js)
-	selectLocale();
-	
-	// load and set settings
-	chrome.storage.local.get(null, function(settings)
+	// load subpage from URL hash
+	var hash = (location.hash) ? location.hash : "#settings";
+	document.querySelector(hash).classList.add("visible");
+	document.querySelector(hash + "-nav").classList.add("selected");
+
+	// load local language
+	var elements = document.querySelectorAll("[data-i18n]");
+	for (var i = 0; i < elements.length; i++)
 	{
-		document.getElementById("zoomStep").value = settings.zoomStep;
-		document.getElementById("autoRefresh").checked = settings.autoRefresh;
-		document.getElementById("greyScheme").checked = settings.greyScheme;
-		document.getElementById("colorCode").checked = settings.colorCode;
-		document.getElementById("zoomOnBadge").checked = settings.zoomOnBadge;
-		document.getElementById("sidebarIcon").value = settings.sidebarIcon;
-		opr.sidebarAction.setIcon({path : "../icons/" + settings.sidebarIcon + "19.png"});
-	});
-	
-	// make the menu work
-	var menu = document.querySelectorAll("menu li");
-	for (var i=0; i<menu.length; i++)
-	{
-		menu[i].addEventListener("click", toggleMenu, false);
+		elements[i].innerHTML = chrome.i18n.getMessage(elements[i].dataset.i18n) + elements[i].innerHTML;
 	}
 	
-	// save user preferences
-	document.querySelector("div#settings").addEventListener("change", function()
+	// make the menu work
+	var subpages = document.querySelectorAll("article");
+	var menuitems = document.querySelectorAll("nav ul li a");
+	for (var i=0; i<menuitems.length; i++)
 	{
-		chrome.storage.local.set(
+		menuitems[i].addEventListener("click", function(e)
 		{
-			autoRefresh : document.getElementById("autoRefresh").checked,
-			zoomStep : document.getElementById("zoomStep").value,
-			colorCode : document.getElementById("colorCode").checked,
-			greyScheme : document.getElementById("greyScheme").checked,
-			zoomOnBadge : document.getElementById("zoomOnBadge").checked,
-			sidebarIcon : document.getElementById("sidebarIcon").value
-		}, function()
-		{
-			opr.sidebarAction.setIcon({path : "../icons/" + document.getElementById('sidebarIcon').value + "19.png"});
-		});
-	}, false);
+			e.preventDefault();
+			for (j=0; j<menuitems.length; j++)
+			{
+				if (this.id == menuitems[j].id)
+				{
+					subpages[j].classList.add("visible");
+					menuitems[j].classList.add("selected");
+				}
+				else
+				{
+					subpages[j].classList.remove("visible");
+					menuitems[j].classList.remove("selected");
+				}
+			}
+		}, false);
+	}
 	
 	// inject Extensions and KeyConfig page links
 	document.getElementById("ext").addEventListener("click", function(e)
@@ -50,5 +47,32 @@ window.addEventListener("load", function()
 	{
 		e.preventDefault();
 		chrome.tabs.create({url: "opera://settings/configureCommands"});
+	}, false);
+	
+	// load and set settings
+	chrome.storage.local.get(null, function(settings)
+	{
+		document.getElementById("zoomStep").value = settings.zoomStep;
+		document.getElementById("autoRefresh").checked = settings.autoRefresh;
+		document.getElementById("safetyCode").checked = settings.safetyCode;
+		document.getElementById("zoomOnBadge").checked = settings.zoomOnBadge;
+		document.getElementById("sidebarIcon").value = settings.sidebarIcon;
+		opr.sidebarAction.setIcon({path : "../icons/" + settings.sidebarIcon + "19.png"});
+	});
+	
+	// save user preferences
+	document.querySelector("article#settings").addEventListener("change", function()
+	{
+		chrome.storage.local.set(
+		{
+			autoRefresh : document.getElementById("autoRefresh").checked,
+			zoomStep : document.getElementById("zoomStep").value,
+			safetyCode : document.getElementById("safetyCode").checked,
+			zoomOnBadge : document.getElementById("zoomOnBadge").checked,
+			sidebarIcon : document.getElementById("sidebarIcon").value
+		}, function()
+		{
+			opr.sidebarAction.setIcon({path : "../icons/" + document.getElementById('sidebarIcon').value + "19.png"});
+		});
 	}, false);
 }, false);

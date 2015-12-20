@@ -1,13 +1,13 @@
 {
+	"manifest_name" : 
+	{
+		"message" : "Site Settings Sidebar",
+		"description" : "Manifest JSON name string"
+	},
 	"manifest_description" : 
 	{
 		"message" : "Site specific settings on your sidebar.",
 		"description" : "Manifest JSON description string"
-	},
-	"manifest_defaultTitle" : 
-	{
-		"message" : "Site Settings Sidebar",
-		"description" : "Manifest JSON default title string"
 	},
 	"notification_install_title" : 
 	{
@@ -28,6 +28,11 @@
 	{
 		"message" : "Please, take a look at the Settings to find out what's new!",
 		"description" : "Notification install"
+	},
+	"context_menu_reset" :
+	{
+		"message" : "Reset to default",
+		"description" : "Context menu strings"
 	},
 	"sidebar_zoom_header" : 
 	{
@@ -66,12 +71,12 @@
 	},
 	"sidebar_content_plugins" : 
 	{
-		"message" : "Plugins|Allow or block plugins on the website.",
+		"message" : "Plugins|Allow or block plugins on the website. (For example: Flash)",
 		"description" : "Sidebar content"
 	},
 	"sidebar_content_unsandboxedPlugins" : 
 	{
-		"message" : "Unsandboxed plugins|Allow or block plugins to reach out of the safety environment of the browser.|Use \"Allow\" with extreme caution! Unsandboxed plugins can install other stuff on your machine.",
+		"message" : "NPAPI plugins|Allow or block plugins to reach out of the safety environment of the browser.|Use \"Allow\" with extreme caution! Unsandboxed plugins can install other stuff on your machine.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_header" : 
@@ -86,7 +91,7 @@
 	},
 	"sidebar_permissions_camera" : 
 	{
-		"message" : "Camera|Permission to the website to access your webcamera.|Currently disabled because of a Chromium issue.",
+		"message" : "Camera|Permission to the website to access your webcamera.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_fullscreen" : 
@@ -106,7 +111,7 @@
 	},
 	"sidebar_permissions_microphone" : 
 	{
-		"message" : "Microphone|Permission to the website to access your microphone.|Currently disabled because of a Chromium issue.",
+		"message" : "Microphone|Permission to the website to access your microphone.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_permissions_mouselock" : 
@@ -117,16 +122,6 @@
 	"sidebar_permissions_notifications" : 
 	{
 		"message" : "Notifications|Permission to the website to show you notifications.",
-		"description" : "Sidebar content"
-	},
-	"sidebar_tools_header" : 
-	{
-		"message" : "Tools",
-		"description" : "Sidebar content"
-	},
-	"sidebar_tools_turbo" : 
-	{
-		"message" : "Opera Turbo|Turn Turbo on or off for every page.|Reset gives the control back to the browser.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_footer_status" : 
@@ -209,14 +204,9 @@
 		"message" : "Webpage",
 		"description" : "Preferences header"
 	},
-	"settings_content_panel_greyScheme" : 
+	"settings_content_panel_safetyCode" : 
 	{
-		"message" : "Use grey color scheme",
-		"description" : "Preferences body"
-	},
-	"settings_content_panel_colorCode" : 
-	{
-		"message" : "Show color codes",
+		"message" : "Show safety codes",
 		"description" : "Preferences body"
 	},
 	"settings_content_page_autoRefresh" : 
@@ -236,7 +226,7 @@
 	},
 	"settings_content_button_old" : 
 	{
-		"message" : "Old",
+		"message" : "Original",
 		"description" : "Preferences body"
 	},
 	"settings_content_button_newRed" : 
@@ -294,9 +284,9 @@
 		"message" : "For help and additional information, hover over the icons on the panel.",
 		"description" : "How to use body"
 	},
-	"settings_content_howToUse_colorCode" : 
+	"settings_content_howToUse_safetyCode" : 
 	{
-		"message" : "Color codes are indicating security issues. Green: default, safe. Yellow: changed, but safe. Red: potentially dangerous.",
+		"message" : "Safety codes are indicating security issues. You can see the following signs: &#x2713; (Safe, default setting), ! (Safe, but not default), &#x2717; (Potentially dangerous), ? (Unknown, not working)",
 		"description" : "How to use body"
 	},
 	"settings_content_notes_header" : 
@@ -314,6 +304,31 @@
 		"message" : "If you remove this extension, all the changes made by this extension will be lost.",
 		"description" : "Notes body"
 	},
+	"settings_content_permissions_header" : 
+	{
+		"message" : "Permissions",
+		"description" : "Permissions header"
+	},
+	"settings_content_permissions_contentSettings" : 
+	{
+		"message" : "This extension needs permission to access your content settings (images, location, camera, etc.) so you can control them.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_notifications" : 
+	{
+		"message" : "This extension needs permission to use notifications to inform you about updates.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_tabs" : 
+	{
+		"message" : "This extension needs permission to access your tabs so you can control the zoom settings with it.",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_storage" : 
+	{
+		"message" : "This extension needs permission to access to storage to save your preferences.",
+		"description" : "Permissions body"
+	},
 	"settings_content_credits_header" : 
 	{
 		"message" : "Credits",
@@ -321,7 +336,7 @@
 	},
 	"settings_content_credits_createdBy" : 
 	{
-		"message" : "Site Settings Sidebar is created by <a href=\"http://tothrobert.ininet.hu\" target=\"_blank\">Robert Toth</a>.",
+		"message" : "Developed by: <a href=\"http://tothrobert.ininet.hu\" target=\"_blank\">Tóth Róbert</a>",
 		"description" : "Credits body"
 	},
 	"settings_content_credits_copyCode" : 
@@ -366,42 +381,17 @@
 	},
 	"settings_content_contact_feedback1" : 
 	{
-		"message" : "<a href=\"https://addons.opera.com/en/extensions/details/site-settings-sidebar/\" target=\"_blank\">Opera Addon Catalog</a>",
+		"message" : "Opera Addon Catalog",
 		"description" : "Contact body"
 	},
 	"settings_content_contact_feedback2" : 
 	{
-		"message" : "<a href=\"https://github.com/Nekomajin42/Site-Settings-Sidebar\" target=\"_blank\">GitHub</a>",
+		"message" : "GitHub",
 		"description" : "Contact body"
 	},
 	"settings_content_contact_email" : 
 	{
-		"message" : "<a href=\"mailto:nekomajin42@gmail.com\">Email</a>",
+		"message" : "Email",
 		"description" : "Contact body"
-	},
-	"settings_content_permissions_header" : 
-	{
-		"message" : "Permissions",
-		"description" : "Permissions header"
-	},
-	"settings_content_permissions_contentSettings" : 
-	{
-		"message" : "Site Settings Sidebar needs permission to access your content settings (images, location, camera, etc.) so you can control them.",
-		"description" : "Permissions body"
-	},
-	"settings_content_permissions_notifications" : 
-	{
-		"message" : "Site Settings Sidebar needs permission to use notifications to inform you about updates.",
-		"description" : "Permissions body"
-	},
-	"settings_content_permissions_tabs" : 
-	{
-		"message" : "Site Settings Sidebar needs permission to access your tabs so you can control the zoom settings with it.",
-		"description" : "Permissions body"
-	},
-	"settings_content_permissions_storage" : 
-	{
-		"message" : "Site Settings Sidebar needs permission to access to storage to save your preferences.",
-		"description" : "Permissions body"
 	}
 }

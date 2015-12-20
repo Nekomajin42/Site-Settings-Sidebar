@@ -1,247 +1,262 @@
 <!DOCTYPE html>
 <!-- coded by Nekomajin -->
-<html dir="ltr" lang="en">
+<html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Site Settings Sidebar</title>
-		<link rel="stylesheet" href="tools.css" type="text/css" />
-		<link rel="stylesheet" href="style.css" type="text/css" />
+		<title data-i18n="manifest_name"></title>
+		<link rel="stylesheet" href="options.css" type="text/css" />
 		<link rel="icon" href="../icons/icon16.png" type="image/png" />
+		<script src="options.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<div id="wallpaper">
-			<div id="tool-container">
-				<div id="sidebar">
-					<div id="sidebar-icon"></div>
-					<h1>Site Settings Sidebar</h1>
-					<menu id="sidebar-menu">
-						<li data-i18n="settings_sidebar_menuitem_settings" id="sub-settings" class="selected"></li>
-						<li data-i18n="settings_sidebar_menuitem_help" id="sub-help"></li>
-						<li data-i18n="settings_sidebar_menuitem_changelog" id="sub-changelog"></li>
-						<li data-i18n="settings_sidebar_menuitem_credits" id="sub-credits"></li>
-					</menu>
-				</div> <!-- sidebar -->
-				<div id="content">
-					<div class="subpage visible" id="settings">
-						<section>
-							<h2 data-i18n="settings_content_panel_header" class="section-header"></h2>
-							<form class="options" id="panel">
-								<input type="checkbox" id="greyScheme" /> <label for="greyScheme" data-i18n="settings_content_panel_greyScheme"></label><br />
-								<input type="checkbox" id="colorCode" /> <label for="colorCode" data-i18n="settings_content_panel_colorCode"></label><br />
-							</form>
-						</section>
-						<section>
-							<h2 data-i18n="settings_content_button_header" class="section-header"></h2>
-							<form class="options" id="button">
-								<label for="sidebarIcon" data-i18n="settings_content_button_icon"></label>
-								<select id="sidebarIcon">
-									<option value="icon" data-i18n="settings_content_button_old"></option>
-									<option value="newred" data-i18n="settings_content_button_newRed"></option>
-									<option value="newgrey" data-i18n="settings_content_button_newGrey"></option>
-								</select><br />
-								<input type="checkbox" id="zoomOnBadge" /> <label for="zoomOnBadge" data-i18n="settings_content_button_zoomOnBadge"></label><br />
-							</form>
-						</section>
-						<section>
-							<h2 data-i18n="settings_content_page_header" class="section-header"></h2>
-							<form class="options" id="page">
-								<input type="checkbox" id="autoRefresh" /> <label for="autoRefresh" data-i18n="settings_content_page_autoRefresh"></label><br />
-								<label for="zoomStep" data-i18n="settings_content_page_zoomStep"></label> <input type="number" min="1" max="500" step="1" id="zoomStep" />
-							</form>
-						</section>
-						<section>
-							<h2 data-i18n="settings_content_incognito_header" class="section-header"></h2>
-							<p data-i18n="settings_content_incognito_info"></p>
-							<p><a id="ext" href="opera://extensions" target="_blank" data-i18n="settings_content_incognito_extensions"></a></p>
-						</section>
-						<section>
-							<h2 data-i18n="settings_content_shortcut_header" class="section-header"></h2>
-							<p data-i18n="settings_content_shortcut_info"></p>
-							<p><a id="keys" href="opera://settings/configureCommands" target="_blank" data-i18n="settings_content_shortcut_manager"></a></p>
-						</section>
-					</div>
-					<div class="subpage" id="help">
-						<section>
-							<h2 data-i18n="settings_content_howToUse_header" class="section-header"></h2>
-							<ul>
-								<li data-i18n="settings_content_howToUse_tooltip"></li>
-								<li data-i18n="settings_content_howToUse_colorCode"></li>
-							</ul>
-						</section>
-						<section>
-							<h2 data-i18n="settings_content_notes_header" class="section-header"></h2>
-							<ul>
-								<li data-i18n="settings_content_notes_doesNotWork"></li>
-								<li data-i18n="settings_content_notes_remove"></li>
-							</ul>
-						</section>
-					</div>
-					<div class="subpage" id="changelog">
-						<section>
-							<h2 class="section-header">Future plans</h2>
-							<ul>
-								<li>ADD: Color code on sidebar button badge</li>
-								<li>CHANGE: Improve layout</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.10 (2015. 06. 27.)</h2>
-							<ul>
-								<li>FIX: Missing event listeners in background script</li>
-								<li>FIX: Some i18n strings</li>
-								<li>ADD: New sidebar icons (the old one is still the default)</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.9 (2015. 05. 31.)</h2>
-							<ul>
-								<li>FIX: Some of the user preferences not working on first load</li>
-								<li>ADD: Opera Turbo global setting</li>
-								<li>ADD: Panel status color in footer</li>
-								<li>CHANGE: Camera icon</li>
-								<li>CHANGE: Back to opera:// URI for now</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.8 (2015. 05. 17.)</h2>
-							<ul>
-								<li>FIX: Panel and badge not updating after preferences change</li>
-								<li>FIX: Outdated lines in the help section</li>
-								<li>ADD: Alt+Shift+S shortcut to open/close panel</li>
-								<li>ADD: Color code animation</li>
-								<li>CHANGE: Restructure user preferences page</li>
-								<li>CHANGE: localStorage to chrome.storage</li>
-								<li>CHANGE: Redesign panel footer</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.7 (2015. 05. 10.)</h2>
-							<ul>
-								<li>FIX: Internal page detection (browser://* URI scheme)</li>
-								<li>FIX: Tooltips at the bottom overflow the panel</li>
-								<li>ADD: User preference (switch back to grey color scheme)</li>
-								<li>CHANGE: Panel color scheme</li>
-								<li>CHANGE: Color code appearance</li>
-								<li>CHANGE: Reset zoom to default value, not 100%</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.6 (2015. 05. 04.)</h2>
-							<ul>
-								<li>FIX: Preferences not loading after install</li>
-								<li>CHANGE: Minor code optimalization</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.5 (2015. 05. 03.)</h2>
-							<ul>
-								<li>ADD: Help tooltips</li>
-								<li>ADD: User preference (automatic page refresh)</li>
-								<li>ADD: User preference (show color code)</li>
-								<li>CHANGE: Safety sign (checkmark to color code)</li>
-								<li>CHANGE: Plugin values ("Ask" to "Click to play")</li>
-								<li>CHANGE: Rearrange permissions (more logical)</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.4 (2015. 04. 25.)</h2>
-							<ul>
-								<li>FIX: Handle cam/mic settings issue for now</li>
-								<li>FIX: Undefined notifications</li>
-								<li>CHANGE: Edit/View mode switch (no more blinking on hover)</li>
-								<li>CHANGE: minimum_opera_version to 30 (zoom related issues in v29)</li>
-								<li>CHANGE: Small UI stuff</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.3 (2015. 04. 18.)</h2>
-							<ul>
-								<li>FIX: Badge is not refreshing before first opening of the panel</li>
-								<li>FIX: Rounding error in zoom input</li>
-								<li>ADD: Open extensions page link</li>
-								<li>CHANGE: Panel background (again)</li>
-								<li>CHANGE: Footer style</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.2 (2015. 04. 07.)</h2>
-							<ul>
-								<li>ADD: minimum_opera_version to Manifest</li>
-								<li>ADD: Refreshing badge value on closed panel (Opera bug)</li>
-								<li>CHANGE: Text labels to icons</li>
-								<li>CHANGE: Extension icon (slightly bigger wheel inside)</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0.1 (2015. 04. 02.)</h2>
-							<ul>
-								<li>ADD: Reset zoom button</li>
-								<li>ADD: Custom zoom step</li>
-								<li>ADD: Open preferences link</li>
-								<li>CHANGE: Edit/View mode switch method</li>
-								<li>CHANGE: Panel background</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v1.0 (2015. 03. 29.)</h2>
-							<ul>
-								<li>ADD: More site-specific settings</li>
-								<li>ADD: User preference (zoom on badge)</li>
-								<li>ADD: Localization</li>
-								<li>ADD: Update notification</li>
-							</ul>
-						</section>
-						<section>
-							<h2 class="section-header">v0.1 (2015. 03. 22.)</h2>
-							<ul>
-								<li>Initial release</li>
-							</ul>
-						</section>
-					</div>
-					<div class="subpage" id="credits">
-						<section>
-							<h2 data-i18n="settings_content_credits_header" class="section-header"></h2>
-							<ul>
-								<li data-i18n="settings_content_credits_createdBy"></li>
-								<li data-i18n="settings_content_credits_copyCode"></li>
-								<li data-i18n="settings_content_credits_thanks"></li>
-							</ul>
-						</section>
-						<section>
-							<h2 data-i18n="settings_content_warning_header" class="section-header"></h2>
-							<ul>
-								<li data-i18n="settings_content_warning_notResponsible"></li>
-							</ul>
-						</section>
-						<section>
-							<h2 data-i18n="settings_content_license_header" class="section-header"></h2>
-							<ul>
-								<li data-i18n="settings_content_license_share"></li>
-								<li data-i18n="settings_content_license_copy"></li>
-							</ul>
-						</section>
-						<section>
-							<h2 data-i18n="settings_content_contact_header" class="section-header"></h2>
-							<ul>
-								<li data-i18n="settings_content_contact_feedback1"></li>
-								<li data-i18n="settings_content_contact_feedback2"></li>
-								<li data-i18n="settings_content_contact_email"></li>
-							</ul>
-						</section>
-						<section>
-							<h2 data-i18n="settings_content_permissions_header" class="section-header"></h2>
-							<ul>
-								<li data-i18n="settings_content_permissions_contentSettings"></li>
-								<li data-i18n="settings_content_permissions_notifications"></li>
-								<li data-i18n="settings_content_permissions_tabs"></li>
-								<li data-i18n="settings_content_permissions_storage"></li>
-							</ul>
-						</section>
-					</div>
-				</div> <!-- content -->
-			</div> <!-- tool-container -->
-		</div> <!-- wallpaper -->
-		<script src="control.js" type="text/javascript"></script>
-		<script src="options.js" type="text/javascript"></script>
+		<nav>
+			<img src="../icons/icon.svg" alt="icon" />
+			<h1 data-i18n="manifest_name"></h1>
+			<ul>
+				<li><a href="#settings" data-i18n="settings_sidebar_menuitem_settings" id="settings-nav"></a></li>
+				<li><a href="#help" data-i18n="settings_sidebar_menuitem_help" id="help-nav"></a></li>
+				<li><a href="#changelog" data-i18n="settings_sidebar_menuitem_changelog" id="changelog-nav"></a></li>
+				<li><a href="#credits" data-i18n="settings_sidebar_menuitem_credits" id="credits-nav"></a></li>
+			</ul>
+		</nav>
+		<main>
+			<article id="settings">
+				<section>
+					<h2 data-i18n="settings_content_panel_header"></h2>
+					<form class="options" id="panel">
+						<input type="checkbox" id="safetyCode" /> <label for="safetyCode" data-i18n="settings_content_panel_safetyCode"></label><br />
+					</form>
+				</section>
+				<section>
+					<h2 data-i18n="settings_content_button_header"></h2>
+					<form class="options" id="button">
+						<label for="sidebarIcon" data-i18n="settings_content_button_icon"></label>
+						<select id="sidebarIcon">
+							<option value="icon" data-i18n="settings_content_button_old"></option>
+							<option value="newred" data-i18n="settings_content_button_newRed"></option>
+							<option value="newgrey" data-i18n="settings_content_button_newGrey"></option>
+						</select><br />
+						<input type="checkbox" id="zoomOnBadge" /> <label for="zoomOnBadge" data-i18n="settings_content_button_zoomOnBadge"></label><br />
+					</form>
+				</section>
+				<section>
+					<h2 data-i18n="settings_content_page_header"></h2>
+					<form class="options" id="page">
+						<input type="checkbox" id="autoRefresh" /> <label for="autoRefresh" data-i18n="settings_content_page_autoRefresh"></label><br />
+						<label for="zoomStep" data-i18n="settings_content_page_zoomStep"></label> <input type="number" min="1" max="500" step="1" id="zoomStep" />
+					</form>
+				</section>
+				<section>
+					<h2 data-i18n="settings_content_incognito_header"></h2>
+					<p data-i18n="settings_content_incognito_info"></p>
+					<p><a id="ext" href="opera://extensions" target="_blank" data-i18n="settings_content_incognito_extensions"></a></p>
+				</section>
+				<section>
+					<h2 data-i18n="settings_content_shortcut_header"></h2>
+					<p data-i18n="settings_content_shortcut_info"></p>
+					<p><a id="keys" href="opera://settings/configureCommands" target="_blank" data-i18n="settings_content_shortcut_manager"></a></p>
+				</section>
+			</article>
+			<article id="help">
+				<section>
+					<h2 data-i18n="settings_content_howToUse_header"></h2>
+					<ul>
+						<li data-i18n="settings_content_howToUse_tooltip"></li>
+						<li data-i18n="settings_content_howToUse_safetyCode"></li>
+					</ul>
+				</section>
+				<section>
+					<h2 data-i18n="settings_content_notes_header"></h2>
+					<ul>
+						<li data-i18n="settings_content_notes_doesNotWork"></li>
+						<li data-i18n="settings_content_notes_remove"></li>
+					</ul>
+				</section>
+				<section>
+					<h2 data-i18n="settings_content_permissions_header"></h2>
+					<ul>
+						<li data-i18n="settings_content_permissions_contentSettings"></li>
+						<li data-i18n="settings_content_permissions_notifications"></li>
+						<li data-i18n="settings_content_permissions_tabs"></li>
+						<li data-i18n="settings_content_permissions_storage"></li>
+					</ul>
+				</section>
+			</article>
+			<article id="changelog">
+				<section>
+					<h2>Future plans</h2>
+					<ul>
+						<li>CHANGE: Improve layout</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.1 (2015. 12. 20.)</h2>
+					<ul>
+						<li>FIX: Show the zoom level of the active page per window, if multiple windows are open</li>
+						<li>FIX: Minor code optimalizations</li>
+						<li>ADD: Context menu to sidebarAction to reset zoom to default</li>
+						<li>CHANGE: Color codes to safety codes</li>
+						<li>CHANGE: Image and fullscreen icons</li>
+						<li>CHANGE: Tooltip display method (hover to click)</li>
+						<li>REMOVE: Turbo global setting</li>
+						<li>REMOVE: Colorful background option</li>
+						<li>REMOVE: Warning massage from camera and microphone permissions</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.11 (2015. 08. 02.)</h2>
+					<ul>
+						<li>FIX: Localize extemsion name on options page</li>
+						<li>ADD: More protocols to disabled pages (about, chrome-devtools)</li>
+						<li>CHANGE: New options page design</li>
+						<li>CHANGE: Minor code optomalizations</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.10 (2015. 06. 27.)</h2>
+					<ul>
+						<li>FIX: Missing event listeners in background script</li>
+						<li>FIX: Some i18n strings</li>
+						<li>ADD: New sidebar icons (the old one is still the default)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.9 (2015. 05. 31.)</h2>
+					<ul>
+						<li>FIX: Some of the user preferences not working on first load</li>
+						<li>ADD: Opera Turbo global setting</li>
+						<li>ADD: Panel status color in footer</li>
+						<li>CHANGE: Camera icon</li>
+						<li>CHANGE: Back to opera:// URI for now</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.8 (2015. 05. 17.)</h2>
+					<ul>
+						<li>FIX: Panel and badge not updating after preferences change</li>
+						<li>FIX: Outdated lines in the help section</li>
+						<li>ADD: Alt+Shift+S shortcut to open/close panel</li>
+						<li>ADD: Color code animation</li>
+						<li>CHANGE: Restructure user preferences page</li>
+						<li>CHANGE: localStorage to chrome.storage</li>
+						<li>CHANGE: Redesign panel footer</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.7 (2015. 05. 10.)</h2>
+					<ul>
+						<li>FIX: Internal page detection (browser://* URI scheme)</li>
+						<li>FIX: Tooltips at the bottom overflow the panel</li>
+						<li>ADD: User preference (switch back to grey color scheme)</li>
+						<li>CHANGE: Panel color scheme</li>
+						<li>CHANGE: Color code appearance</li>
+						<li>CHANGE: Reset zoom to default value, not 100%</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.6 (2015. 05. 04.)</h2>
+					<ul>
+						<li>FIX: Preferences not loading after install</li>
+						<li>CHANGE: Minor code optimalization</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.5 (2015. 05. 03.)</h2>
+					<ul>
+						<li>ADD: Help tooltips</li>
+						<li>ADD: User preference (automatic page refresh)</li>
+						<li>ADD: User preference (show color code)</li>
+						<li>CHANGE: Safety sign (checkmark to color code)</li>
+						<li>CHANGE: Plugin values ("Ask" to "Click to play")</li>
+						<li>CHANGE: Rearrange permissions (more logical)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.4 (2015. 04. 25.)</h2>
+					<ul>
+						<li>FIX: Handle cam/mic settings issue for now</li>
+						<li>FIX: Undefined notifications</li>
+						<li>CHANGE: Edit/View mode switch (no more blinking on hover)</li>
+						<li>CHANGE: minimum_opera_version to 30 (zoom related issues in v29)</li>
+						<li>CHANGE: Small UI stuff</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.3 (2015. 04. 18.)</h2>
+					<ul>
+						<li>FIX: Badge is not refreshing before first opening of the panel</li>
+						<li>FIX: Rounding error in zoom input</li>
+						<li>ADD: Open extensions page link</li>
+						<li>CHANGE: Panel background (again)</li>
+						<li>CHANGE: Footer style</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.2 (2015. 04. 07.)</h2>
+					<ul>
+						<li>ADD: minimum_opera_version to Manifest</li>
+						<li>ADD: Refreshing badge value on closed panel (Opera bug)</li>
+						<li>CHANGE: Text labels to icons</li>
+						<li>CHANGE: Extension icon (slightly bigger wheel inside)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0.1 (2015. 04. 02.)</h2>
+					<ul>
+						<li>ADD: Reset zoom button</li>
+						<li>ADD: Custom zoom step</li>
+						<li>ADD: Open preferences link</li>
+						<li>CHANGE: Edit/View mode switch method</li>
+						<li>CHANGE: Panel background</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v1.0 (2015. 03. 29.)</h2>
+					<ul>
+						<li>ADD: More site-specific settings</li>
+						<li>ADD: User preference (zoom on badge)</li>
+						<li>ADD: Localization</li>
+						<li>ADD: Update notification</li>
+					</ul>
+				</section>
+				<section>
+					<h2>v0.1 (2015. 03. 22.)</h2>
+					<ul>
+						<li>Initial release</li>
+					</ul>
+				</section>
+			</article>
+			<article id="credits">
+				<section>
+					<h2 data-i18n="settings_content_credits_header"></h2>
+					<ul>
+						<li data-i18n="settings_content_credits_createdBy"></li>
+						<li data-i18n="settings_content_credits_copyCode"></li>
+						<!--<li data-i18n="settings_content_credits_thanks"></li>-->
+					</ul>
+				</section>
+				<section>
+					<h2 data-i18n="settings_content_warning_header"></h2>
+					<ul>
+						<li data-i18n="settings_content_warning_notResponsible"></li>
+					</ul>
+				</section>
+				<section>
+					<h2 data-i18n="settings_content_license_header"></h2>
+					<ul>
+						<li data-i18n="settings_content_license_share"></li>
+						<li data-i18n="settings_content_license_copy"></li>
+					</ul>
+				</section>
+				<section>
+					<h2 data-i18n="settings_content_contact_header"></h2>
+					<ul>
+						<li><a href="https://addons.opera.com/en/extensions/details/site-settings-sidebar/" target="_blank" data-i18n="settings_content_contact_feedback1"></a></li>
+						<li><a href="https://github.com/Nekomajin42/Site-Settings-Sidebar" target="_blank" data-i18n="settings_content_contact_feedback2"></a></li>
+						<li><a href="mailto:nekomajin42@gmail.com" target="_blank" data-i18n="settings_content_contact_email"></a></li>
+					</ul>
+				</section>
+			</article>
+		</main>
 	</body>
 </html>

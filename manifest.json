@@ -1,5 +1,5 @@
 {
-	"name" : "Site Settings Sidebar",
+	"name" : "__MSG_manifest_name__",
 	"description" : "__MSG_manifest_description__",
 	"developer" : 
 	{
@@ -7,9 +7,9 @@
 		"url" : "http://tothrobert.ininet.hu"
 	},
 	"manifest_version" : 2,
-	"version" : "1.0.10",
+	"version" : "1.1",
 	"minimum_opera_version" : "30",
-	"default_locale": "en",
+	"default_locale" : "en",
 	"background" : 
 	{
 		"scripts" : ["background.js"]
@@ -17,7 +17,7 @@
 	"sidebar_action" : 
 	{
 		"default_icon": "icons/icon19.png",
-		"default_title": "__MSG_manifest_defaultTitle__",
+		"default_title": "__MSG_manifest_name__",
 		"default_panel" : "sidebar/sidebar.html"
 	},
 	"commands" :
@@ -42,15 +42,11 @@
 		"page" : "options/options.html",
 		"open_in_tab" : true
 	},
-	"web_accessible_resources" : 
-	[ 
-		"icons/icon128.png"
-	],
 	"permissions" : 
 	[
+		"contextMenus",
 		"contentSettings",
 		"notifications",
-		"offroad",
 		"tabs",
 		"storage"
 	],
