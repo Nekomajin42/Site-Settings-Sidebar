@@ -8,9 +8,11 @@ window.addEventListener("load", function()
 
 	// load local language
 	var elements = document.querySelectorAll("[data-i18n]");
+	var text;
 	for (var i = 0; i < elements.length; i++)
 	{
-		elements[i].innerHTML = chrome.i18n.getMessage(elements[i].dataset.i18n) + elements[i].innerHTML;
+		text = document.createTextNode(chrome.i18n.getMessage(elements[i].dataset.i18n));
+		elements[i].insertBefore(text, elements[i].firstChild);
 	}
 	
 	// make the menu work

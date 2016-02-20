@@ -3,23 +3,6 @@ chrome.runtime.onInstalled.addListener(function(details)
 {
 	if (details.reason === "install" || details.reason === "update")
 	{
-		// insert context menu items into sidebarAction
-		chrome.contextMenus.create({type: "normal", id: "site_settings_sidebar.reset", contexts: ["sidebar_action"], title: chrome.i18n.getMessage("context_menu_reset")});
-		chrome.contextMenus.create({type: "separator", id: "site_settings_sidebar.separator", contexts: ["sidebar_action"]});
-		chrome.contextMenus.onClicked.addListener(function(info, tab)
-		{
-			if (info.menuItemId === "site_settings_sidebar.reset")
-			{
-				chrome.tabs.getZoomSettings(function(zoomSettings)
-				{
-					chrome.tabs.setZoom(zoomSettings.defaultZoomFactor);
-				});
-			}
-		});
-		
-		// update sidebarAction
-		getZoom(true);
-		
 		// throw notification
 		var title = chrome.i18n.getMessage("notification_" + details.reason + "_title");
 		var body = chrome.i18n.getMessage("notification_" + details.reason + "_body");
@@ -108,6 +91,23 @@ window.addEventListener("load", function()
 		});
 	});
 	
+	// insert context menu items into sidebarAction
+	chrome.contextMenus.create({type: "normal", id: "site_settings_sidebar.reset", contexts: ["sidebar_action"], title: chrome.i18n.getMessage("context_menu_reset")});
+	chrome.contextMenus.create({type: "separator", id: "site_settings_sidebar.separator", contexts: ["sidebar_action"]});
+	chrome.contextMenus.onClicked.addListener(function(info, tab)
+	{
+		if (info.menuItemId === "site_settings_sidebar.reset")
+		{
+			chrome.tabs.getZoomSettings(function(zoomSettings)
+			{
+				chrome.tabs.setZoom(zoomSettings.defaultZoomFactor);
+			});
+		}
+	});
+	
+	// update sidebarAction
+	getZoom(true);
+
 	// deal with zoom change
 	chrome.tabs.onZoomChange.addListener(function(zoomChangeInfo)
 	{

@@ -126,7 +126,7 @@
 	},
 	"sidebar_footer_status" : 
 	{
-		"message" : "Státusz|A sárga ikon azt jelenti, hogy a panel csak olvasható.|Egy Operás korlátozás miatt a bővítmények nem működnek a böngésző belső lapjain és néhány Opera weboldalon.",
+		"message" : "Státusz|A \"!\" azt jelenti, hogy a panel csak olvasható.|Egy Operás korlátozás miatt a bővítmények nem működnek a böngésző belső lapjain és néhány Opera weboldalon.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_footer_settings" : 
@@ -281,12 +281,32 @@
 	},
 	"settings_content_howToUse_tooltip" : 
 	{
-		"message" : "Vidd az egered az ikonok fölé a plusz információkért.",
+		"message" : "Kattints az ikonokra a plusz információkért.",
 		"description" : "How to use body"
 	},
 	"settings_content_howToUse_safetyCode" : 
 	{
-		"message" : "A biztonsági kódok a lehetséges veszélyekre hívják fel a figyelmedet. A következő jeleket láthatod: &#x2713; (Biztonságos, alapértelmezett), ! (Biztonságos, de nem alapértelmezett), &#x2717; (Veszélyes lehet), ? (Ismeretlen, nem működik)",
+		"message" : "A biztonsági kódok a lehetséges veszélyekre hívják fel a figyelmedet.",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_safetySafe" : 
+	{
+		"message" : "✓ - Biztonságos, alapértelmezett",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_safetyDanger" : 
+	{
+		"message" : "✗ - Veszélyes lehet",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_safetyChanged" : 
+	{
+		"message" : "! - Biztonságos, de nem alapértelmezett",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_safetyUnknown" : 
+	{
+		"message" : "? - Ismeretlen, nem működik",
 		"description" : "How to use body"
 	},
 	"settings_content_notes_header" : 
@@ -311,22 +331,27 @@
 	},
 	"settings_content_permissions_contentSettings" : 
 	{
-		"message" : "A bővítmény azért kér hozzáférést az oldalspecifikus beállításokhoz (képek, helymeghatározás, kamera, stb.), hogy kezelni tudja őket.",
+		"message" : "\"contentSettings\", hogy kezelni tudja őket (képek, sütik, kamera, stb.).",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_contextMenus" : 
+	{
+		"message" : "\"contextMenus\", hogy testre tudja szabni az oldalsáv gombjának menüjét.",
 		"description" : "Permissions body"
 	},
 	"settings_content_permissions_notifications" : 
 	{
-		"message" : "A bővítmény azért kér hozzáférést az értesítésekhez, hogy jelezni tudja, ha frissítés érkezik.",
+		"message" : "\"notifications\", hogy jelezni tudja, ha frissítés érkezik.",
 		"description" : "Permissions body"
 	},
 	"settings_content_permissions_tabs" : 
 	{
-		"message" : "A bővítmény azért kér hozzáférést a lapfülekhez, hogy szabályozni tudja az oldalak nagyítását.",
+		"message" : "\"tabs\", hogy szabályozni tudja az oldalak nagyítását.",
 		"description" : "Permissions body"
 	},
 	"settings_content_permissions_storage" : 
 	{
-		"message" : "A bővítmény azért kér hozzáférést a tárolóhoz, hogy el tudja menteni a beállításaidat.",
+		"message" : "\"storage\", hogy el tudja menteni a beállításaidat.",
 		"description" : "Permissions body"
 	},
 	"settings_content_credits_header" : 
@@ -336,7 +361,7 @@
 	},
 	"settings_content_credits_createdBy" : 
 	{
-		"message" : "Fejlesztő: <a href=\"http://tothrobert.ininet.hu\" target=\"_blank\">Tóth Róbert</a>",
+		"message" : "Fejlesztő: Tóth Róbert",
 		"description" : "Credits body"
 	},
 	"settings_content_credits_copyCode" : 

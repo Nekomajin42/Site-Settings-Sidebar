@@ -1,24 +1,24 @@
 // disable input fields on internal pages and the addon catalog
 function disableFields(url)
 {
-	if (/addons.opera.com/.test(url) === true)
+	if (/addons.opera.com/.test(url) === true) // Opera addon catalog
 	{
 		var disabled = true;
 	}
-	else
+	else // internal pages
 	{
 		var protocol = url.slice(0, url.indexOf(":"));
 		var disabled = (protocol === "browser" || protocol === "opera" || protocol === "chrome" || protocol === "about" || protocol === "chrome-extension" || protocol === "chrome-devtools") ? true : false;
 	}
-	document.getElementById("zoom").disabled = disabled;
-	document.getElementById("resetZoom").disabled = disabled;
-	var select = document.getElementsByTagName("select");
-	for (var i=0; i<select.length; i++)
+	
+	// disable form fields
+	var fieldset = document.getElementsByTagName("fieldset");
+	for (var i=0; i<fieldset.length; i++)
 	{
-		select[i].disabled = disabled;
+		fieldset[i].disabled = disabled;
 	}
 	
-	// footer icon
+	// handle footer icon
 	document.querySelector("footer span").className = (settings.safetyCode === true) ? ((disabled === true) ? "neutral" : "safe") : "none";
 }
 
@@ -57,12 +57,12 @@ function getSettings()
 	{
 		if (tabs.length === 1)
 		{
-			disableFields(tabs[0].url); // on internal pages
-			var url = tabs[0].url;
+			var url = tabs[0].url; // get the current URL
+			disableFields(url); // on internal pages and addon catalog
 			var types = ["cookies", "images", "javascript", "location", "plugins", "popups", "notifications", "fullscreen", "mouselock", "unsandboxedPlugins", "automaticDownloads", "camera", "microphone"];
 			types.forEach(function(type)
 			{
-				try
+				try // change content setting
 				{
 					chrome.contentSettings[type].get({primaryUrl: url}, function(details)
 					{
@@ -70,8 +70,9 @@ function getSettings()
 						document.querySelector("label[for='"+type+"']").className = (settings.safetyCode === true) ? document.querySelector("#"+type+" option[value='"+details.setting+"']").dataset.safety : "none";
 					});
 				}
-				catch (error)
+				catch (error) // disable the connecting field
 				{
+					console.log("contentSettings ("+type+") is not supported.");
 					document.getElementById(type).disabled = true;
 					document.querySelector("label[for='"+type+"']").className = (settings.safetyCode === true) ? "unknown" : "none";
 				}
@@ -87,6 +88,8 @@ function setSettings()
 	{
 		var pattern = tabs[0].url.slice(0, tabs[0].url.indexOf("/", 8)) + "/*";
 		chrome.contentSettings[type].set({primaryPattern: pattern, setting: value});
+		
+		// reload tab
 		if (settings.autoRefresh === true)
 		{
 			chrome.tabs.reload();
@@ -106,7 +109,8 @@ function selectLocale()
 		}
 		else if (elements[i].tagName != "LABEL" && elements[i].tagName != "SPAN")
 		{
-			elements[i].innerHTML = chrome.i18n.getMessage(elements[i].dataset.i18n) + elements[i].innerHTML;
+			text = document.createTextNode(chrome.i18n.getMessage(elements[i].dataset.i18n));
+			elements[i].insertBefore(text, elements[i].firstChild);
 		}
 	}
 }
@@ -137,10 +141,10 @@ function showTooltip(e)
 	div.innerHTML = "<strong>" + text[0] + "</strong><br />";
 	div.innerHTML += text[1];
 	div.innerHTML += (text[2] != undefined) ? "<br /><em>" + text[2] + "</em>" : "";
-	if (/footer/.test(target.dataset.i18n) === true)
+	if (/footer/.test(target.dataset.i18n) === true) // bubble up or down
 	{
 		div.className = "up";
-		div.style.bottom = "31px";
+		div.style.bottom = "33px";
 	}
 	else if (/permission/.test(target.dataset.i18n) === true)
 	{
@@ -200,6 +204,8 @@ window.addEventListener("load", function()
 		labels[i].addEventListener("click", showTooltip, false);
 		labels[i].addEventListener("mouseout", hideTooltip, false);
 	}
+	document.querySelector("footer span").addEventListener("click", showTooltip, false);
+	document.querySelector("footer span").addEventListener("mouseout", hideTooltip, false);
 }, false);
 
 // to do on zoom change

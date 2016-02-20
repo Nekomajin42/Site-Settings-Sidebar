@@ -4,13 +4,14 @@ font-family: verdana, sans-serif;
 font-size: 14px;
 line-height: 150%;
 height: 100%;
+overflow: hidden;
 box-sizing: border-box;}
 
 body {
 margin: 0;
 height: 100%;
 overflow: hidden;
-border-right: 2px solid LightGrey;
+border-right: 1px solid #999999;
 background-color: White;}
 
 form {
@@ -24,7 +25,7 @@ fieldset {
 padding: 0px;
 margin: 0px 0px 10px 0px;
 border: none;
-border-top: 2px solid LightGrey;}
+border-top: 2px solid #f2f2f2;}
 
 legend {
 padding: 0px 5px 0px 0px;
@@ -108,8 +109,10 @@ font-size: 0.8rem;
 box-sizing: border-box;
 margin: 0px 7px 0px 5px;
 padding: 5px;
-border: 2px solid Grey;
-background: White;}
+border: 1px solid #999999;
+border-radius: 3px;
+box-shadow: 1px 1px 1px #999999;
+background: #fcfcfc;}
 
 #tooltip::before {
 content: "";
@@ -119,14 +122,15 @@ left: 7px;
 height: 5px;
 width: 5px;
 background-color: White;
-border-right: 2px solid Grey;
-border-top: 2px solid Grey;
+border-right: 1px solid #999999;
+border-top: 1px solid #999999;
 transform-origin: 50% 50%;}
 #tooltip.down::before {
-top: -5px;
+top: -4px;
 transform: rotate(-45deg);}
 #tooltip.up::before {
-bottom: -5px;
+bottom: -4px;
+box-shadow: 1px -1px 1px #999999;
 transform: rotate(135deg);}
 
 #tooltip strong {
@@ -137,7 +141,7 @@ display: block;
 box-sizing: border-box;
 padding: 0px 0px 0px 5px;
 margin: 5px 0px 0px 0px;
-border-left: 2px solid Red;
+border-left: 1px solid Red;
 font-style: normal;}
 
 /* === edit/view mode styling === */
@@ -169,9 +173,9 @@ font-size: 1rem;
 white-space: nowrap;
 overflow-x: hidden;
 text-overflow: ellipsis;
-background-color: #f0f0f0;
-border-top: 2px solid LightGrey;
-border-right: 2px solid LightGrey;}
+background-color: #f2f2f2;
+border-top: 1px solid #999999;
+border-right: 1px solid #999999;}
 
 footer img {
 width: 16px;

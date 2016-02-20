@@ -126,7 +126,7 @@
 	},
 	"sidebar_footer_status" : 
 	{
-		"message" : "Status|If the icon is yellow, the panel is read-only.|Because of an Opera policy, extensions are disabled on internal browser pages and some Opera sites.",
+		"message" : "Status|\"!\" indicates the panel is read-only.|Because of an Opera policy, extensions are disabled on internal browser pages and some Opera sites.",
 		"description" : "Sidebar content"
 	},
 	"sidebar_footer_settings" : 
@@ -281,12 +281,32 @@
 	},
 	"settings_content_howToUse_tooltip" : 
 	{
-		"message" : "For help and additional information, hover over the icons on the panel.",
+		"message" : "For help and additional information, click on the icons on the panel.",
 		"description" : "How to use body"
 	},
 	"settings_content_howToUse_safetyCode" : 
 	{
-		"message" : "Safety codes are indicating security issues. You can see the following signs: &#x2713; (Safe, default setting), ! (Safe, but not default), &#x2717; (Potentially dangerous), ? (Unknown, not working)",
+		"message" : "Safety codes are indicating security issues.",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_safetySafe" : 
+	{
+		"message" : "✓ - Safe, default setting",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_safetyDanger" : 
+	{
+		"message" : "✗ - Potentially dangerous",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_safetyChanged" : 
+	{
+		"message" : "! - Safe, but not default",
+		"description" : "How to use body"
+	},
+	"settings_content_howToUse_safetyUnknown" : 
+	{
+		"message" : "? - Unknown, not working",
 		"description" : "How to use body"
 	},
 	"settings_content_notes_header" : 
@@ -311,22 +331,27 @@
 	},
 	"settings_content_permissions_contentSettings" : 
 	{
-		"message" : "This extension needs permission to access your content settings (images, location, camera, etc.) so you can control them.",
+		"message" : "\"contentSettings\" to control them (images, cookies, camera, etc.).",
+		"description" : "Permissions body"
+	},
+	"settings_content_permissions_contextMenus" : 
+	{
+		"message" : "\"contextMenus\" to customize the sidebar icon menu.",
 		"description" : "Permissions body"
 	},
 	"settings_content_permissions_notifications" : 
 	{
-		"message" : "This extension needs permission to use notifications to inform you about updates.",
+		"message" : "\"notifications\" to inform you about updates.",
 		"description" : "Permissions body"
 	},
 	"settings_content_permissions_tabs" : 
 	{
-		"message" : "This extension needs permission to access your tabs so you can control the zoom settings with it.",
+		"message" : "\"tabs\" to control the zoom settings.",
 		"description" : "Permissions body"
 	},
 	"settings_content_permissions_storage" : 
 	{
-		"message" : "This extension needs permission to access to storage to save your preferences.",
+		"message" : "\"storage\" to save your preferences.",
 		"description" : "Permissions body"
 	},
 	"settings_content_credits_header" : 
@@ -336,7 +361,7 @@
 	},
 	"settings_content_credits_createdBy" : 
 	{
-		"message" : "Developed by: <a href=\"http://tothrobert.ininet.hu\" target=\"_blank\">Tóth Róbert</a>",
+		"message" : "Developed by: Tóth Róbert",
 		"description" : "Credits body"
 	},
 	"settings_content_credits_copyCode" : 
